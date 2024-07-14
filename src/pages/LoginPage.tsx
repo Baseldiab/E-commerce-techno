@@ -75,7 +75,7 @@ export default function LoginPage() {
   return (
     <>
       <PageTitle title={"Login"} />
-      <div className="container md:py-16 py-10 shadow-md">
+      <div className=" md:py-16 py-10 shadow-md">
         <form
           className="addProduct-form md:w-[60%] !min-w-[250px] !max-w-[600px] mx-auto"
           onSubmit={formatSubmit}

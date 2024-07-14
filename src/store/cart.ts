@@ -16,7 +16,7 @@ import { update_cart } from "../components/api/requests/updateCart.request";
 // I MAKE THE USER ID IS TO BE "2" FOR ALL CART
 export const useCartStore = create<CartState>()(
   devtools((set, get) => ({
-    list: [],
+    cartList: [],
     localStorageList: [] ,
     totalPrice: 0,
     sendGetList: async () => {
@@ -31,19 +31,19 @@ export const useCartStore = create<CartState>()(
       });
       }
       set({
-        list: response,
+        cartList: response,
       });
     },
 
     sendAddToCart: async (v: CartDto, productItem: ProductModel) => {
       try {
         const response = await add_new_cart(v);
-        const currentList = get().list;
+        const currentList = get().cartList;
         const currentLocalStorageList = get().localStorageList;
     
         currentList.unshift(response);
     
-        // const products = useProductStore.getState().list;
+        // const products = useProductStore.getState().cartList;
         const foundProduct = currentLocalStorageList.find((e) => e.id.toString() === productItem.id.toString());
     
         if (foundProduct) {
@@ -57,7 +57,7 @@ export const useCartStore = create<CartState>()(
         localStorage.setItem("cart", JSON.stringify(currentLocalStorageList));
     
         set({
-          list: [...currentList],
+          cartList: [...currentList],
           localStorageList: [...currentLocalStorageList]
         });
       } catch (error) {
@@ -70,7 +70,7 @@ export const useCartStore = create<CartState>()(
 
       console.log(response)
 
-      // const products = useProductStore.getState().list;
+      // const products = useProductStore.getState().cartList;
       const currentList = get().localStorageList;
       const foundIndex = currentList.findIndex((item) => item.id === productId);
       if (foundIndex !== -1) {

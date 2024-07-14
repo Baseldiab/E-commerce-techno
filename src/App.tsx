@@ -1,5 +1,6 @@
 import "./App.css";
 import { Outlet } from "react-router-dom";
+import DesktopNavbar from "./components/navbar/desktop.navbar";
 
 function App() {
   // const [location] = useLocation();
@@ -19,6 +20,7 @@ function App() {
       <div className="min-h-screen m-0 flex flex-col">
         <main className="flex-1">
           {/* <Header /> */}
+          <DesktopNavbar />
           <Outlet />
         </main>
         {/* <BottomNav /> */}

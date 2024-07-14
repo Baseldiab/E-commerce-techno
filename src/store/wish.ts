@@ -10,11 +10,10 @@ import { WishState } from "../components/types/wishState";
 // };
 
 // I MAKE THE USER ID IS TO BE "2" FOR ALL CART
-export const useCartStore = create<WishState>()(
+export const useWishStore = create<WishState>()(
   devtools((set, get) => ({
-    list: [],
+    wishList: [],
     localStorageWishList: [] ,
-    totalPrice: 0,
     sendGetList: async () => {
       const wish = localStorage.getItem("wish");
       if (wish) {
@@ -30,11 +29,11 @@ export const useCartStore = create<WishState>()(
 
     sendAddToWish: async ( productItem: ProductModel) => {
       try {
-        const currentList = get().list;
+        const currentList = get().wishList;
         const currentLocalStorageWishList = get().localStorageWishList;
     
     
-        // const products = useProductStore.getState().list;
+        // const products = useProductStore.getState().wishList;
         const foundProduct = currentLocalStorageWishList.find((e) => e.id.toString() === productItem.id.toString());
     
         if (foundProduct) {
@@ -48,7 +47,7 @@ export const useCartStore = create<WishState>()(
         localStorage.setItem("wish", JSON.stringify(currentLocalStorageWishList));
     
         set({
-          list: [...currentList],
+          wishList: [...currentList],
           localStorageWishList: [...currentLocalStorageWishList]
         });
       } catch (error) {

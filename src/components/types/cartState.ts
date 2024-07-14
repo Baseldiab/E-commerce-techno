@@ -3,7 +3,7 @@ import { CartModel } from "../types/cartModel";
 import { ProductModel } from "../types/productModel";
 
 export type CartState = {
-    list: CartModel[];
+    cartList: CartModel[];
     localStorageList: ProductModel[];
     totalPrice: number;
     sendGetList: () => void;
