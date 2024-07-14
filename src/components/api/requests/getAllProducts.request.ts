@@ -1,4 +1,3 @@
-"use server";
 
 import { ALL_PRODUCTS } from "../constants";
 

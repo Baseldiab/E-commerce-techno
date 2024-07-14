@@ -4,7 +4,7 @@ import { ProductModel } from "../types/productModel";
 export type ProductsState = {
     list: ProductModel[];
     categories: string[];
-    item: ProductModel;
+    item: ProductModel | null;
     sendGetProductsList: () => void;
     sendGetCategoriesList: () => void;
     sendGetItem: (id: string) => void;
