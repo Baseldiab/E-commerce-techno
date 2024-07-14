@@ -1,5 +1,7 @@
 const BASE_URL = "https://fakestoreapi.com";
 
+export const LOGIN = `${BASE_URL}/auth/login`;
+
 // PRODUCTS
 export const ALL_PRODUCTS = `${BASE_URL}/products`;
 export const SINGLE_PRODUCT = (id: string | number) => `${BASE_URL}/products/${id}`;

@@ -1,25 +1,29 @@
 import "./App.css";
-import { Route, Router, Switch } from "wouter";
-import HomePage from "./pages/HomePage";
-import NotFoundPage from "./pages/NotFoundPage";
-import LoginPage from "./pages/LoginPage";
+import { Outlet } from "react-router-dom";
 
 function App() {
   // const [location] = useLocation();
 
+  // const { isAuthenticated, token } = useAuthStore();
+
+  // console.log(token);
+
+  // useEffect(() => {
+  //   if (token !== "") {
+  //     <Redirect to="/login" />;
+  //   } else <Redirect to="/" />;
+  // }, [token, location]);
+
   return (
     <>
-      <Router>
-        <Switch>
-          <main>
-            <Route path="/" component={HomePage} />
-
-            <Route path="/login" component={LoginPage} />
-
-            <Route path="/:rest*" component={NotFoundPage} />
-          </main>
-        </Switch>
-      </Router>
+      <div className="min-h-screen m-0 flex flex-col">
+        <main className="flex-1">
+          {/* <Header /> */}
+          <Outlet />
+        </main>
+        {/* <BottomNav /> */}
+        {/* <Footer /> */}
+      </div>
     </>
   );
 }
