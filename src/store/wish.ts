@@ -56,10 +56,7 @@ export const useCartStore = create<WishState>()(
       }
     },
 
-
-
     sendDeleteItemWish: async (id: string) => {
-      // await delete_cart(id);
       
       const currentList = get().localStorageWishList;
       const foundIndex = currentList.findIndex((e) => e.id === id);
