@@ -65,19 +65,23 @@ export const useCartStore = create<CartState>()(
       }
     },
 
-    sendUpdateCart: async (v, productId: string, qty: number) => {
+    sendUpdateCart: async (v, productItem: ProductModel, qty: number) => {
       const response = await update_cart(v, "2");
 
       console.log(response)
 
       // const products = useProductStore.getState().cartList;
       const currentList = get().localStorageList;
-      const foundIndex = currentList.findIndex((item) => item.id === productId);
+      const foundIndex = currentList.findIndex((item) => item.id === productItem.id);
       if (foundIndex !== -1) {
         currentList[foundIndex].quantity = qty;
         set({
           localStorageList: [...currentList],
         });
+      }else {
+        const productClone = { ...productItem, quantity: 1, idAddedToCart: true };
+        currentList.push(productClone);
+        
       }
       localStorage.setItem("cart", JSON.stringify(currentList));
     },

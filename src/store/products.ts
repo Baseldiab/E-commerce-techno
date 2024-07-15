@@ -21,6 +21,7 @@ export const useProductStore = create<ProductsState>()(
           list: response,
         });
       },
+      
       sendGetCategoriesList: async () => {
         const response = await get_all_categories();
 

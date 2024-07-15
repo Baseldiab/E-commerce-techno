@@ -64,3 +64,18 @@ export const deleteModalNotification = (
     }
   });
 };
+
+export const mustLogin = () => {
+  Swal.fire({
+    title: "<strong>SIGN IN TO SYNC YOUR SAVED ITEMS ACROSS ALL YOUR DEVICES</strong>",
+    icon: "warning",
+    // timer: 1000,
+    showCloseButton: true,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText: "<a class= 'text-light' href='/login' >SIGN IN</a>",
+    confirmButtonAriaLabel: "Thumbs up, great!",
+    cancelButtonText: "CONTINUE SHOPPING",
+    cancelButtonAriaLabel: "Thumbs down",
+  });
+};

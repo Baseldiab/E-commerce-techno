@@ -12,7 +12,7 @@ export default function MainNavbar() {
   const { token, logout } = useAuthStore();
   const { wishList } = useWishStore();
   const { cartList } = useCartStore();
-  console.log(wishList);
+
   // FUNCTION TO DETERMINE IF A LINK SHOULD BE ACTIVE
   const isLinkActive = (linkPath: string) => {
     return location.pathname === linkPath;

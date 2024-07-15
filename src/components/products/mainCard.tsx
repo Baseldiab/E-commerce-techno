@@ -3,13 +3,16 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Box, Button, Rating } from "@mui/material";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 import { useWishStore } from "../../store/wish";
 import { useCartStore } from "../../store/cart";
 import { useAuthStore } from "../../store/auth";
 import { ProductModel } from "../types/productModel";
 import { CartDto } from "../types/cartDto";
-import { deleteModalNotification, successNotification } from "../notifications/notifications";
+import {
+  deleteModalNotification,
+  mustLogin,
+  successNotification,
+} from "../notifications/notifications";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 
 export default function MainCard(props: ProductModel) {
@@ -18,42 +21,25 @@ export default function MainCard(props: ProductModel) {
   const { sendAddToWish, sendDeleteItemWish } = useWishStore();
   const { sendAddToCart } = useCartStore();
 
-  const mustLogin = () => {
-    Swal.fire({
-      title: "<strong>SIGN IN TO SYNC YOUR SAVED ITEMS ACROSS ALL YOUR DEVICES</strong>",
-      icon: "warning",
-      // timer: 1000,
-      showCloseButton: true,
-      showCancelButton: true,
-      focusConfirm: false,
-      confirmButtonText: "<a class= 'text-light' href='/login' >SIGN IN</a>",
-      confirmButtonAriaLabel: "Thumbs up, great!",
-      cancelButtonText: "CONTINUE SHOPPING",
-      cancelButtonAriaLabel: "Thumbs down",
-    });
-  };
+  // const mustLogin = () => {
+  //   Swal.fire({
+  //     title: "<strong>SIGN IN TO SYNC YOUR SAVED ITEMS ACROSS ALL YOUR DEVICES</strong>",
+  //     icon: "warning",
+  //     // timer: 1000,
+  //     showCloseButton: true,
+  //     showCancelButton: true,
+  //     focusConfirm: false,
+  //     confirmButtonText: "<a class= 'text-light' href='/login' >SIGN IN</a>",
+  //     confirmButtonAriaLabel: "Thumbs up, great!",
+  //     cancelButtonText: "CONTINUE SHOPPING",
+  //     cancelButtonAriaLabel: "Thumbs down",
+  //   });
+  // };
 
   const handleAddToWish = () => {
     //     const succesLogin = () => {
     if (token !== "") {
       sendAddToWish(props);
-      //   const Toast = Swal.mixin({
-      //     toast: true,
-      //     position: "top-end",
-      //     showConfirmButton: false,
-      //     timer: 3000,
-      //     timerProgressBar: true,
-      //     didOpen: (toast) => {
-      //       toast.addEventListener("mouseenter", Swal.stopTimer);
-      //       toast.addEventListener("mouseleave", Swal.resumeTimer);
-      //     },
-      //   });
-
-      //   Toast.fire({
-      //     icon: "success",
-      //     title: "successfully Add To Wishlist",
-      //   });
-
       successNotification("successfully Add To Wishlist");
     } else mustLogin();
   };
@@ -71,50 +57,30 @@ export default function MainCard(props: ProductModel) {
 
   const handleDeleteItem = () => {
     deleteModalNotification(sendDeleteItemWish, props.id);
-
-    // Swal.fire({
-    //   title: "Are you sure?",
-    //   text: "You won't be able to revert this!",
-    //   icon: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#3085d6",
-    //   cancelButtonColor: "#d33",
-    //   confirmButtonText: "Yes, delete it!",
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     // dispatch(deleteWishItem(props.id));
-
-    //     Swal.fire({
-    //       title: "Deleted!",
-    //       text: "Your Product has been removed.",
-    //       icon: "success",
-    //     });
-    //   }
-    // });
   };
 
   //   };
 
   return (
     <Box
-      className={"main__card rounded-2xl relative h-full my-0"}
+      className={"main__card rounded-md relative h-full my-0 border"}
       sx={{
-        backgroundColor: "#ECECEC",
+        backgroundColor: "#fff",
         display: "flex",
         justifyContent: "start",
         flexDirection: "column",
       }}
     >
       <div
-        className="card_img  rounded-t-2xl p-4 relative"
+        className="card_img  rounded-t-md p-4 relative"
         style={{
-          filter: "brightness(0.8)",
+          // filter: "brightness(0.8)",
           backgroundColor: "#fff",
         }}
       >
-        <Link className="card__img-link img-container " to={`/products/productId=${props.id}`}>
+        <Link className="card__img-link img-container " to={`/products/${props.id}`}>
           <img
-            className="block rounded-t-2xl mx-auto w-auto max-w-[100%] !h-[250px]"
+            className="block rounded-t-md mx-auto w-auto max-w-[100%] !h-[250px]"
             src={props.image}
             alt={props.title}
           />
@@ -137,21 +103,18 @@ export default function MainCard(props: ProductModel) {
         >
           <AddShoppingCartIcon />
         </Button>
-        <Link
-          className="bg-[#FA8232] text-white rounded-full p-2"
-          to={`/products/productId=${props.id}`}
-        >
+        <Link className="bg-[#FA8232] text-white rounded-full p-2" to={`/products/${props.id}`}>
           <VisibilityIcon className="text-xs" />
         </Link>
       </div>
 
       <div className={`card_content ${props.isWishPage ? "min-h-[175px]" : "min-h-fit"}`}>
         <div className="card_body text-start px-5 py-2 mx-auto">
-          <div className="flex justify-start items-center">
+          <div className="flex justify-start items-center my-1">
             <Rating name="read-only" value={props.rating.rate} readOnly />
             <span className="text-gray-500">{`(${props.rating.count})`}</span>
           </div>
-          <Link className="text-light" to={`/products/productId=${props.id}`}>
+          <Link className="text-light" to={`/products/${props.id}`}>
             <h5 className="card_title text-base font-medium">{props.title}</h5>
           </Link>
           <h6 className="card_price font-mono  text-lg font-bold text-primary">

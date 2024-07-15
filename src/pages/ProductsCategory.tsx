@@ -1,19 +1,24 @@
-import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useProductStore } from "../store/products";
+import { useEffect, useState } from "react";
 import MainCard from "../components/products/mainCard";
-import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
+import {
+  Breadcrumbs,
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  Typography,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import Loading from "../components/Loading";
 
-export default function ProductPage() {
+export default function ProductsCategory() {
+  const { categoryName } = useParams();
+
   //   STORE
-  const {
-    list,
-    categories,
-    sendGetProductsList,
-    sendGetCategoriesList,
-    sendGetCategoryProducts,
-    sendGetSearchList,
-  } = useProductStore();
+  const { list, sendGetCategoryProducts, sendGetSearchList } = useProductStore();
 
   // STATES
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -23,56 +28,43 @@ export default function ProductPage() {
   };
 
   useEffect(() => {
-    sendGetProductsList();
-    sendGetCategoriesList();
+    if (categoryName) {
+      sendGetCategoryProducts(categoryName.replace(/-/g, " "));
+    }
   }, []);
 
-  // useEffect(() => {
-
-  // }, [searchQuery]);
-
-  // const AddToCart = (item: ProductModel) => {
-  //   const payload: CartDto = {
-  //     userId: 2,
-  //     date: "2024-6-13",
-  //     products: [{ productId: item.id, quantity: 1 }],
-  //   };
-
-  //   sendAddToCart(payload, item);
-  //   successNotification("Added to cart successfully");
-  // };
+  //   useEffect(() => {
+  //     // if (searchQuery === "") sendGetCategoryProducts(categoryName.replace(/-/g, " "));
+  //     if (categoryName && searchQuery === "") {
+  //       sendGetCategoryProducts(categoryName.replace(/-/g, " "));
+  //     }
+  //   }, [searchQuery]);
+  //   console.log(categoryName.replace(/-/g, " "));
+  //   console.log(list);
 
   return (
     <>
-      <section className="md:py-16 py-10 shadow-md">
-        <div className="myContainer grid lg:grid-cols-4 gap-5 items-start">
-          {/* SIDE FILTERATION */}
-          <div className="col-span-1 hidden lg:inline-block ">
-            <h3 className="mb-2 font-bold text-xl">Categories</h3>
-            <ul className="list-none">
-              <li
-                className="cursor-pointer d-flex justify-between text-capitalize my-1 font-medium items-center"
-                onClick={sendGetProductsList}
-              >
-                All
-              </li>
-              {categories.map((category) => {
-                return (
-                  <li
-                    key={category}
-                    className="cursor-pointer font-medium d-flex justify-between text-capitalize my-1 items-center"
-                    onClick={() => sendGetCategoryProducts(category)}
-                  >
-                    {category.toUpperCase()}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+      {list.length === 0 && categoryName === undefined ? (
+        <Loading />
+      ) : (
+        <>
+          <section className="py-4 myContainer">
+            <Breadcrumbs separator=">" aria-label="breadcrumb">
+              <Link className="border-b border-black" color="inherit" to="/">
+                Home
+              </Link>
+              <Link className="border-b border-black" color="inherit" to="/products">
+                Products
+              </Link>
 
-          {/* PRODUCTS */}
-          <section className="col-span-3">
-            <div className="select-category md:mb-10 mb-4 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start gap-5">
+              <Typography color="text.primary" className="!capitalize">
+                {categoryName ? categoryName.replace(/-/g, " ") : ""}
+              </Typography>
+            </Breadcrumbs>
+          </section>
+
+          <section className="col-span-3 py-3 myContainer">
+            <div className="select-category flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start gap-5">
               <FormControl
                 className="md:!w-64"
                 sx={{
@@ -89,8 +81,9 @@ export default function ProductPage() {
                   type={"search"}
                   onChange={(e) => {
                     setSearchQuery(e.target.value);
-
-                    if (searchQuery === "") sendGetProductsList();
+                    if (categoryName && searchQuery === "") {
+                      sendGetCategoryProducts(categoryName.replace(/-/g, " "));
+                    }
                   }}
                   endAdornment={
                     <InputAdornment position="end">
@@ -116,7 +109,7 @@ export default function ProductPage() {
               />
             </figure>
 
-            <div className=" gap-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
+            <div className="my-3 gap-5 grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
               {list.slice(0, 8).map((product) => {
                 return (
                   <div key={product.id}>
@@ -135,8 +128,8 @@ export default function ProductPage() {
               {/* <MainCard /> */}
             </div>
           </section>
-        </div>
-      </section>
+        </>
+      )}
     </>
   );
 }

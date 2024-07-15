@@ -8,7 +8,7 @@ export type CartState = {
     totalPrice: number;
     sendGetList: () => void;
     sendAddToCart: (v: CartDto , productItem: ProductModel) => void;
-    sendUpdateCart: (v: CartDto , productId: string, qty: number) => void;
+    sendUpdateCart: (v: CartDto ,  productItem: ProductModel, qty: number) => void;
     sendDeleteItemCart: (id: string) => void;
     calculateTotalPrice: () => void;
   }

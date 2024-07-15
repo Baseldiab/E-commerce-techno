@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
@@ -11,6 +11,8 @@ import RequireAuth from "./Require-Auth/Require-auth.tsx";
 import RequireLogin from "./Require-Auth/Require-login.tsx";
 
 import "./index.css";
+import ProductDetailsPage from "./pages/ProductDetailsPage.tsx";
+import ProductsCategory from "./pages/ProductsCategory.tsx";
 
 const router = createBrowserRouter([
   {
@@ -46,8 +48,27 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "products",
-        element: <ProductPage />,
+        path: "/products",
+        element: (
+          <div id="detail">
+            <Outlet />
+          </div>
+        ),
+        children: [
+          {
+            path: "",
+            element: <ProductPage />,
+          },
+
+          {
+            path: ":productId",
+            element: <ProductDetailsPage />,
+          },
+        ],
+      },
+      {
+        path: "products/category/:categoryName",
+        element: <ProductsCategory />,
       },
     ],
   },
