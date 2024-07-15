@@ -10,5 +10,6 @@ export type ProductModel = {
     rating: {
         rate: number,
         count: number
-    }
+    }, 
+    isWishPage?: boolean;
 }

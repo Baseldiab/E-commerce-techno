@@ -16,7 +16,7 @@ import { update_cart } from "../components/api/requests/updateCart.request";
 // I MAKE THE USER ID IS TO BE "2" FOR ALL CART
 export const useCartStore = create<CartState>()(
   devtools((set, get) => ({
-    cartList: [],
+    cartList: JSON.parse(localStorage.getItem("cart") ?? '[]'),
     localStorageList: [] ,
     totalPrice: 0,
     sendGetList: async () => {

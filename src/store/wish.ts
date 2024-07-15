@@ -12,7 +12,7 @@ import { WishState } from "../components/types/wishState";
 // I MAKE THE USER ID IS TO BE "2" FOR ALL CART
 export const useWishStore = create<WishState>()(
   devtools((set, get) => ({
-    wishList: [],
+    wishList: JSON.parse(localStorage.getItem("wish") ?? "[]"),
     localStorageWishList: [] ,
     sendGetList: async () => {
       const wish = localStorage.getItem("wish");
@@ -36,20 +36,14 @@ export const useWishStore = create<WishState>()(
         // const products = useProductStore.getState().wishList;
         const foundProduct = currentLocalStorageWishList.find((e) => e.id.toString() === productItem.id.toString());
     
-        if (foundProduct) {
-          foundProduct.quantity = Number(foundProduct.quantity) + 1;
-        } else {
-          const productClone = { ...productItem, quantity: 1, idAddedToCart: true };
-          currentLocalStorageWishList.push(productClone);
-          
-        }
-    
-        localStorage.setItem("wish", JSON.stringify(currentLocalStorageWishList));
-    
-        set({
+        if (!foundProduct) {
+          currentList.push(productItem);
+          localStorage.setItem("wish", JSON.stringify(currentList));
+          set({
           wishList: [...currentList],
-          localStorageWishList: [...currentLocalStorageWishList]
+          localStorageWishList: [...currentList]
         });
+      }
       } catch (error) {
         console.error("Error in sendAddToCart:", error);
       }
@@ -58,13 +52,15 @@ export const useWishStore = create<WishState>()(
     sendDeleteItemWish: async (id: string) => {
       
       const currentList = get().localStorageWishList;
-      const foundIndex = currentList.findIndex((e) => e.id === id);
-      if (foundIndex !== -1) {
-        currentList.splice(foundIndex, 1);
-        set({ localStorageWishList: [...currentList] });
-      localStorage.setItem("wish", JSON.stringify(currentList));
+      const updatedList = currentList.filter((e) => e.id !== id);
+        set({
+          wishList: [...updatedList],
+          localStorageWishList: [...updatedList]
+        });
 
-      }
+      localStorage.setItem("wish", JSON.stringify(updatedList));
+
+      
     },
     
   

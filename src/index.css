@@ -19,3 +19,13 @@
 .myContainer {
   @apply md:px-10 px-4 mx-auto;
 }
+.active-link {
+  @apply !border-b-primary border-b-2  !text-primary bg-slate-300 p-2;
+}
+
+.main__card:hover .card_img {
+  @apply !brightness-[0.3] !duration-700 z-[0];
+}
+.main__card:hover .card__buttons {
+  @apply flex;
+}

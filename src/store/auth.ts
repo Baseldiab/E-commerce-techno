@@ -28,7 +28,7 @@ export const useAuthStore = create(
                   username: v.username,
           });
           
-          window.location.href = ROUTE_HOME;
+          // window.location.href = ROUTE_HOME;
         }
         },
             
@@ -44,7 +44,7 @@ export const useAuthStore = create(
             username: "",
           });
 
-          window.location.href = "/login";
+          // window.location.href = "/login";
         },
       }),
       {
