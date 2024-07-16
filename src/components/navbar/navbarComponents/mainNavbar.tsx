@@ -20,8 +20,6 @@ export default function MainNavbar() {
     return location.pathname === linkPath;
   };
 
-  console.log(encodeURIComponent(categories[2]));
-
   return (
     <>
       <div className="bg-primary py-3 text-white">
