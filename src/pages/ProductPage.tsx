@@ -89,8 +89,8 @@ export default function ProductPage() {
             </ul>
           </div>
 
-          {/* PRODUCTS */}
           <section className="col-span-3">
+            {/* PRODUCTS SEARCH */}
             <div className="select-category my-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start gap-5">
               <FormControl
                 className="md:!w-64"
@@ -139,6 +139,7 @@ export default function ProductPage() {
               </h5>
             </div>
 
+            {/* PRODUCTS ADS */}
             <figure className="my-3">
               <img
                 className="min-w-full"
@@ -147,8 +148,9 @@ export default function ProductPage() {
               />
             </figure>
 
-            <div className=" gap-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
-              {list.slice(0, 8).map((product) => {
+            {/* PRODUCTS */}
+            <div className="mb-3 gap-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
+              {list.map((product) => {
                 return (
                   <div key={product.id}>
                     <MainCard

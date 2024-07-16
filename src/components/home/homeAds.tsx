@@ -1,8 +1,8 @@
 export default function HomeAds() {
   return (
-    <section
+    <header
       id="homeAds"
-      className="myContainer max-md:flex-wrap flex md:justify-between justify-center items-center gap-4 my-4"
+      className="myContainer max-md:flex-wrap flex md:justify-between justify-center items-center gap-4 my-6"
     >
       <figure
       //   className=""
@@ -26,6 +26,6 @@ export default function HomeAds() {
           alt="banner-e-commerce1"
         />
       </figure>
-    </section>
+    </header>
   );
 }

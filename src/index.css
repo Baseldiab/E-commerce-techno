@@ -17,7 +17,7 @@
 }
 
 .myContainer {
-  @apply md:px-10 px-4 mx-auto;
+  @apply md:px-14 px-4 mx-auto;
 }
 .active-link {
   @apply !border-b-primary border-b-2  !text-primary bg-slate-300 p-2;
