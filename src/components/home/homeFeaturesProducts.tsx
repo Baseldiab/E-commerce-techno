@@ -14,7 +14,7 @@ export default function HomeFeaturesProducts() {
 
   return (
     <section id="homeFeatureProducts" className="myContainer my-6  py-6">
-      <section className="flex justify-between items-start gap-6 pt-5">
+      <section className="flex md:justify-between justify-center max-md:flex-col items-start gap-6 pt-5">
         {/* ADS */}
         <figure className=" !h-full">
           <img className="!h-full" src="/images/home/Banner-1.png" alt="banner" />
