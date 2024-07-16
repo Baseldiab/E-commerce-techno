@@ -20,6 +20,8 @@ export default function LoginPage() {
   const [username, setUsername] = useState<string>("kevinryan");
   const [password, setPassword] = useState<string>("kev02937@");
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [usernameError, setUsernameError] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string>("");
 
   // STORE
   const { sendLogin, token } = useAuthStore();
@@ -37,7 +39,7 @@ export default function LoginPage() {
 
   const loginSchema = z.object({
     username: z.string().min(3, {
-      message: "userName must be more than 3 characters",
+      message: "username must be more than 3 characters",
     }),
     password: z.string().refine((value: string) => passwordRegex.test(value), {
       message: `Password must be at least 8 characters long`,
@@ -65,10 +67,36 @@ export default function LoginPage() {
 
   const formatSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const validatedData = loginSchema.parse({ username, password });
-    sendLogin(validatedData);
-    if (token !== "") {
-      successLogin();
+    // const validatedData = loginSchema.parse({ username, password });
+    // console.log(validatedData);
+    // sendLogin(validatedData);
+    // if (token !== "") {
+    //   successLogin();
+    // }
+
+    try {
+      const validatedData = loginSchema.parse({ username, password });
+      sendLogin(validatedData);
+
+      if (token !== "") {
+        successLogin();
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        setUsernameError("");
+        setPasswordError("");
+
+        error.errors.forEach((err) => {
+          if (err.path.includes("username")) {
+            setUsernameError(err.message);
+          }
+          if (err.path.includes("password")) {
+            setPasswordError(err.message);
+          }
+        });
+      } else {
+        console.error(error);
+      }
     }
   };
 
@@ -89,6 +117,8 @@ export default function LoginPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               variant="filled"
+              error={!!usernameError}
+              helperText={usernameError}
             />
           </div>
           <div className="mb-3">
@@ -98,7 +128,6 @@ export default function LoginPage() {
                 fullWidth
                 required
                 value={password}
-                // defaultValue={password}
                 onChange={(e) => setPassword(e.target.value)}
                 id="filled-adornment-password"
                 type={showPassword ? "text" : "password"}
@@ -114,7 +143,11 @@ export default function LoginPage() {
                     </IconButton>
                   </InputAdornment>
                 }
+                error={!!passwordError}
               />
+              {passwordError && (
+                <p style={{ color: "red", margin: "5px 0 0 0" }}>{passwordError}</p>
+              )}
             </FormControl>
           </div>
           {/* {errorMsg && <Alert severity="error">{errorMsg}</Alert>} */}

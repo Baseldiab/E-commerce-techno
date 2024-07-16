@@ -21,7 +21,7 @@ export const useCartStore = create<CartState>()(
     totalPrice: 0,
     isContinuing: false,
     isConfirmedOrder: false,
-    isPlacedOrder: false,
+    isSelectedPayment: false,
     sendGetList: async () => {
       const response = await get_user_carts();
       const cart = localStorage.getItem("cart");
@@ -119,6 +119,9 @@ export const useCartStore = create<CartState>()(
     confirmOrder: () => {
       set({ isConfirmedOrder: true });
       const isConfirmed = get().isConfirmedOrder;
+
+  console.log(isConfirmed);
+
       if (isConfirmed) {
         localStorage.removeItem("cart")
       
@@ -126,14 +129,21 @@ export const useCartStore = create<CartState>()(
         cartList: [],
         localStorageList: [],
         totalPrice: 0,
-        // isPlacedOrder: false, 
+        // isSelectedPayment: false, 
+      });
+      
+    
+  }
+    },
+    checkSelectedPayment: () => {
+      set({
+        isSelectedPayment: false, 
       });
         
-      }
+      
     },
 
     resetCart: () => {
-      
       localStorage.removeItem("cart")
       
       window.location.href =("/")
@@ -143,7 +153,7 @@ export const useCartStore = create<CartState>()(
         totalPrice: 0,
         isContinuing: false,
         isConfirmedOrder: false,
-        isPlacedOrder: false,
+        isSelectedPayment: false,
       });
     },
   }))

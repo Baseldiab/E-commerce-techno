@@ -7,10 +7,10 @@ interface RequireConfirmOrderProps {
 }
 
 const RequireConfirmOrder: React.FC<RequireConfirmOrderProps> = ({ children }) => {
-  const { isConfirmedOrder } = useCartStore();
+  const { isConfirmedOrder, localStorageList } = useCartStore();
   // console.log(token);
   const location = useLocation();
-  if (isConfirmedOrder === false) {
+  if (isConfirmedOrder === false && localStorageList.length === 0) {
     return <Navigate to="/cart" state={{ path: location.pathname }} />;
   }
   return <>{children}</>;

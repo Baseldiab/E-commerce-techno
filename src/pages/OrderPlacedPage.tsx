@@ -19,7 +19,7 @@ export default function OrderPlacedPage() {
 
   return (
     <>
-      <section className="py-4">
+      <section className="py-4 myContainer">
         <Breadcrumbs separator=">" aria-label="breadcrumb">
           <Link className="border-b border-black" color="inherit" to="/">
             Home

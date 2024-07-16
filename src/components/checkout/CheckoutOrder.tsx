@@ -61,7 +61,9 @@ export default function CheckoutOrder() {
         <Button
           variant="contained"
           className={"w-full shadow-none !bg-secondary "}
-          onClick={() => confirmOrder()}
+          onClick={() => {
+            confirmOrder();
+          }}
         >
           <Link className="text-white text-sm py-2" color="inherit" to="/orderPlaced">
             Confirm Order <EastIcon />
