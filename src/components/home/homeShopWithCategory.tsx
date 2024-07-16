@@ -19,10 +19,8 @@ export default function HomeShopWithCategory() {
     "/images/home/1-1-600x675.jpg",
   ];
 
-  console.log(categories);
-
   return (
-    <section className="myContainer my-6  py-6 bg-featuresBg">
+    <section id={"homeShopWithCategory"} className="myContainer my-6  py-6 bg-featuresBg">
       <h2 className="text-center font-bold md:text-xl text-lg py-2">Shop with Category</h2>
 
       <div className="py-3 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 md:gap-6 gap-3">
