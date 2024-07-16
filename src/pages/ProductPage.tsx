@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 import { useProductStore } from "../store/products";
 import MainCard from "../components/products/mainCard";
-import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
+import {
+  Breadcrumbs,
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  Typography,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 export default function ProductPage() {
   //   STORE
@@ -44,9 +53,19 @@ export default function ProductPage() {
 
   return (
     <>
-      <section className="md:py-16 py-10 shadow-md">
+      <section className="py-4 myContainer">
+        <Breadcrumbs separator=">" aria-label="breadcrumb">
+          <Link className="border-b border-black" color="inherit" to="/">
+            Home
+          </Link>
+
+          <Typography color="text.primary">Products</Typography>
+        </Breadcrumbs>
+      </section>
+
+      <section className="py-3 shadow-md">
         <div className="myContainer grid lg:grid-cols-4 gap-5 items-start">
-          {/* SIDE FILTERATION */}
+          {/* SIDE FILTER */}
           <div className="col-span-1 hidden lg:inline-block ">
             <h3 className="mb-2 font-bold text-xl">Categories</h3>
             <ul className="list-none">
@@ -72,19 +91,28 @@ export default function ProductPage() {
 
           {/* PRODUCTS */}
           <section className="col-span-3">
-            <div className="select-category md:mb-10 mb-4 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start gap-5">
+            <div className="select-category my-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start gap-5">
               <FormControl
                 className="md:!w-64"
+                size="small"
                 sx={{
-                  m: 0,
+                  // margin: 0,
                   minWidth: "250px !important",
                   maxWidth: "500px !important",
-                  width: "40% !important",
+                  width: "50% !important",
+                  // height: "2.7rem !important",
                 }}
                 variant="outlined"
               >
-                <InputLabel htmlFor="outlined-adornment-search">Search</InputLabel>
+                <InputLabel
+                  // sx={{ height: "2.7rem !important" }}
+                  htmlFor="outlined-adornment-search"
+                >
+                  Search
+                </InputLabel>
                 <OutlinedInput
+                  // size="small"
+                  // sx={{ height: "2.7rem !important" }}
                   id="outlined-adornment-search"
                   type={"search"}
                   onChange={(e) => {
@@ -93,7 +121,10 @@ export default function ProductPage() {
                     if (searchQuery === "") sendGetProductsList();
                   }}
                   endAdornment={
-                    <InputAdornment position="end">
+                    <InputAdornment
+                      // sx={{ height: "2.7rem !important" }}
+                      position="end"
+                    >
                       <IconButton aria-label="search" onClick={onSearch} onMouseDown={onSearch}>
                         <SearchIcon />
                       </IconButton>

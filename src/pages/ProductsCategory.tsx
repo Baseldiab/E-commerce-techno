@@ -33,15 +33,6 @@ export default function ProductsCategory() {
     }
   }, [categoryName]);
 
-  //   useEffect(() => {
-  //     // if (searchQuery === "") sendGetCategoryProducts(categoryName.replace(/-/g, " "));
-  //     if (categoryName && searchQuery === "") {
-  //       sendGetCategoryProducts(categoryName.replace(/-/g, " "));
-  //     }
-  //   }, [searchQuery]);
-  //   console.log(categoryName.replace(/-/g, " "));
-  //   console.log(list);
-
   return (
     <>
       {list.length === 0 && categoryName === undefined ? (
@@ -66,6 +57,7 @@ export default function ProductsCategory() {
           <section className="col-span-3 py-3 myContainer">
             <div className="select-category flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start gap-5">
               <FormControl
+                size="small"
                 className="md:!w-64"
                 sx={{
                   m: 0,

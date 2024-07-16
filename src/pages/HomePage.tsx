@@ -1,3 +1,11 @@
+import HomeAds from "../components/home/homeAds";
+import HomeFeatures from "../components/home/homeFeatures";
+
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <HomeAds />
+      <HomeFeatures />
+    </>
+  );
 }

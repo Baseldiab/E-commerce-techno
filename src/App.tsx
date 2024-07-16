@@ -20,11 +20,9 @@ function App() {
     <>
       <div className="min-h-screen m-0 flex flex-col">
         <main className="flex-1">
-          {/* <Header /> */}
           <DesktopNavbar />
           <Outlet />
         </main>
-        {/* <BottomNav /> */}
         <Footer />
       </div>
     </>
