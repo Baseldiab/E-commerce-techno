@@ -1,7 +1,7 @@
 export default function HomeBannerOne() {
   return (
     <section
-      id="homeBanner"
+      id="homeBannerOne"
       className="myContainer max-md:flex-wrap flex md:justify-between justify-center items-center gap-4 my-6 pb-6"
     >
       <figure

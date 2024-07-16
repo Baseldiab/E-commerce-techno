@@ -7,6 +7,7 @@ import HomeShopWithCategory from "../components/home/homeShopWithCategory";
 import HomeFeaturesProducts from "../components/home/homeFeaturesProducts";
 import HomeShopNow from "../components/home/homeShopNow";
 import HomeBannerOne from "../components/home/homeBannerOne";
+import HomeBannerTwo from "../components/home/homeBannerTwo";
 
 export default function HomePage() {
   //   STORE
@@ -32,6 +33,7 @@ export default function HomePage() {
       <HomeFeaturesProducts />
       <HomeBannerOne />
       <HomeShopNow />
+      <HomeBannerTwo />
     </>
   );
 }
