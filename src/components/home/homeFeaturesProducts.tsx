@@ -13,8 +13,8 @@ export default function HomeFeaturesProducts() {
   } = useProductStore();
 
   return (
-    <section id="homeFeatureProducts" className="myContainer my-6  py-6">
-      <section className="flex md:justify-between justify-center max-md:flex-col items-start gap-6 pt-5">
+    <section id="homeFeatureProducts" className="myContainer  py-8">
+      <div className="flex md:justify-between justify-center max-md:flex-col items-start gap-6 ">
         {/* ADS */}
         <figure className=" !h-full">
           <img className="!h-full" src="/images/home/Banner-1.png" alt="banner" />
@@ -42,7 +42,7 @@ export default function HomeFeaturesProducts() {
             })}
           </article>
         </div>
-      </section>
+      </div>
     </section>
   );
 }

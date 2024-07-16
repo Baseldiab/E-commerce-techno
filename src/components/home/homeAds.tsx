@@ -2,7 +2,7 @@ export default function HomeAds() {
   return (
     <header
       id="homeAds"
-      className="myContainer max-md:flex-wrap flex md:justify-between justify-center items-center gap-4 my-6"
+      className="myContainer max-md:flex-wrap flex md:justify-between justify-center items-center gap-4 my-8"
     >
       <figure
       //   className=""

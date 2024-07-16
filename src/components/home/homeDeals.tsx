@@ -15,7 +15,7 @@ export default function HomeDeals() {
   } = useProductStore();
 
   return (
-    <section id="homeDeals" className="myContainer my-6  py-6">
+    <section id="homeDeals" className="myContainer py-8">
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-lg">Best Deals</h2>
         <Link className="text-primary text-base" color="inherit" to="/products">

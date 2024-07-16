@@ -20,10 +20,10 @@ export default function HomeShopWithCategory() {
   ];
 
   return (
-    <section id={"homeShopWithCategory"} className="myContainer my-6  py-6 bg-featuresBg">
-      <h2 className="text-center font-bold md:text-xl text-lg py-2">Shop with Category</h2>
+    <section id={"homeShopWithCategory"} className="myContainer   py-8 bg-featuresBg">
+      <h2 className="text-center font-bold md:text-xl text-lg pb-4">Shop with Category</h2>
 
-      <div className="py-3 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 md:gap-6 gap-3">
+      <div className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 md:gap-6 gap-3">
         {categories.map((item, index) => (
           <Link key={`home-categories-${index + 1}`} to={`/products/category/${item}`}>
             <figure className="bg-white py-2">

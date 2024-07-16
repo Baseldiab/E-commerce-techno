@@ -72,7 +72,7 @@ export default function MainNavbar() {
       </div>
 
       {/* BOTTOM NAVBAR (HOME, PRODUCTS AND CATEGORIES) */}
-      <div className="flex justify-center flex-wrap items-center py-2 border-b border-slate-400">
+      <div className=" flex justify-center flex-wrap items-center md:py-4 py-2 border-b border-slate-400">
         <Link
           to={"/"}
           className={`md:mx-3 mx-2  md:text-base text-sm py-1 uppercase font-medium text-primary hover:text-sky-700 ${

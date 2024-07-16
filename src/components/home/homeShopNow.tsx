@@ -13,8 +13,8 @@ export default function HomeShopNow() {
   } = useProductStore();
 
   return (
-    <section id="homeShopNow" className="myContainer my-6  py-6 bg-featuresBg">
-      <section className="flex md:justify-between max-md:flex-col items-start gap-6 py-5">
+    <section id="homeShopNow" className="myContainer  py-8 bg-featuresBg">
+      <div className="flex md:justify-between justify-center max-md:flex-col items-start gap-6 ">
         {/* PRODUCTS */}
         <div className="basis-2/3">
           <h2 className="font-bold md:text-xl text-lg pb-4">Shop Now</h2>
@@ -42,7 +42,7 @@ export default function HomeShopNow() {
         <figure className=" !h-full">
           <img className="!h-full" src="/images/home/Banner-1.png" alt="banner" />
         </figure>
-      </section>
+      </div>
     </section>
   );
 }
