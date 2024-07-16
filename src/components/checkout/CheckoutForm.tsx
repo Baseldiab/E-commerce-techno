@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from "react";
 import Radio from "@mui/material/Radio";
 import {
@@ -22,7 +21,7 @@ import { z } from "zod";
 import EastIcon from "@mui/icons-material/East";
 import { Button } from "@mui/material";
 import { useState } from "react";
-import { Navigate, redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckoutForm() {
   // STATES
@@ -30,7 +29,7 @@ export default function CheckoutForm() {
   const [firstName, setFirstName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [address, setAddress] = useState<string>("");
-  const [country, setCountry] = useState<string>("");
+  // const [country, setCountry] = useState<string>("");
   const [city, setCity] = useState<string>("");
   const [region, setRegion] = useState<string>("");
   const [zipCode, setZipCode] = useState<string>("");
@@ -41,15 +40,15 @@ export default function CheckoutForm() {
   const [firstNameError, setFirstNameError] = React.useState<string>("");
   const [lastNameError, setLastNameError] = useState<string>("");
   const [addressError, setAddressError] = useState<string>("");
-  const [countryError, setCountryError] = useState<string>("");
-  const [cityError, setCityError] = useState<string>("");
-  const [regionError, setRegionError] = useState<string>("");
+  // const [setCountryError] = useState<string>("");
+  // const [setCityError] = useState<string>("");
+  // const [setRegionError] = useState<string>("");
   const [zipCodeError, setZipCodeError] = useState<string>("");
   const [emailError, setEmailError] = useState<string>("");
   const [phoneNumberError, setPhoneNumberError] = useState<string>("");
 
   // STORE
-  const { localStorageList, totalPrice, confirmOrder, isConfirmedOrder } = useCartStore();
+  const { localStorageList, totalPrice, confirmOrder } = useCartStore();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
@@ -95,9 +94,9 @@ export default function CheckoutForm() {
         setFirstNameError("");
         setLastNameError("");
         setAddressError("");
-        setCountryError("");
-        setCityError("");
-        setRegionError("");
+        // setCountryError("");
+        // setCityError("");
+        // setRegionError("");
         setZipCodeError("");
         setEmailError("");
         setPhoneNumberError("");
@@ -114,15 +113,15 @@ export default function CheckoutForm() {
             case "address":
               setAddressError(err.message);
               break;
-            case "country":
-              setCountryError(err.message);
-              break;
-            case "city":
-              setCityError(err.message);
-              break;
-            case "region":
-              setRegionError(err.message);
-              break;
+            // case "country":
+            //   setCountryError(err.message);
+            //   break;
+            // case "city":
+            //   setCityError(err.message);
+            //   break;
+            // case "region":
+            //   setRegionError(err.message);
+            //   break;
             case "zipCode":
               setZipCodeError(err.message);
               break;
