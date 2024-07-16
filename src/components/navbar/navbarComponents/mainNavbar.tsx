@@ -11,7 +11,7 @@ export default function MainNavbar() {
   // STORE
   const { token, logout } = useAuthStore();
   const { wishList } = useWishStore();
-  const { cartList } = useCartStore();
+  const { localStorageList } = useCartStore();
 
   const categories = ["electronics", "jewelery", "men's clothing", "women's clothing"];
 
@@ -62,7 +62,7 @@ export default function MainNavbar() {
                 <TbShoppingCartDiscount className={` md:!text-3xl !text-2xl py-1`} />
                 {token !== "" && (
                   <span className="main-nav__number main-nav__wish-number text-xs absolute top-[-5px] right-[-4px] font-medium">
-                    {cartList.length}
+                    {localStorageList.length}
                   </span>
                 )}
               </div>

@@ -13,7 +13,7 @@ export default function WishPage() {
           <WishEmpty />
         ) : (
           <div className="myContainer gap-5 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1">
-            {wishList.slice(0, 8).map((product) => {
+            {wishList.map((product) => {
               return (
                 <div key={product.id}>
                   <MainCard
@@ -29,7 +29,6 @@ export default function WishPage() {
                 </div>
               );
             })}
-            {/* <MainCard /> */}
           </div>
         )}
       </section>

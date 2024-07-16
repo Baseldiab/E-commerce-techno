@@ -13,6 +13,10 @@ import RequireLogin from "./Require-Auth/Require-login.tsx";
 import "./index.css";
 import ProductDetailsPage from "./pages/ProductDetailsPage.tsx";
 import ProductsCategory from "./pages/ProductsCategory.tsx";
+import RequireContinueShopping from "./Require-Auth/Require-continue.tsx";
+import CheckoutPage from "./pages/CheckoutPage.tsx";
+import RequireConfirmOrder from "./Require-Auth/Requir-confirm-order.tsx";
+import OrderPlacedPage from "./pages/OrderPlacedPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +48,26 @@ const router = createBrowserRouter([
         element: (
           <RequireAuth>
             <WishPage />
+          </RequireAuth>
+        ),
+      },
+      {
+        path: "checkout",
+        element: (
+          <RequireAuth>
+            <RequireContinueShopping>
+              <CheckoutPage />
+            </RequireContinueShopping>
+          </RequireAuth>
+        ),
+      },
+      {
+        path: "orderPlaced",
+        element: (
+          <RequireAuth>
+            <RequireConfirmOrder>
+              <OrderPlacedPage />
+            </RequireConfirmOrder>
           </RequireAuth>
         ),
       },

@@ -6,9 +6,15 @@ export type CartState = {
     cartList: CartModel[];
     localStorageList: ProductModel[];
     totalPrice: number;
+    isContinuing: boolean;
+    isConfirmedOrder: boolean;
+    isPlacedOrder: boolean;
     sendGetList: () => void;
     sendAddToCart: (v: CartDto , productItem: ProductModel) => void;
     sendUpdateCart: (v: CartDto ,  productItem: ProductModel, qty: number) => void;
     sendDeleteItemCart: (id: string) => void;
     calculateTotalPrice: () => void;
+    continueShopping: () => void;
+    confirmOrder: () => void;
+    resetCart: () => void;
   }

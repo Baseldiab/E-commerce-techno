@@ -16,9 +16,12 @@ import { update_cart } from "../components/api/requests/updateCart.request";
 // I MAKE THE USER ID IS TO BE "2" FOR ALL CART
 export const useCartStore = create<CartState>()(
   devtools((set, get) => ({
-    cartList: JSON.parse(localStorage.getItem("cart") ?? '[]'),
-    localStorageList: [] ,
+    cartList: [],
+    localStorageList: JSON.parse(localStorage.getItem("cart") ?? '[]') ,
     totalPrice: 0,
+    isContinuing: false,
+    isConfirmedOrder: false,
+    isPlacedOrder: false,
     sendGetList: async () => {
       const response = await get_user_carts();
       const cart = localStorage.getItem("cart");
@@ -107,6 +110,41 @@ export const useCartStore = create<CartState>()(
       }, 0);
 
       set({ totalPrice: totalPrice });
+    },
+
+    continueShopping:  () => {
+      set({ isContinuing: true });
+    },
+
+    confirmOrder: () => {
+      set({ isConfirmedOrder: true });
+      const isConfirmed = get().isConfirmedOrder;
+      if (isConfirmed) {
+        localStorage.removeItem("cart")
+      
+      set({
+        cartList: [],
+        localStorageList: [],
+        totalPrice: 0,
+        // isPlacedOrder: false, 
+      });
+        
+      }
+    },
+
+    resetCart: () => {
+      
+      localStorage.removeItem("cart")
+      
+      window.location.href =("/")
+      set({
+        cartList: [],
+        localStorageList: [],
+        totalPrice: 0,
+        isContinuing: false,
+        isConfirmedOrder: false,
+        isPlacedOrder: false,
+      });
     },
   }))
 );

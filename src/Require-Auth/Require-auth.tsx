@@ -8,7 +8,7 @@ interface RequireAuthProps {
 
 const RequireAuth: React.FC<RequireAuthProps> = ({ children }) => {
   const { token } = useAuthStore();
-  console.log(token);
+  // console.log(token);
   const location = useLocation();
   if (token === "") {
     return <Navigate to="/login" state={{ path: location.pathname }} />;
