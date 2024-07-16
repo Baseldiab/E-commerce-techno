@@ -31,7 +31,7 @@ export default function ProductsCategory() {
     if (categoryName) {
       sendGetCategoryProducts(categoryName.replace(/-/g, " "));
     }
-  }, []);
+  }, [categoryName]);
 
   //   useEffect(() => {
   //     // if (searchQuery === "") sendGetCategoryProducts(categoryName.replace(/-/g, " "));

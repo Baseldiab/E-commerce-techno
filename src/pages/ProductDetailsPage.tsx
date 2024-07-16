@@ -175,10 +175,6 @@ export default function ProductDetailsPage() {
 
           {/* PRODUCT DETAILS CONTENT */}
           <section className="col-span-3">
-            {/* <h1 className="singleProduct__name font-bold text-xl md:text-2xl text-capitalize">
-              {item?.title}
-            </h1> */}
-
             {/* RATING */}
             <div className="flex justify-start items-center my-1">
               <Rating name="read-only" value={initialRate} readOnly />

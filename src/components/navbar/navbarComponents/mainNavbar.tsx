@@ -13,10 +13,15 @@ export default function MainNavbar() {
   const { wishList } = useWishStore();
   const { cartList } = useCartStore();
 
+  const categories = ["electronics", "jewelery", "men's clothing", "women's clothing"];
+
   // FUNCTION TO DETERMINE IF A LINK SHOULD BE ACTIVE
   const isLinkActive = (linkPath: string) => {
     return location.pathname === linkPath;
   };
+
+  console.log(encodeURIComponent(categories[2]));
+
   return (
     <>
       <div className="bg-primary py-3 text-white">
@@ -28,14 +33,14 @@ export default function MainNavbar() {
             {token === "" ? (
               <Link
                 to={"login"}
-                className={`md:mx-3 mx-2 md:text-md text-sm py-1 uppercase font-medium text-white hover:text-slate-300`}
+                className={`md:mx-3 mx-2 md:text-md sm:text-sm text-xs py-1 uppercase font-medium text-white hover:text-slate-300`}
               >
                 login
               </Link>
             ) : (
               <Link
                 to={"#"}
-                className={`md:mx-3 mx-2 md:text-md text-sm py-1 uppercase font-medium text-white hover:text-slate-300`}
+                className={`md:mx-3 mx-2 md:text-md sm:text-sm text-xs py-1 uppercase font-medium text-white hover:text-slate-300`}
                 onClick={() => logout()}
               >
                 Logout
@@ -68,10 +73,11 @@ export default function MainNavbar() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center py-2 border-b border-slate-400">
+      {/* BOTTOM NAVBAR (HOME, PRODUCTS AND CATEGORIES) */}
+      <div className="flex justify-center flex-wrap items-center py-2 border-b border-slate-400">
         <Link
           to={"/"}
-          className={`md:mx-3 mx-2  md:text-lg text-sm py-1 uppercase font-medium text-primary hover:text-sky-700 ${
+          className={`md:mx-3 mx-2  md:text-base text-sm py-1 uppercase font-medium text-primary hover:text-sky-700 ${
             isLinkActive("/") ? "active-link" : ""
           }`}
         >
@@ -79,12 +85,24 @@ export default function MainNavbar() {
         </Link>
         <Link
           to={"products"}
-          className={`md:mx-3 mx-2  md:text-lg text-sm py-1  uppercase font-medium text-primary hover:text-sky-700 ${
+          className={`md:mx-3 mx-2  md:text-base text-sm py-1  uppercase font-medium text-primary hover:text-sky-700 ${
             isLinkActive("/products") ? "active-link" : ""
           }`}
         >
           products
         </Link>
+
+        {categories.map((item, index) => (
+          <Link
+            key={`categories-${index + 1}`}
+            to={`/products/category/${item}`}
+            className={`md:mx-3 mx-2  md:text-base text-sm py-1  uppercase font-medium text-primary hover:text-sky-700 ${
+              isLinkActive(`/products/category/${encodeURIComponent(item)}`) ? "active-link" : ""
+            }`}
+          >
+            {item}
+          </Link>
+        ))}
       </div>
     </>
   );
