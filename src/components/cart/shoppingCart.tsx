@@ -12,6 +12,7 @@ import { useCartStore } from "../../store/cart";
 import { CartDto } from "../types/cartDto";
 import { Link } from "react-router-dom";
 import EastIcon from "@mui/icons-material/East";
+import { Add, Remove } from "@mui/icons-material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -30,7 +31,8 @@ const StyledTableRow = styled(TableRow)(() => ({
 }));
 
 export default function ShoppingCart() {
-  const { localStorageList, sendDeleteItemCart, sendUpdateCart } = useCartStore();
+  const { localStorageList, sendDeleteItemCart, sendUpdateCart, increaseItemQty, decreaseItemQty } =
+    useCartStore();
 
   return (
     <TableContainer component={Paper}>
@@ -71,7 +73,7 @@ export default function ShoppingCart() {
               </StyledTableCell>
 
               <StyledTableCell>
-                <input
+                {/* <input
                   className="quantity-field !min-w-[20px] !p-2 border border-slate-500"
                   type="number"
                   id="quantity"
@@ -86,7 +88,29 @@ export default function ShoppingCart() {
                     };
                     sendUpdateCart(payload, product, Number(e.target.value));
                   }}
-                />
+                /> */}
+                {/* COUNTER */}
+                <div className="flex items-center justify-between gap-2 min-h-[34px] border-background border-[.5px] rounded-sm  px-2 font-extrabold text-background">
+                  <span
+                    className=" cursor-pointer"
+                    onClick={() => {
+                      decreaseItemQty(product);
+                      // sendUpdateCart(payload, product, qty as number);
+                    }}
+                  >
+                    <Remove />
+                  </span>
+                  <span className="min-w-[25px] text-lg text-center">{product.quantity}</span>
+                  <span
+                    className=" cursor-pointer"
+                    onClick={() => {
+                      // sendUpdateCart(payload, product, qty as number);
+                      increaseItemQty(product);
+                    }}
+                  >
+                    <Add />
+                  </span>
+                </div>
               </StyledTableCell>
 
               <StyledTableCell>

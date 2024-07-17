@@ -17,5 +17,7 @@ export type CartState = {
     continueShopping: () => void;
     confirmOrder: () => void; 
     checkSelectedPayment: () => void; 
+    increaseItemQty: (productItem: ProductModel) => void; 
+    decreaseItemQty: (productItem: ProductModel) => void; 
     resetCart: () => void;
   }

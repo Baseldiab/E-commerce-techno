@@ -89,6 +89,32 @@ export const useCartStore = create<CartState>()(
       localStorage.setItem("cart", JSON.stringify(currentList));
     },
 
+    increaseItemQty: async ( productItem: ProductModel) => {
+      // const products = useProductStore.getState().cartList;
+      const currentList = get().localStorageList;
+      const foundIndex = currentList.findIndex((item) => item.id === productItem.id);
+      if (foundIndex !== -1 && currentList[foundIndex].quantity) {
+        currentList[foundIndex].quantity += 1;
+        set({
+          localStorageList: [...currentList],
+        });
+      localStorage.setItem("cart", JSON.stringify(currentList));
+
+      }
+    },
+    decreaseItemQty: async ( productItem: ProductModel) => {
+      const currentList = get().localStorageList;
+      const foundIndex = currentList.findIndex((item) => item.id === productItem.id);
+      if (foundIndex !== -1 && currentList[foundIndex].quantity) {
+        currentList[foundIndex].quantity -= 1;
+        set({
+          localStorageList: [...currentList],
+        });
+      localStorage.setItem("cart", JSON.stringify(currentList));
+
+      }
+    },
+
     sendDeleteItemCart: async (id: string) => {
       // await delete_cart(id);
       

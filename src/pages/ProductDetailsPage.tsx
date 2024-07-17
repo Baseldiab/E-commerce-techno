@@ -26,6 +26,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SimilarProducts from "./../components/products/similarProducts";
 import ProductContent from "../components/products/productContent";
 import Swal from "sweetalert2";
+import { Add, Remove } from "@mui/icons-material";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -51,6 +52,7 @@ export default function ProductDetailsPage() {
     if (item) {
       setInitialRate(item.rating.rate);
       sendGetCategoryProducts(item.category);
+      setQty(item?.quantity ? item.quantity : 1);
     }
   }, [item]);
 
@@ -236,7 +238,31 @@ export default function ProductDetailsPage() {
                 <FavoriteBorderIcon /> Add to Wish
               </button>
 
-              <input
+              {/* Start counter */}
+              <div className="flex items-center justify-between gap-2 min-h-[34px] border-background border-[.5px] rounded-sm  px-2 font-extrabold text-background">
+                <span
+                  className=" cursor-pointer"
+                  onClick={() => {
+                    // dispatch(decreaseQuantity(product.id));
+                    setQty(Number(qty) - 1);
+                  }}
+                >
+                  <Remove />
+                </span>
+                <span className="min-w-[25px] text-lg text-center">{qty}</span>
+                <span
+                  className=" cursor-pointer"
+                  onClick={() => {
+                    // dispatch(increaseQuantity(product.id));
+                    setQty(Number(qty) + 1);
+                  }}
+                >
+                  <Add />
+                </span>
+              </div>
+              {/* End counter */}
+
+              {/* <input
                 className="quantity-field !min-w-[20px] !p-2 border border-slate-500"
                 type="number"
                 id="quantity"
@@ -253,7 +279,7 @@ export default function ProductDetailsPage() {
                   setQty(e.target.value)
                 }
                 // readOnly
-              />
+              /> */}
             </div>
 
             <div className="singleProduct__buttons my-4 w-full">
