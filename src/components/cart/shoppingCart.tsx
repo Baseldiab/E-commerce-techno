@@ -9,7 +9,6 @@ import Paper from "@mui/material/Paper";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { Button, TableFooter, Typography } from "@mui/material";
 import { useCartStore } from "../../store/cart";
-import { CartDto } from "../types/cartDto";
 import { Link } from "react-router-dom";
 import EastIcon from "@mui/icons-material/East";
 import { Add, Remove } from "@mui/icons-material";
@@ -31,8 +30,7 @@ const StyledTableRow = styled(TableRow)(() => ({
 }));
 
 export default function ShoppingCart() {
-  const { localStorageList, sendDeleteItemCart, sendUpdateCart, increaseItemQty, decreaseItemQty } =
-    useCartStore();
+  const { localStorageList, sendDeleteItemCart, increaseItemQty, decreaseItemQty } = useCartStore();
 
   return (
     <TableContainer component={Paper}>

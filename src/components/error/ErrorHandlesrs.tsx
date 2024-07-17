@@ -1,4 +1,7 @@
+import { Button } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
+import HouseOutlinedIcon from "@mui/icons-material/HouseOutlined";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 interface IProps {
   statusCode?: number;
@@ -42,20 +45,17 @@ const ErrorHandler = ({ statusCode = 500, title = "Server Error" }: IProps) => {
           the problem presists.
         </p>
         <div className="flex items-center justify-center space-x-4 my-10">
-          <Link
-            to={"/"}
-            className="inline-block bg-background p-2 text-white hover:!text-white rounded-md"
-            reloadDocument
-          >
-            Home
-          </Link>
-          <Link
-            to={pathname}
-            className="inline-block bg-background p-2 text-white hover:!text-white rounded-md"
-            reloadDocument
-          >
-            Refresh
-          </Link>
+          <Button variant="contained" className={"w-full shadow-none !bg-secondary "}>
+            <Link className="text-white text-sm py-1" color="inherit" to={pathname}>
+              Refresh <RefreshIcon />
+            </Link>
+          </Button>
+
+          <Button variant="outlined" className={"w-full shadow-none !border-secondary"}>
+            <Link className="text-secondary text-sm py-1" to="/">
+              Go to home <HouseOutlinedIcon />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

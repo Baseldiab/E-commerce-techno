@@ -15,7 +15,7 @@ const NotFoundPage = () => {
             </p>
             <Link
               to={"/"}
-              className="inline-block bg-background p-2 text-white rounded-md"
+              className="inline-block bg-background p-2 text-secondary rounded-md"
               reloadDocument
             >
               Go Home
