@@ -116,16 +116,11 @@ export const useCartStore = create<CartState>()(
     },
 
     sendDeleteItemCart: async (id: string) => {
-      // await delete_cart(id);
-      
       const currentList = get().localStorageList;
-      const foundIndex = currentList.findIndex((e) => e.id === id);
-      if (foundIndex !== -1) {
-        currentList.splice(foundIndex, 1);
-        set({ localStorageList: [...currentList] });
-      localStorage.setItem("cart", JSON.stringify(currentList));
+      const updatedList = currentList.filter((e) => e.id !== id);
+        set({ localStorageList: [...updatedList] });
+      localStorage.setItem("cart", JSON.stringify(updatedList));
 
-      }
     },
     
     calculateTotalPrice:  () => {
