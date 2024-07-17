@@ -143,14 +143,14 @@ export default function ProductDetailsPage() {
               <span className=" font-medium capitalize">{item?.category}</span>
             </p>
 
-            <h4 className="singleProduct__price text-lg font-semibold my-4 text-primary">
+            <h4 className="singleProduct__price text-lg font-semibold my-4 text-[#1B6392]">
               ${Number(item?.price).toFixed(2)}
             </h4>
 
             {/* QUANTITY AND ADD TO WISH BUTTONS */}
             <div className="flex justify-between items-center">
               <button
-                className="main-button add-wish add-cart-item my-1  py-2 text-sky-600 rounded"
+                className="main-button add-wish add-cart-item my-1  py-2 text-[#475156] rounded"
                 title="you must login first to add to wish"
                 onClick={handleAddToWish}
               >
