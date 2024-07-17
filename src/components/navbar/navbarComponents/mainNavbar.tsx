@@ -4,6 +4,7 @@ import { TbShoppingCartDiscount } from "react-icons/tb";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useWishStore } from "../../../store/wish";
 import { useCartStore } from "../../../store/cart";
+import DropdownNavbar from "./dropdownNavbar";
 
 export default function MainNavbar() {
   const location = useLocation();
@@ -75,7 +76,7 @@ export default function MainNavbar() {
       <div className=" flex justify-center flex-wrap items-center md:py-4 py-2 border-b border-slate-400">
         <Link
           to={"/"}
-          className={`md:mx-3 mx-2  md:text-base text-sm py-1 uppercase font-medium text-primary hover:text-sky-700 ${
+          className={`  md:text-base text-sm uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] !p-2 ${
             isLinkActive("/") ? "active-link" : ""
           }`}
         >
@@ -83,18 +84,20 @@ export default function MainNavbar() {
         </Link>
         <Link
           to={"products"}
-          className={`md:mx-3 mx-2  md:text-base text-sm py-1  uppercase font-medium text-primary hover:text-sky-700 ${
+          className={`  md:text-base text-sm  uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] !p-2 ${
             isLinkActive("/products") ? "active-link" : ""
           }`}
         >
           products
         </Link>
 
+        <DropdownNavbar />
+
         {categories.map((item, index) => (
           <Link
             key={`categories-${index + 1}`}
             to={`/products/category/${item}`}
-            className={`md:mx-3 mx-2  md:text-base text-sm py-1  uppercase font-medium text-primary hover:text-sky-700 ${
+            className={` md:text-base text-sm  uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] p-2 ${
               isLinkActive(`/products/category/${encodeURIComponent(item)}`) ? "active-link" : ""
             }`}
           >

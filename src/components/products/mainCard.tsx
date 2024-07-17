@@ -67,7 +67,7 @@ export default function MainCard(props: ProductModel) {
 
   return (
     <Box
-      className={"main__card rounded-md relative h-full my-0 border"}
+      className={"main__card rounded-md relative h-full my-0 border hover:shadow-lg"}
       sx={{
         backgroundColor: "#fff",
         display: "flex",
@@ -119,7 +119,7 @@ export default function MainCard(props: ProductModel) {
       </div>
 
       {/* CARD CONTENT */}
-      <div className={`card_content ${props.isWishPage ? "min-h-[175px]" : "min-h-fit"}`}>
+      <div className={`card_content ${props.isWishPage ? "min-h-[180px] " : "min-h-fit"}`}>
         <div className="card_body text-start px-5 py-2 mx-auto">
           {/* RATING */}
           <div className="flex justify-start items-center my-1 flex-wrap">
@@ -129,18 +129,20 @@ export default function MainCard(props: ProductModel) {
 
           {/* TITLE */}
           <Link className="text-light" to={`/products/${props.id}`}>
-            <h5 className="card_title text-base font-medium">{props.title}</h5>
+            <h5 className="card_title text-base font-medium line-clamp-1" title={props.title}>
+              {props.title}
+            </h5>
           </Link>
 
           {/* PRICE */}
-          <h6 className="card_price font-mono  text-lg font-bold text-primary">
+          <h6 className="card_price font-mono  text-lg font-bold text-[#2DA5F3]">
             {Number(props.price).toFixed(2)}$
           </h6>
         </div>
 
         {/* DELETE ITEM FROM WISHLIST  */}
         <div
-          className={`card_footer mt-2  mx-auto absolute bottom-0 w-full px-5 pb-4
+          className={`card_footer mt-2  mx-auto  w-full px-5 pb-4
              "justify-end"
           ${props.isWishPage ? "flex" : "hidden"}`}
         >

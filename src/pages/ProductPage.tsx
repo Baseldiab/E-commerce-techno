@@ -36,21 +36,6 @@ export default function ProductPage() {
     sendGetCategoriesList();
   }, []);
 
-  // useEffect(() => {
-
-  // }, [searchQuery]);
-
-  // const AddToCart = (item: ProductModel) => {
-  //   const payload: CartDto = {
-  //     userId: 2,
-  //     date: "2024-6-13",
-  //     products: [{ productId: item.id, quantity: 1 }],
-  //   };
-
-  //   sendAddToCart(payload, item);
-  //   successNotification("Added to cart successfully");
-  // };
-
   return (
     <>
       <section className="py-4 myContainer">

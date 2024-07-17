@@ -1,5 +1,4 @@
 import { create } from "zustand";
-// import { get_all_products } from "../../../api/requests/getAllProducts.request";
 import { devtools } from "zustand/middleware";
 import { CartState } from "../components/types/cartState";
 import { get_user_carts } from "../components/api/requests/getUserCart.request";
@@ -8,12 +7,6 @@ import { ProductModel } from "../components/types/productModel";
 import { add_new_cart } from "../components/api/requests/addCart.request";
 import { update_cart } from "../components/api/requests/updateCart.request";
 
-// const getInitialCart = () => {
-//   const cart = localStorage.getItem("cart");
-//   return cart ? JSON.parse(cart) : [];
-// };
-
-// I MAKE THE USER ID IS TO BE "2" FOR ALL CART
 export const useCartStore = create<CartState>()(
   devtools((set, get) => ({
     cartList: [],
@@ -21,7 +14,6 @@ export const useCartStore = create<CartState>()(
     totalPrice: 0,
     isContinuing: false,
     isConfirmedOrder: false,
-    isSelectedPayment: false,
     sendGetList: async () => {
       const response = await get_user_carts();
       const cart = localStorage.getItem("cart");
@@ -46,7 +38,6 @@ export const useCartStore = create<CartState>()(
     
         currentList.unshift(response);
     
-        // const products = useProductStore.getState().cartList;
         const foundProduct = currentLocalStorageList.find((e) => e.id.toString() === productItem.id.toString());
     
         if (foundProduct) {
@@ -102,10 +93,11 @@ export const useCartStore = create<CartState>()(
 
       }
     },
+
     decreaseItemQty: async ( productItem: ProductModel) => {
       const currentList = get().localStorageList;
       const foundIndex = currentList.findIndex((item) => item.id === productItem.id);
-      if (foundIndex !== -1 && currentList[foundIndex].quantity) {
+      if (foundIndex !== -1 && currentList[foundIndex].quantity && currentList[foundIndex].quantity > 1) {
         currentList[foundIndex].quantity -= 1;
         set({
           localStorageList: [...currentList],
@@ -141,40 +133,28 @@ export const useCartStore = create<CartState>()(
       set({ isConfirmedOrder: true });
       const isConfirmed = get().isConfirmedOrder;
 
-  // console.log(isConfirmed);
-
       if (isConfirmed) {
         localStorage.removeItem("cart")
-      
+  
       set({
         cartList: [],
         localStorageList: [],
         totalPrice: 0,
         // isSelectedPayment: false, 
       });
-      
-    
   }
     },
-    checkSelectedPayment: () => {
-      set({
-        isSelectedPayment: false, 
-      });
-        
-      
-    },
-
+    
     resetCart: () => {
       localStorage.removeItem("cart")
       
-      window.location.href =("/")
+      // window.location.href =("/")
       set({
         cartList: [],
         localStorageList: [],
         totalPrice: 0,
         isContinuing: false,
         isConfirmedOrder: false,
-        isSelectedPayment: false,
       });
     },
   }))

@@ -8,7 +8,6 @@ export type CartState = {
     totalPrice: number;
     isContinuing: boolean;
     isConfirmedOrder: boolean;
-    isSelectedPayment: boolean;
     sendGetList: () => void;
     sendAddToCart: (v: CartDto , productItem: ProductModel) => void;
     sendUpdateCart: (v: CartDto ,  productItem: ProductModel, qty: number) => void;
@@ -16,7 +15,6 @@ export type CartState = {
     calculateTotalPrice: () => void;
     continueShopping: () => void;
     confirmOrder: () => void; 
-    checkSelectedPayment: () => void; 
     increaseItemQty: (productItem: ProductModel) => void; 
     decreaseItemQty: (productItem: ProductModel) => void; 
     resetCart: () => void;

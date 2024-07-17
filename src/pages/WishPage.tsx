@@ -8,7 +8,7 @@ export default function WishPage() {
   return (
     <>
       <PageTitle title="WishList" />
-      <section className="py-6 shadow-md">
+      <section className="py-6">
         {wishList.length === 0 ? (
           <WishEmpty />
         ) : (

@@ -1,5 +1,5 @@
 import { Breadcrumbs, Button, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import EastIcon from "@mui/icons-material/East";
 import HouseOutlinedIcon from "@mui/icons-material/HouseOutlined";
 import { useCartStore } from "../store/cart";
@@ -8,9 +8,12 @@ import { useEffect } from "react";
 export default function OrderPlacedPage() {
   const { resetCart } = useCartStore();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       resetCart();
+      navigate("/", { replace: true });
     }, 3000);
 
     // Cleanup function to clear the

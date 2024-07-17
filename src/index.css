@@ -20,11 +20,11 @@
   @apply md:px-14 px-4 mx-auto lg:px-24;
 }
 .active-link {
-  @apply !border-b-primary border-b-2  !text-primary bg-slate-300 p-2;
+  @apply !border-b-primary border-b-2  !text-primary bg-[#E8E8E9] p-2;
 }
 
 .main__card:hover .card_img {
-  @apply !brightness-[0.3] !duration-700 z-[0];
+  @apply !brightness-[0.8] !duration-700 z-[0];
 }
 .main__card:hover .card__buttons {
   @apply flex;

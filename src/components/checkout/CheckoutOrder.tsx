@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
 import { useCartStore } from "../../store/cart";
 import EastIcon from "@mui/icons-material/East";
 import { Button } from "@mui/material";
 import React from "react";
 
 export default function CheckoutOrder() {
-  const { localStorageList, totalPrice, confirmOrder } = useCartStore();
+  const { localStorageList, totalPrice } = useCartStore();
 
   return (
     <section className="p-4 border rounded-md min-w-[270px]">
@@ -58,16 +57,8 @@ export default function CheckoutOrder() {
         <span className="font-bold text-xl">{(totalPrice - 5).toFixed(2)}</span>
       </div>
       <div className="pt-3">
-        <Button
-          variant="contained"
-          className={"w-full shadow-none !bg-secondary "}
-          onClick={() => {
-            confirmOrder();
-          }}
-        >
-          <Link className="text-white text-sm py-2" color="inherit" to="/orderPlaced">
-            Confirm Order <EastIcon />
-          </Link>
+        <Button variant="contained" className={"w-full shadow-none !bg-secondary "} type={"submit"}>
+          Confirm Order <EastIcon />
         </Button>
       </div>
     </section>

@@ -16,6 +16,7 @@ export default function CheckoutPage() {
         </Breadcrumbs>
       </section>
 
+      {/* <CheckoutForm /> */}
       <CheckoutForm />
       <section className="myContainer py-8 flex md:justify-between justify-center items-start gap-4 max-md:flex-wrap">
         {/* <CheckoutOrder /> */}
