@@ -62,7 +62,19 @@ export default function ProductContent(props: Props) {
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: "divider", minWidth: "130px", maxWidth: "130px" }}
+        sx={{
+          // borderRight: 1, borderColor: "divider",
+          minWidth: "130px",
+          maxWidth: "130px",
+          "& .Mui-selected": {
+            borderBottom: 2,
+            borderColor: "#FA8232",
+            color: "#000",
+          },
+          "& .MuiTabs-indicator": {
+            display: "none",
+          },
+        }}
       >
         <Tab label="Overview" {...a11yProps(0)} />
         <Tab label="Additional" {...a11yProps(1)} />

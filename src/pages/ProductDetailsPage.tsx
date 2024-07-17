@@ -2,23 +2,12 @@ import { Breadcrumbs, Rating, Typography } from "@mui/material";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useProductStore } from "../store/products";
 import { useEffect, useState } from "react";
-import XIcon from "@mui/icons-material/X";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import HandshakeIcon from "@mui/icons-material/Handshake";
-import PinterestIcon from "@mui/icons-material/Pinterest";
-import HeadphonesIcon from "@mui/icons-material/Headphones";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { successNotification } from "../components/notifications/notifications";
 import { CartDto } from "../components/types/cartDto";
 import { useWishStore } from "../store/wish";
 import { useCartStore } from "../store/cart";
 import { useAuthStore } from "../store/auth";
-import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
-import ProductDetailsBox from "./../components/box/productDetailsBox";
 import { GiPayMoney } from "react-icons/gi";
 import { AiOutlineProduct } from "react-icons/ai";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -27,6 +16,8 @@ import SimilarProducts from "./../components/products/similarProducts";
 import ProductContent from "../components/products/productContent";
 import Swal from "sweetalert2";
 import { Add, Remove } from "@mui/icons-material";
+import ProductDetailsLeftSide from "../components/productDetails/productDetailsLeftSide";
+import ProductDetailsBox from "../components/box/productDetailsBox";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -122,80 +113,8 @@ export default function ProductDetailsPage() {
       <section className="md:py-16 py-10  myContainer">
         <div className="container grid lg:grid-cols-6 grid-col-1 items-start md:gap-10">
           {/* PRODUCT IMAGE */}
-          <section className="col-span-2 rounded-lg">
-            <figure
-              className="col-span-1 p-4 rounded-lg"
-              style={{
-                filter: "brightness(0.8)",
-                backgroundColor: "#fff",
-              }}
-            >
-              <img src={item?.image} className="w-full" alt={item?.title} />
-            </figure>
 
-            <div className="mt-3">
-              <div className="text-capitalize text-gray-600 flex justify-start items-center py-3">
-                <span className="font-medium">Share:</span>
-                <div className="flex justify-between items-center  mx-2 gap-2">
-                  <a
-                    className="bg-sky-500 rounded-full p-1.5 flex justify-center items-center"
-                    href="https://twitter.com/"
-                  >
-                    <XIcon className=" text-white !text-xs" />
-                  </a>
-                  <a
-                    className="bg-blue-500 rounded-full p-1.5 flex justify-center items-center"
-                    href="https://www.facebook.com/"
-                  >
-                    <FacebookIcon className=" text-white !text-xs" />
-                  </a>
-                  <a
-                    className="bg-sky-700 rounded-full p-1.5 flex justify-center items-center"
-                    href="https://www.telegram.com/"
-                  >
-                    <TelegramIcon className=" text-white !text-xs" />
-                  </a>
-                  <a
-                    className="bg-green-600 rounded-full p-1.5 flex justify-center items-center"
-                    href="https://web.whatsapp.com/"
-                  >
-                    <WhatsAppIcon className=" text-white !text-xs" />
-                  </a>
-                  <a
-                    className="bg-red-600 rounded-full p-1.5 flex justify-center items-center"
-                    href="https://www.pinterest.com/"
-                  >
-                    <PinterestIcon className=" text-white !text-xs" />
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex justify-start gap- my-2">
-                <WorkspacePremiumIcon className="text-secondary" />
-                <p className="PS-1">One year warranty</p>
-              </div>
-
-              <div className="flex justify-start gap-1 my-2">
-                <LocalShippingIcon className="text-secondary" />
-                <p className="PS-1">Free and fast shipping</p>
-              </div>
-
-              <div className="flex justify-start gap-1 my-2">
-                <HandshakeIcon className="text-secondary" />
-                <p className="PS-1">Easily return Products</p>
-              </div>
-
-              <div className="flex justify-start gap-1 my-2">
-                <HeadphonesIcon className="text-secondary" />
-                <p className="PS-1">Continuous technical support</p>
-              </div>
-
-              <div className="flex justify-start gap-1 my-2">
-                <CreditCardIcon className="text-secondary" />
-                <p className="PS-1">Payment in many ways</p>
-              </div>
-            </div>
-          </section>
+          <ProductDetailsLeftSide item={item} />
 
           {/* PRODUCT DETAILS CONTENT */}
           <section className="col-span-3">
