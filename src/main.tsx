@@ -17,11 +17,14 @@ import RequireContinueShopping from "./Require-Auth/Require-continue.tsx";
 import CheckoutPage from "./pages/CheckoutPage.tsx";
 import RequireConfirmOrder from "./Require-Auth/Requir-confirm-order.tsx";
 import OrderPlacedPage from "./pages/OrderPlacedPage.tsx";
+import ErrorHandler from "./components/error/ErrorHandlesrs.tsx";
+import NotFoundPage from "./pages/NotFoundPage.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorHandler />,
     children: [
       {
         index: true,
@@ -93,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "products/category/:categoryName",
         element: <ProductsCategory />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },
