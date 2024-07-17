@@ -73,9 +73,14 @@ export const mustLogin = () => {
     showCloseButton: true,
     showCancelButton: true,
     focusConfirm: false,
-    confirmButtonText: "<a class= 'text-light' href='/login' >SIGN IN</a>",
+    confirmButtonText: "SIGN IN",
     confirmButtonAriaLabel: "Thumbs up, great!",
     cancelButtonText: "CONTINUE SHOPPING",
     cancelButtonAriaLabel: "Thumbs down",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // sendDelete(productId);
+      console.log("basle");
+    }
   });
 };

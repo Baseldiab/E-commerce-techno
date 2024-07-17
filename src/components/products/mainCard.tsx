@@ -2,24 +2,42 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { Box, Button, Rating } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useWishStore } from "../../store/wish";
 import { useCartStore } from "../../store/cart";
 import { useAuthStore } from "../../store/auth";
 import { ProductModel } from "../types/productModel";
 import { CartDto } from "../types/cartDto";
-import {
-  deleteModalNotification,
-  mustLogin,
-  successNotification,
-} from "../notifications/notifications";
+import { deleteModalNotification, successNotification } from "../notifications/notifications";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import Swal from "sweetalert2";
 
 export default function MainCard(props: ProductModel) {
   // STORE
   const { token } = useAuthStore();
   const { sendAddToWish, sendDeleteItemWish } = useWishStore();
   const { sendAddToCart } = useCartStore();
+
+  const navigate = useNavigate();
+
+  const mustLogin = () => {
+    Swal.fire({
+      title: "<strong>SIGN IN TO SYNC YOUR SAVED ITEMS ACROSS ALL YOUR DEVICES</strong>",
+      icon: "warning",
+      // timer: 1000,
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "SIGN IN",
+      confirmButtonAriaLabel: "Thumbs up, great!",
+      cancelButtonText: "CONTINUE SHOPPING",
+      cancelButtonAriaLabel: "Thumbs down",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/login", { replace: true });
+      }
+    });
+  };
 
   const handleAddToWish = () => {
     if (token !== "") {
@@ -29,14 +47,16 @@ export default function MainCard(props: ProductModel) {
   };
 
   const AddToCart = (item: ProductModel) => {
-    const payload: CartDto = {
-      userId: 2,
-      date: "2024-6-13",
-      products: [{ productId: item.id, quantity: 1 }],
-    };
+    if (token !== "") {
+      const payload: CartDto = {
+        userId: 2,
+        date: "2024-6-13",
+        products: [{ productId: item.id, quantity: 1 }],
+      };
 
-    sendAddToCart(payload, item);
-    successNotification("Added to cart successfully");
+      sendAddToCart(payload, item);
+      successNotification("Added to cart successfully");
+    } else mustLogin();
   };
 
   const handleDeleteItem = () => {

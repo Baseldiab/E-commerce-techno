@@ -118,7 +118,7 @@ export default function ProductPage() {
                   onChange={(e) => {
                     setSearchQuery(e.target.value);
 
-                    if (searchQuery === "") sendGetProductsList();
+                    if (e.target.value === "") sendGetProductsList();
                   }}
                   endAdornment={
                     <InputAdornment

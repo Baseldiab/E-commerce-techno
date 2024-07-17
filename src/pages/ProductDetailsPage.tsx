@@ -1,5 +1,5 @@
 import { Breadcrumbs, Rating, Typography } from "@mui/material";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useProductStore } from "../store/products";
 import { useEffect, useState } from "react";
 import XIcon from "@mui/icons-material/X";
@@ -12,7 +12,7 @@ import HeadphonesIcon from "@mui/icons-material/Headphones";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import { mustLogin, successNotification } from "../components/notifications/notifications";
+import { successNotification } from "../components/notifications/notifications";
 import { CartDto } from "../components/types/cartDto";
 import { useWishStore } from "../store/wish";
 import { useCartStore } from "../store/cart";
@@ -25,6 +25,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SimilarProducts from "./../components/products/similarProducts";
 import ProductContent from "../components/products/productContent";
+import Swal from "sweetalert2";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -52,6 +53,27 @@ export default function ProductDetailsPage() {
       sendGetCategoryProducts(item.category);
     }
   }, [item]);
+
+  const navigate = useNavigate();
+
+  const mustLogin = () => {
+    Swal.fire({
+      title: "<strong>SIGN IN TO SYNC YOUR SAVED ITEMS ACROSS ALL YOUR DEVICES</strong>",
+      icon: "warning",
+      // timer: 1000,
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "SIGN IN",
+      confirmButtonAriaLabel: "Thumbs up, great!",
+      cancelButtonText: "CONTINUE SHOPPING",
+      cancelButtonAriaLabel: "Thumbs down",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/login", { replace: true });
+      }
+    });
+  };
 
   const handleAddToWish = () => {
     //     const succesLogin = () => {

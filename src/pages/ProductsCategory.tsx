@@ -73,7 +73,7 @@ export default function ProductsCategory() {
                   type={"search"}
                   onChange={(e) => {
                     setSearchQuery(e.target.value);
-                    if (categoryName && searchQuery === "") {
+                    if (categoryName && e.target.value === "") {
                       sendGetCategoryProducts(categoryName.replace(/-/g, " "));
                     }
                   }}
