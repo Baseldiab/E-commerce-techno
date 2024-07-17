@@ -120,7 +120,7 @@ export const useCartStore = create<CartState>()(
       set({ isConfirmedOrder: true });
       const isConfirmed = get().isConfirmedOrder;
 
-  console.log(isConfirmed);
+  // console.log(isConfirmed);
 
       if (isConfirmed) {
         localStorage.removeItem("cart")
