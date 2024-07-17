@@ -14,7 +14,7 @@ export default function HomeShopNow() {
 
   return (
     <section id="homeShopNow" className="myContainer  py-8 bg-featuresBg">
-      <div className="flex md:justify-between justify-center max-md:flex-col items-start gap-6 ">
+      <div className="flex md:justify-between  !justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 gap-6 mx-auto">
         {/* PRODUCTS */}
         <div className="basis-2/3">
           <h2 className="font-bold md:text-xl text-lg pb-4">Shop Now</h2>

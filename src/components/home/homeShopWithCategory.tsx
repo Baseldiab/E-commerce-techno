@@ -23,10 +23,14 @@ export default function HomeShopWithCategory() {
     <section id={"homeShopWithCategory"} className="myContainer   py-8 bg-featuresBg">
       <h2 className="text-center font-bold md:text-xl text-lg pb-4">Shop with Category</h2>
 
-      <div className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 md:gap-6 gap-3">
+      <div className=" grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 myContainer md:gap-6 gap-3">
         {categories.map((item, index) => (
-          <Link key={`home-categories-${index + 1}`} to={`/products/category/${item}`}>
-            <figure className="bg-white py-2">
+          <Link
+            // className="max-w-[400px]"
+            key={`home-categories-${index + 1}`}
+            to={`/products/category/${item}`}
+          >
+            <figure className="bg-white py-2 lg:py-4">
               <img className="p-4 mx-auto" src={images[index]} alt={item} />
               <figcaption className="text-center mx-auto capitalize">{item}</figcaption>
             </figure>

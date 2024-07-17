@@ -2,7 +2,7 @@ export default function HomeBannerOne() {
   return (
     <section
       id="homeBannerOne"
-      className="myContainer max-md:flex-wrap flex md:justify-between justify-center items-center gap-4 pb-8"
+      className="myContainer max-md:flex-wrap flex  justify-center items-center gap-4 pb-8"
     >
       <figure
       //   className=""

@@ -122,7 +122,7 @@ export default function MainCard(props: ProductModel) {
       <div className={`card_content ${props.isWishPage ? "min-h-[175px]" : "min-h-fit"}`}>
         <div className="card_body text-start px-5 py-2 mx-auto">
           {/* RATING */}
-          <div className="flex justify-start items-center my-1">
+          <div className="flex justify-start items-center my-1 flex-wrap">
             <Rating name="read-only" value={props.rating.rate} readOnly />
             <span className="text-gray-500">{`(${props.rating.count})`}</span>
           </div>

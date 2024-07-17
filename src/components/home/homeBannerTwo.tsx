@@ -1,9 +1,6 @@
 export default function HomeBannerTwo() {
   return (
-    <section
-      id="HomeBannerTwo"
-      className="myContainer max-md:flex-wrap flex md:justify-between justify-center items-center gap-4 py-8"
-    >
+    <section id="HomeBannerTwo" className="myContainer flex  justify-center items-center py-8">
       <figure>
         <img
           //   className=""
