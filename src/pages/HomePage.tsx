@@ -26,6 +26,12 @@ export default function HomePage() {
 
   return (
     <>
+      {/* <Helmet>
+        <meta
+          name="description"
+          content="Discover a wide range of quality products at unbeatable prices. Shop now for the latest electronics, fashion, home goods, and more. Enjoy fast shipping and excellent customer service."
+        />
+      </Helmet> */}
       <HomeAds />
       <HomeFeatures />
       <HomeDeals />
