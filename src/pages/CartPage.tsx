@@ -17,12 +17,12 @@ export default function CartPage() {
   return (
     <>
       {/* <PageTitle title="Cart" /> */}
-      <section id="cartPage" className="py-8 myContainer">
+      <section id="cartPage" className="py-4 myContainer">
         {localStorageList.length === 0 ? (
           <CartEmpty />
         ) : (
           <>
-            <section className="py-4">
+            <section className="pb-4">
               <Breadcrumbs separator=">" aria-label="breadcrumb">
                 <Link className="border-b border-black" color="inherit" to="/">
                   Home

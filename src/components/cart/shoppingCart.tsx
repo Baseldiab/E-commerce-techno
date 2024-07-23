@@ -6,12 +6,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import { Button, TableFooter, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useCartStore } from "../../store/cart";
-import { Link } from "react-router-dom";
-import EastIcon from "@mui/icons-material/East";
+
 import { Add, Remove } from "@mui/icons-material";
+import { IoMdCloseCircle } from "react-icons/io";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -27,6 +26,9 @@ const StyledTableRow = styled(TableRow)(() => ({
   "&:last-child td, &:last-child th": {
     border: 0,
   },
+  "&:nth-of-type(odd)": {
+    // backgroundColor: "#dde8ef73",
+  },
 }));
 
 export default function ShoppingCart() {
@@ -34,7 +36,12 @@ export default function ShoppingCart() {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table
+        sx={{
+          minWidth: 700,
+        }}
+        aria-label="customized table"
+      >
         <TableHead className="bg-featuresBg">
           <TableRow>
             <StyledTableCell>Product</StyledTableCell>
@@ -43,20 +50,19 @@ export default function ShoppingCart() {
             <StyledTableCell>Total</StyledTableCell>
           </TableRow>
         </TableHead>
+
         <TableBody>
           {localStorageList.map((product) => (
             <StyledTableRow key={product.id}>
-              {/* ADD TO CART LIST */}
+              {/* DELETE CART ITEM AND IMG */}
               <StyledTableCell component="th" scope="row">
                 <div className="flex justify-start items-center gap-3">
                   <Button
-                    variant="contained"
-                    className={
-                      "!p-1 !rounded-full !bg-transparent shadow-none  !text-red-700 !min-w-[30px] "
-                    }
+                    // variant="contained"
+                    className={" !rounded-full bg-transparent !size-4 !min-w-10 !min-h-10 "}
                     onClick={() => sendDeleteItemCart(product.id)}
                   >
-                    <HighlightOffIcon />
+                    <IoMdCloseCircle className="!text-6xl font-bold text-black" />
                   </Button>
                   <img src={product.image} className="!max-w-[50px]" alt="product image" />
 
@@ -64,53 +70,39 @@ export default function ShoppingCart() {
                 </div>
               </StyledTableCell>
 
+              {/* PRICE */}
               <StyledTableCell>
                 <Typography color="text.primary" className="!font-bold text-base">
                   {Number(product.price).toFixed(2)}$
                 </Typography>
               </StyledTableCell>
 
+              {/* COUNTER */}
               <StyledTableCell>
-                {/* <input
-                  className="quantity-field !min-w-[20px] !p-2 border border-slate-500"
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  min="1"
-                  defaultValue={product.quantity}
-                  onChange={(e) => {
-                    const payload: CartDto = {
-                      userId: 2,
-                      date: "2024-6-13",
-                      products: [{ productId: product.id, quantity: Number(e.target.value) }],
-                    };
-                    sendUpdateCart(payload, product, Number(e.target.value));
-                  }}
-                /> */}
-                {/* COUNTER */}
-                <div className="flex items-center justify-between gap-2 min-h-[34px] border-background border-[.5px] rounded-sm  px-2 font-extrabold text-background">
-                  <span
-                    className=" cursor-pointer"
+                <div className="flex items-center justify-between my-2  md:h-[35px] h-[30px] border-background border-[.5px] md:!max-w-[70px] max-w-[80px] rounded-sm font-extrabold text-background">
+                  <button
+                    className=" cursor-pointer bg-slate-100 hover:bg-slate-300 !h-full col-span-1 px-0.5 !min-w-[20px]"
                     onClick={() => {
                       decreaseItemQty(product);
                       // sendUpdateCart(payload, product, qty as number);
                     }}
                   >
-                    <Remove />
-                  </span>
-                  <span className="min-w-[25px] text-lg text-center">{product.quantity}</span>
-                  <span
-                    className=" cursor-pointer"
+                    <Remove className="!text-sm" />
+                  </button>
+                  <span className="min-w-[30px] text-base text-center">{product.quantity}</span>
+                  <button
+                    className="cursor-pointer bg-slate-100 hover:bg-slate-300 !h-full col-span-1 px-0.5 !min-w-[20px]"
                     onClick={() => {
                       // sendUpdateCart(payload, product, qty as number);
                       increaseItemQty(product);
                     }}
                   >
-                    <Add />
-                  </span>
+                    <Add className="!text-base" />
+                  </button>
                 </div>
               </StyledTableCell>
 
+              {/* TOTAL OF ITEM PRICE  */}
               <StyledTableCell>
                 <Typography color="text.primary" className="!font-bold text-base">
                   {(Number(product.quantity) * Number(product.price)).toFixed(2)}$
@@ -119,18 +111,18 @@ export default function ShoppingCart() {
             </StyledTableRow>
           ))}
         </TableBody>
-        <TableFooter>
+
+        {/* <TableFooter className="border-t border-slate-300">
           <StyledTableCell>
             <Button variant="outlined">Update Cart</Button>
           </StyledTableCell>
           <StyledTableCell></StyledTableCell>
-          <StyledTableCell></StyledTableCell>
-          <StyledTableCell>
-            <Link className="text-sky-500 text-base" color="inherit" to="/products">
-              Continue shopping <EastIcon />
+          <StyledTableCell colSpan={2}>
+            <Link className="text-sky-500 text-sm !min-w-fit" color="inherit" to="/products">
+              Continue shopping <EastIcon className="!text-sm" />
             </Link>
           </StyledTableCell>
-        </TableFooter>
+        </TableFooter> */}
       </Table>
     </TableContainer>
   );
