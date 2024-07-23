@@ -3,12 +3,13 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
+// import FeaturedImage from "/images/home/home-features.svg";
 
 export default function HomeFeatures() {
   return (
     <section
       id="HomeFeatures"
-      className="myContainer grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 bg-featuresBg py-8"
+      className="myContainer grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4  bg-featuresBg py-8"
     >
       <HomeFeaturesBox
         icon={<CreditCardIcon className=" py-2 !text-6xl" />}

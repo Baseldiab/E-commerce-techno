@@ -17,14 +17,7 @@ import { RenderProduct } from "../components/global/renderProducts";
 
 export default function ProductPage() {
   //   STORE
-  const {
-    list,
-    categories,
-    sendGetProductsList,
-    sendGetCategoriesList,
-    sendGetCategoryProducts,
-    sendGetSearchList,
-  } = useProductStore();
+  const { list, sendGetProductsList, sendGetCategoriesList, sendGetSearchList } = useProductStore();
 
   // STATES
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -51,8 +44,8 @@ export default function ProductPage() {
       </section>
 
       <section className="md:pb-3 shadow-md">
-        <div className="myContainer grid lg:grid-cols-4 gap-5 items-start">
-          {/* SIDE FILTER */}
+        <div className="myContainer ">
+          {/* SIDE FILTER
           <div className="col-span-1 hidden lg:inline-block ">
             <h3 className="mb-2 font-bold text-xl">Categories</h3>
             <ul className="list-none">
@@ -76,9 +69,9 @@ export default function ProductPage() {
                 );
               })}
             </ul>
-          </div>
+          </div> */}
 
-          <section className="col-span-3">
+          <section className="">
             {/* PRODUCTS SEARCH */}
             <div className="select-category md:my-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5">
               <FormControl
