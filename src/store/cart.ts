@@ -69,15 +69,15 @@ export const useCartStore = create<CartState>()(
       const foundIndex = currentList.findIndex((item) => item.id === productItem.id);
       if (foundIndex !== -1) {
         currentList[foundIndex].quantity = qty;
-        set({
-          localStorageList: [...currentList],
-        });
       }else {
-        const productClone = { ...productItem, quantity: 1, idAddedToCart: true };
+        const productClone = { ...productItem, quantity: qty, idAddedToCart: true };
         currentList.push(productClone);
         
       }
       localStorage.setItem("cart", JSON.stringify(currentList));
+      set({
+        localStorageList: [...currentList],
+      });
     },
 
     increaseItemQty: async ( productItem: ProductModel) => {

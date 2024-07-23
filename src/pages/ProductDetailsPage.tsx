@@ -167,7 +167,9 @@ export default function ProductDetailsPage() {
                 className=" cursor-pointer bg-slate-100 hover:bg-slate-300 !h-full col-span-1 px-0.5"
                 onClick={() => {
                   // dispatch(decreaseQuantity(product.id));
-                  setQty(Number(qty) - 1);
+                  if (Number(qty) > 1) {
+                    setQty(Number(qty) - 1);
+                  }
                 }}
               >
                 <Remove />
