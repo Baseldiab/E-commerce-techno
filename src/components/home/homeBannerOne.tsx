@@ -2,20 +2,15 @@ export default function HomeBannerOne() {
   return (
     <section
       id="homeBannerOne"
-      className="myContainer max-md:flex-wrap flex  justify-center items-center gap-4 pb-8"
+      className="myContainer max-md:flex-wrap flex  justify-center items-center lg:gap-10 md:gap-4
+       pb-8"
     >
-      <figure
-      //   className=""
-      >
+      <figure className="w-fit">
         <img src="/images/home/Banner(1)-1.png" alt="gradient background cyber monday sales" />
       </figure>
 
       <figure>
-        <img
-          //   className=""
-          src="/images/home/Banner(2)-1.png"
-          alt="banner-e-commerce1"
-        />
+        <img className="w-fit" src="/images/home/Banner(2)-1.png" alt="banner-e-commerce1" />
       </figure>
     </section>
   );

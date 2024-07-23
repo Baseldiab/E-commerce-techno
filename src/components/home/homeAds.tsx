@@ -2,7 +2,7 @@ export default function HomeAds() {
   return (
     <header
       id="homeAds"
-      className="myContainer max-md:flex-wrap flex  justify-center items-center gap-4 my-8"
+      className="myContainer max-md:flex-wrap flex  justify-center items-center gap-6 my-8"
     >
       <figure
       //   className=""
@@ -13,7 +13,7 @@ export default function HomeAds() {
         />
       </figure>
 
-      <figure className="flex flex-col justify-between items-center gap-4">
+      <figure className="flex flex-col justify-between items-center gap-5">
         <img
           //   className="order-first"
           src="/images/home/pngtree-ecommerce-banner-planning-segmentation-selection-image_1316202 1.png"

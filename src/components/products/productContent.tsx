@@ -27,12 +27,12 @@ function TabPanel(props: TabPanelProps) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
       {value === index && (
-        <Box className="!min-w-2/3" sx={{ p: 3 }}>
+        <Box className="!min-w-2/3 px-1">
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -43,7 +43,7 @@ function TabPanel(props: TabPanelProps) {
 function a11yProps(index: number) {
   return {
     id: `vertical-tab-${index}`,
-    "aria-controls": `vertical-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
@@ -55,21 +55,24 @@ export default function ProductContent(props: Props) {
   };
 
   return (
-    <Box className="py-5" sx={{ flexGrow: 1, bgcolor: "background.paper", display: "flex" }}>
+    <Box className=" py-5 md:my-6 my-4 bg-gray-100 myContainer min-h-52">
       <Tabs
-        orientation="vertical"
+        orientation="horizontal"
         variant="scrollable"
         value={value}
         onChange={handleChange}
-        aria-label="Vertical tabs example"
+        centered
         sx={{
           // borderRight: 1, borderColor: "divider",
-          minWidth: "130px",
-          maxWidth: "130px",
+          // minWidth: "130px",
+          // maxWidth: "130px",
+          marginBottom: 2,
+          padding: 0,
+
           "& .Mui-selected": {
             borderBottom: 2,
             borderColor: "#FA8232",
-            color: "#000",
+            color: "#FA8232",
           },
           "& .MuiTabs-indicator": {
             display: "none",
@@ -79,30 +82,33 @@ export default function ProductContent(props: Props) {
         <Tab label="Overview" {...a11yProps(0)} />
         <Tab label="Additional" {...a11yProps(1)} />
         <Tab label="Specifications" {...a11yProps(2)} />
-        <Tab label="Rating" {...a11yProps(3)} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <h5 className="mb-1 font-semibold">Description</h5>
-        {props.description}
+        <p className="text-gray-500">{props.description}</p>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <h5 className="mb-1 font-semibold">Title</h5>
-        <p className="singleProduct__name text-capitalize">{props.title}</p>
+        <div className="flex justify-start gap-1 max-md:my-1">
+          <h5 className="mb-1 font-semibold">Title :</h5>
+          <p className="singleProduct__name text-capitalize text-gray-500">{props.title}</p>
+        </div>
+        <div className="flex justify-start flex-wrap items-center md:gap-1 max-md:my-1">
+          <h5 className="mb-1 font-semibold">Rating :</h5>
+          <p className="text-capitalize text-gray-500 flex items-center gap-1">
+            <Rating name="read-only" value={props.rating.rate} readOnly />
+            <span>{props.rating.rate}</span>
+            <span>{`(${props.rating.count} reviews)`}</span>
+          </p>
+        </div>
+        {/* AVAILABILITY */}
+        <div className="flex justify-start gap-1 max-md:my-1">
+          <h5 className="mb-1 font-semibold">Availability :</h5>
+          <p className=" text-gray-600">In Stock</p>
+        </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <h5 className="mb-1 font-semibold">Description</h5>
-        {props.description}
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        {/* RATING */}
-        <h5 className="mb-1 font-semibold">Rating</h5>
-
-        <Rating name="read-only" value={props.rating.rate} readOnly />
-
-        <div className="flex justify-start items-center my-1">
-          <span className="text-gray-900 font-bold me-0.5">{`${props.rating.rate} overall rate `}</span>
-          <span className="text-gray-500">{` (${props.rating.count} Reviews)`}</span>
-        </div>
+        <h5 className="mb-1 font-semibold">Specifications</h5>
+        <p className="text-gray-500">{props.description}</p>
       </TabPanel>
     </Box>
   );

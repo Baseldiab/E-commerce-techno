@@ -51,7 +51,7 @@ export default function MainCard(props: ProductModel) {
       const payload: CartDto = {
         userId: 2,
         date: "2024-6-13",
-        products: [{ productId: item.id, quantity: 1 }],
+        products: [{ productId: item.id as string | number, quantity: 1 }],
       };
 
       sendAddToCart(payload, item);
@@ -60,14 +60,18 @@ export default function MainCard(props: ProductModel) {
   };
 
   const handleDeleteItem = () => {
-    deleteModalNotification(sendDeleteItemWish, props.id);
+    if (props.id) {
+      deleteModalNotification(sendDeleteItemWish, props.id);
+    }
   };
 
   //   };
 
   return (
     <Box
-      className={"main__card rounded-md relative h-full my-0 border hover:shadow-lg"}
+      className={
+        "main__card rounded-md relative h-full my-0 border hover:shadow-lg max-sm:w-[250px]"
+      }
       sx={{
         backgroundColor: "#fff",
         display: "flex",
@@ -123,8 +127,8 @@ export default function MainCard(props: ProductModel) {
         <div className="card_body text-start px-5 py-2 mx-auto">
           {/* RATING */}
           <div className="flex justify-start items-center my-1 flex-wrap">
-            <Rating name="read-only" value={props.rating.rate} readOnly />
-            <span className="text-gray-500">{`(${props.rating.count})`}</span>
+            <Rating name="read-only" value={props.rating ? props.rating.rate : 4.5} readOnly />
+            <span className="text-gray-500">{`(${props.rating ? props?.rating.count : 137})`}</span>
           </div>
 
           {/* TITLE */}

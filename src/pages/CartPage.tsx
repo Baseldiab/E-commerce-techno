@@ -8,15 +8,11 @@ import ShoppingCart from "../components/cart/shoppingCart";
 import SubtotalCart from "../components/cart/subtotalCart";
 
 export default function CartPage() {
-  const { localStorageList, sendGetList, calculateTotalPrice } = useCartStore();
+  const { localStorageList, sendGetList } = useCartStore();
 
   useEffect(() => {
     sendGetList();
   }, []);
-
-  useEffect(() => {
-    calculateTotalPrice();
-  }, [localStorageList]);
 
   return (
     <>

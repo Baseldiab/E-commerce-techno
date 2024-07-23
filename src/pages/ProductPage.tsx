@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
+import SwiperSlider from "../components/swipers/swiper.slider";
+import { RenderProduct } from "../components/global/renderProducts";
 
 export default function ProductPage() {
   //   STORE
@@ -48,14 +50,16 @@ export default function ProductPage() {
         </Breadcrumbs>
       </section>
 
-      <section className="py-3 shadow-md">
+      <section className="md:pb-3 shadow-md">
         <div className="myContainer grid lg:grid-cols-4 gap-5 items-start">
           {/* SIDE FILTER */}
           <div className="col-span-1 hidden lg:inline-block ">
             <h3 className="mb-2 font-bold text-xl">Categories</h3>
             <ul className="list-none">
               <li
-                className="cursor-pointer d-flex justify-between text-capitalize my-1 font-medium items-center"
+                className="cursor-pointer d-flex justify-between text-capitalize my-1
+                
+            font-medium items-center"
                 onClick={sendGetProductsList}
               >
                 All
@@ -76,7 +80,7 @@ export default function ProductPage() {
 
           <section className="col-span-3">
             {/* PRODUCTS SEARCH */}
-            <div className="select-category my-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start gap-5">
+            <div className="select-category md:my-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5">
               <FormControl
                 className="md:!w-64"
                 size="small"
@@ -134,7 +138,7 @@ export default function ProductPage() {
             </figure>
 
             {/* PRODUCTS */}
-            <div className="mb-3 gap-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
+            <div className="max-md:hidden mb-3 gap-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
               {list.map((product) => {
                 return (
                   <div key={product.id}>
@@ -154,6 +158,7 @@ export default function ProductPage() {
             </div>
           </section>
         </div>
+        <SwiperSlider sectionTitle={"all-products"} products={list} renderProduct={RenderProduct} />
       </section>
     </>
   );

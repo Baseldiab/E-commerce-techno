@@ -1,52 +1,59 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuthStore } from "../../../store/auth";
 import { TbShoppingCartDiscount } from "react-icons/tb";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useWishStore } from "../../../store/wish";
 import { useCartStore } from "../../../store/cart";
-import DropdownNavbar from "./dropdownNavbar";
+// import DropdownNavbar from "./dropdownNavbar";
+import NavbarRoutes from "./navbarRoutes";
+import { useEffect } from "react";
 
 export default function MainNavbar() {
-  const location = useLocation();
+  // const location = useLocation();
 
   // STORE
   const { token, logout } = useAuthStore();
   const { wishList } = useWishStore();
-  const { localStorageList } = useCartStore();
-
-  const categories = ["electronics", "jewelery", "men's clothing", "women's clothing"];
+  const { localStorageList, totalPrice, calculateTotalPrice } = useCartStore();
 
   // FUNCTION TO DETERMINE IF A LINK SHOULD BE ACTIVE
-  const isLinkActive = (linkPath: string) => {
-    return location.pathname === linkPath;
-  };
+  // const isLinkActive = (linkPath: string) => {
+  //   return location.pathname === linkPath;
+  // };
+
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [localStorageList]);
 
   return (
     <>
       <div className="bg-primary py-3 text-white">
-        <div className="myContainer flex justify-between items-center">
+        <div className="myContainer flex justify-between items-center relative">
           <Link to={"/"}>
             <img src="/images/Logo.svg" className="md:w-36 w-28 min-w-[28] md:h-auto" alt="" />
           </Link>
+
+          <NavbarRoutes />
+
           <div className="flex justify-between items-center">
             {token === "" ? (
               <Link
                 to={"login"}
-                className={`md:mx-3 mx-2 md:text-md sm:text-sm text-xs py-1 uppercase font-medium text-white hover:text-slate-300`}
+                className={`lg:mx-3 md:mx-2 mx-1 sm:text-sm text-xs py-1 uppercase font-medium text-white hover:text-slate-300`}
               >
                 login
               </Link>
             ) : (
               <Link
                 to={"#"}
-                className={`md:mx-3 mx-2 md:text-md sm:text-sm text-xs py-1 uppercase font-medium text-white hover:text-slate-300`}
+                className={`lg:mx-3 md:mx-2 mx-1 sm:text-sm text-xs py-1 uppercase font-medium text-white hover:text-slate-300`}
                 onClick={() => logout()}
               >
                 Logout
               </Link>
             )}
 
-            <Link to={"wish"} className={`md:mx-3 mx-2 py-1 text-white hover:text-slate-300`}>
+            <Link to={"wish"} className={`md:me-2 me-2 py-1 text-white hover:text-slate-300`}>
               <div className="main-nav__badge relative">
                 <FavoriteIcon className={` md:!text-3xl !text-2xl  py-1`} />
                 {token !== "" && (
@@ -62,49 +69,60 @@ export default function MainNavbar() {
               <div className="main-nav__badge flex justify-center items-end relative">
                 <TbShoppingCartDiscount className={` md:!text-3xl !text-2xl py-1`} />
                 {token !== "" && (
-                  <span className="main-nav__number main-nav__wish-number text-xs absolute top-[-5px] right-[-4px] font-medium">
-                    {localStorageList.length}
-                  </span>
+                  <>
+                    <span className="main-nav__number main-nav__wish-number text-xs absolute top-[-5px] right-[-4px] font-medium md:hidden">
+                      {localStorageList.length}
+                    </span>
+                    <span className="text-slate-300 text-sm max-md:hidden">
+                      {localStorageList.length}
+                    </span>
+                    <span className="text-slate-300 max-md:hidden mx-0.5">/</span>
+                    <span className="text-slate-300 text-sm max-md:hidden">${totalPrice}</span>
+                  </>
                 )}
               </div>
             </Link>
           </div>
         </div>
       </div>
-
-      {/* BOTTOM NAVBAR (HOME, PRODUCTS AND CATEGORIES) */}
-      <div className=" flex justify-center flex-wrap items-center md:py-4 py-2 border-b border-slate-400">
-        <Link
-          to={"/"}
-          className={`  md:text-base text-sm uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] !p-2 ${
-            isLinkActive("/") ? "active-link" : ""
-          }`}
-        >
-          home
-        </Link>
-        <Link
-          to={"products"}
-          className={`  md:text-base text-sm  uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] !p-2 ${
-            isLinkActive("/products") ? "active-link" : ""
-          }`}
-        >
-          products
-        </Link>
-
-        <DropdownNavbar />
-
-        {categories.map((item, index) => (
-          <Link
-            key={`categories-${index + 1}`}
-            to={`/products/category/${item}`}
-            className={` md:text-base text-sm  uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] p-2 ${
-              isLinkActive(`/products/category/${encodeURIComponent(item)}`) ? "active-link" : ""
-            }`}
-          >
-            {item}
-          </Link>
-        ))}
-      </div>
     </>
   );
 }
+
+{
+  /* BOTTOM NAVBAR (HOME, PRODUCTS AND CATEGORIES) */
+}
+{
+  /* <div className=" flex justify-center flex-wrap items-center md:py-4 py-2 border-b border-slate-400">
+  <Link
+    to={"/"}
+    className={`  md:text-base text-sm uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] !p-2 ${
+      isLinkActive("/") ? "active-link" : ""
+    }`}
+  >
+    home
+  </Link>
+  <Link
+    to={"products"}
+    className={`  md:text-base text-sm  uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] !p-2 ${
+      isLinkActive("/products") ? "active-link" : ""
+    }`}
+  >
+    products
+  </Link>
+
+  {/* <DropdownNavbar /> */
+}
+
+//   {categories.map((item, index) => (
+//     <Link
+//       key={`categories-${index + 1}`}
+//       to={`/products/category/${item}`}
+//       className={` md:text-base text-sm  uppercase font-medium text-primary hover:text-sky-700 hover:!bg-[#E8E8E9] p-2 ${
+//         isLinkActive(`/products/category/${encodeURIComponent(item)}`) ? "active-link" : ""
+//       }`}
+//     >
+//       {item}
+//     </Link>
+//   ))}
+// </div>

@@ -11,7 +11,7 @@ export const useCartStore = create<CartState>()(
   devtools((set, get) => ({
     cartList: [],
     localStorageList: JSON.parse(localStorage.getItem("cart") ?? '[]') ,
-    totalPrice: 0,
+    totalPrice: 0.00,
     isContinuing: false,
     isConfirmedOrder: false,
     sendGetList: async () => {

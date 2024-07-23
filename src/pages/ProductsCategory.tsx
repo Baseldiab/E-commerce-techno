@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Loading from "../components/Loading";
+import SwiperSlider from "../components/swipers/swiper.slider";
+import { RenderProduct } from "../components/global/renderProducts";
 
 export default function ProductsCategory() {
   const { categoryName } = useParams();
@@ -54,8 +56,8 @@ export default function ProductsCategory() {
             </Breadcrumbs>
           </section>
 
-          <section className="col-span-3 py-3 myContainer">
-            <div className="select-category flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start gap-5">
+          <section className="col-span-3 pb-3 myContainer">
+            <div className="select-category flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5">
               <FormControl
                 size="small"
                 className="md:!w-64"
@@ -88,12 +90,12 @@ export default function ProductsCategory() {
                 />
               </FormControl>
 
-              <h5 className="right-side__head my-1 text-primary font-medium text-base">
+              <h5 className="right-side__head mt-2 text-primary font-medium text-base">
                 {list.length} product{list.length !== 1 ? "s" : ""} found
               </h5>
             </div>
 
-            <figure className="my-3">
+            <figure className="mb-4 mt-2">
               <img
                 className="min-w-full"
                 src="/images/products-ads.png"
@@ -101,8 +103,8 @@ export default function ProductsCategory() {
               />
             </figure>
 
-            <div className="my-3 gap-5 grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
-              {list.slice(0, 8).map((product) => {
+            <div className="my-3 max-md:hidden gap-5 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
+              {list.slice(0, 4).map((product) => {
                 return (
                   <div key={product.id}>
                     <MainCard
@@ -117,8 +119,13 @@ export default function ProductsCategory() {
                   </div>
                 );
               })}
-              {/* <MainCard /> */}
             </div>
+
+            <SwiperSlider
+              sectionTitle={"all-products"}
+              products={list}
+              renderProduct={RenderProduct}
+            />
           </section>
         </>
       )}

@@ -46,13 +46,13 @@ const ErrorHandler = ({ statusCode = 500, title = "Server Error" }: IProps) => {
         </p>
         <div className="flex items-center justify-center space-x-4 my-10">
           <Button variant="contained" className={"w-full shadow-none !bg-secondary "}>
-            <Link className="text-white text-sm py-1" color="inherit" to={pathname}>
+            <Link className="text-white text-sm  max-sm:text-xs py-1" color="inherit" to={pathname}>
               Refresh <RefreshIcon />
             </Link>
           </Button>
 
           <Button variant="outlined" className={"w-full shadow-none !border-secondary"}>
-            <Link className="text-secondary text-sm py-1" to="/">
+            <Link className="text-secondary text-sm max-sm:text-xs py-1" to="/">
               Go to home <HouseOutlinedIcon />
             </Link>
           </Button>

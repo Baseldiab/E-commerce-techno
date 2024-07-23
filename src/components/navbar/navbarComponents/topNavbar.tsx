@@ -19,13 +19,13 @@ export default function TopNavbar() {
         </div>
 
         <div className="flex justify-start items-center">
-          <span className="text-sm">Follow us :</span>
-          <div className="flex justify-between items-center gap-2 ms-1">
-            <FaXTwitter className="text-xs" />
-            <FaFacebook className="text-xs" />
-            <FaPinterestP className="text-xs" />
+          {/* <span className="text-sm">Follow us :</span> */}
+          <div className="flex justify-between items-center gap-4">
+            <FaXTwitter className="text-sm" />
+            <FaFacebook className="text-sm" />
+            <FaPinterestP className="text-sm" />
             <FaYoutube />
-            <FaSquareInstagram className="text-xs" />
+            <FaSquareInstagram className="text-sm" />
           </div>
         </div>
       </div>
