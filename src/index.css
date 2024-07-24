@@ -20,7 +20,7 @@
   @apply md:px-16 px-4 mx-auto lg:px-24 xl:px-32;
 }
 .active-link {
-  @apply !border-b-white border-b-2  !text-white;
+  @apply !border-b-black border-b-2  !text-black;
 }
 
 .main__card:hover .card_img {

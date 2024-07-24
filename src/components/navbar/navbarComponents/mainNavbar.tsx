@@ -27,10 +27,10 @@ export default function MainNavbar() {
 
   return (
     <>
-      <div className="bg-primary py-3 text-white">
+      <div className="bg-transparent py-3 text-white shadow-md">
         <div className="myContainer flex justify-between items-center relative">
           <Link to={"/"}>
-            <img src="/images/Logo.svg" className="md:w-36 w-28 min-w-[28] md:h-auto" alt="" />
+            <img src="/images/logo.png" className="md:w-36 w-28 min-w-[28] md:h-auto" alt="" />
           </Link>
 
           <NavbarRoutes />
@@ -39,21 +39,21 @@ export default function MainNavbar() {
             {token === "" ? (
               <Link
                 to={"login"}
-                className={`lg:mx-3 md:mx-2 mx-1 sm:text-sm text-xs py-1 uppercase font-medium text-white hover:text-slate-300`}
+                className={`lg:mx-3 md:mx-2 mx-1 sm:text-sm text-xs py-1 uppercase font-medium text-gray-500 hover:text-black`}
               >
                 login
               </Link>
             ) : (
               <Link
                 to={"#"}
-                className={`lg:mx-3 md:mx-2 mx-1 sm:text-sm text-xs py-1 uppercase font-medium text-white hover:text-slate-300`}
+                className={`lg:mx-3 md:mx-2 mx-1 sm:text-sm text-xs py-1 uppercase font-medium text-gray-500 hover:text-black`}
                 onClick={() => logout()}
               >
                 Logout
               </Link>
             )}
 
-            <Link to={"wish"} className={`md:me-2 me-2 py-1 text-white hover:text-slate-300`}>
+            <Link to={"wish"} className={`md:me-2 me-2 py-1 text-gray-500 hover:text-black`}>
               <div className="main-nav__badge relative">
                 <FavoriteIcon className={` md:!text-3xl !text-2xl  py-1`} />
                 {token !== "" && (
@@ -65,7 +65,7 @@ export default function MainNavbar() {
               </div>
             </Link>
 
-            <Link to={"cart"} className={`py-1 text-white hover:text-slate-300}`}>
+            <Link to={"cart"} className={`py-1 text-gray-500 hover:!text-black}`}>
               <div className="main-nav__badge flex justify-center items-end relative">
                 <TbShoppingCartDiscount className={` md:!text-3xl !text-2xl py-1`} />
                 {token !== "" && (
@@ -73,11 +73,15 @@ export default function MainNavbar() {
                     <span className="main-nav__number main-nav__wish-number text-xs absolute top-[-5px] right-[-4px] font-medium md:hidden">
                       {localStorageList.length}
                     </span>
-                    <span className="text-slate-300 text-sm max-md:hidden">
+                    <span className="text-gray-500 hover:text-black text-sm max-md:hidden font-semibold">
                       {localStorageList.length}
                     </span>
-                    <span className="text-slate-300 max-md:hidden mx-0.5">/</span>
-                    <span className="text-slate-300 text-sm max-md:hidden">${totalPrice}</span>
+                    <span className="text-gray-500 hover:text-black max-md:hidden mx-0.5 font-semibold">
+                      /
+                    </span>
+                    <span className="text-gray-500 hover:text-black text-sm max-md:hidden font-semibold">
+                      ${totalPrice}
+                    </span>
                   </>
                 )}
               </div>
