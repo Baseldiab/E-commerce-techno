@@ -1,3 +1,4 @@
+import { errorNotification } from "../../notifications/notifications";
 import { UserForm } from "../../types/userForm";
 import { LOGIN } from "../constants";
 
@@ -17,6 +18,8 @@ import { LOGIN } from "../constants";
             return body;
         } catch (e) {
             console.log(e);
+    errorNotification("Bad Request");
+
             return {
                 data: {},
             };

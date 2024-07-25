@@ -18,6 +18,7 @@
 import { CATEGORY_PRODUCTS } from '../constants';
 import { getCachedData, setCachedData } from '../cashingUtility';
 import { ProductModel } from '../../types/productModel';
+import { errorNotification } from '../../notifications/notifications';
 
 export const get_category_products = async (categoryName: string): Promise<ProductModel[]> => {
   const cacheKey = `categoryProducts_${categoryName}`;
@@ -39,6 +40,8 @@ export const get_category_products = async (categoryName: string): Promise<Produ
     return body;
   } catch (e) {
     console.log(e);
+    errorNotification("Bad Request");
+
     return [];
   }
 };

@@ -1,5 +1,6 @@
 // ADD_NEW_PRODUCT
 
+import { errorNotification } from "../../notifications/notifications";
 import { ProductDto } from "../../types/productDto";
 import { ADD_NEW_PRODUCT } from "../constants";
 
@@ -19,6 +20,8 @@ import { ADD_NEW_PRODUCT } from "../constants";
             return body;
         } catch (e) {
             console.log(e);
+    errorNotification("Bad Request");
+
             return {
                 data: {},
             };

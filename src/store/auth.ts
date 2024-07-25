@@ -17,7 +17,6 @@ export const useAuthStore = create(
         
             sendLogin: async (v: UserForm) => {
               const response = await LoginForm(v);
-              console.log(response)
             
             if (response && response.token) {
               localStorage.setItem("username", v.username);

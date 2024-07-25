@@ -1,3 +1,4 @@
+import { errorNotification } from "../../notifications/notifications";
 import { GET_USER_CARTS } from "../constants";
 
 export async function get_user_carts() {
@@ -9,6 +10,8 @@ export async function get_user_carts() {
         return body;
     } catch (e) {
         console.log(e);
+    errorNotification("Bad Request");
+
         return {
             data: {},
         };

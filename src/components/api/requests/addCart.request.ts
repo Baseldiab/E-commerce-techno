@@ -1,5 +1,6 @@
 // ADD_NEW_CART
 
+import { errorNotification } from "../../notifications/notifications";
 import { CartDto } from "../../types/cartDto";
 import { ADD_NEW_CART } from "../constants";
 
@@ -19,6 +20,8 @@ import { ADD_NEW_CART } from "../constants";
             return body;
         } catch (e) {
             console.log(e);
+    errorNotification("Bad Request")
+
             return {
                 data: {},
             };

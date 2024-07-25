@@ -17,6 +17,7 @@
 
 import { CATEGORIES } from '../constants';
 import { getCachedData, setCachedData } from '../cashingUtility';
+import { errorNotification } from '../../notifications/notifications';
 
 export const get_all_categories = async (): Promise<string[]> => {
   const cacheKey = 'allCategories';
@@ -38,6 +39,8 @@ export const get_all_categories = async (): Promise<string[]> => {
     return body;
   } catch (e) {
     console.log(e);
+    errorNotification("Bad Request");
+
     return [];
   }
 };

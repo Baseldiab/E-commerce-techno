@@ -23,6 +23,7 @@ import { ALL_PRODUCTS } from '../constants';
 // import { getCachedData, setCachedData } from './cache';
 import { ProductModel } from '../../types/productModel';
 import { getCachedData, setCachedData } from '../cashingUtility';
+import { errorNotification } from '../../notifications/notifications';
 
 export const get_all_products = async (): Promise<ProductModel[]> => {
   const cacheKey = 'allProducts';
@@ -44,6 +45,7 @@ export const get_all_products = async (): Promise<ProductModel[]> => {
     return body;
   } catch (e) {
     console.log(e);
+    errorNotification("Bad Request")
     return [];
   }
 };

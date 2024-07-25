@@ -1,5 +1,6 @@
 // DELETE_USER_CARTS
 
+import { errorNotification } from "../../notifications/notifications";
 import { DELETE_USER_CARTS } from "../constants";
 
     export async function delete_cart( cartId: string | number) {
@@ -14,6 +15,8 @@ import { DELETE_USER_CARTS } from "../constants";
             return body;
         } catch (e) {
             console.log(e);
+    errorNotification("Bad Request");
+
             return {
                 data: {},
             };

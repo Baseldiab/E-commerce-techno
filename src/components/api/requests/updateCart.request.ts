@@ -1,5 +1,6 @@
 // UPDATE_USER_CARTS
 
+import { errorNotification } from "../../notifications/notifications";
 import { CartDto } from "../../types/cartDto";
 import { UPDATE_USER_CARTS } from "../constants";
 
@@ -19,6 +20,8 @@ import { UPDATE_USER_CARTS } from "../constants";
             return body;
         } catch (e) {
             console.log(e);
+    errorNotification("Bad Request");
+
             return {
                 data: {},
             };
