@@ -1,31 +1,12 @@
-
-// import { ALL_PRODUCTS } from "../constants";
-
-//     export async function get_all_products() {
-//         try {
-//             const response = await fetch(ALL_PRODUCTS, { cache: "no-cache" });
-            
-//             if (!response.ok) {
-//                 throw new Error('Error fetching products');
-//             }
-
-//             const body = await response.json();
-//             return body;
-//         } catch (e) {
-//             console.log(e);
-//             return {
-//                 data: {},
-//             };
-//         }
-//     }
-
 import { ALL_PRODUCTS } from '../constants';
-// import { getCachedData, setCachedData } from './cache';
 import { ProductModel } from '../../types/productModel';
 import { getCachedData, setCachedData } from '../cashingUtility';
 import { errorNotification } from '../../notifications/notifications';
+import { useGlobalStore } from '../../../store/global';
 
 export const get_all_products = async (): Promise<ProductModel[]> => {
+  const { setLoading } = useGlobalStore.getState(); 
+  
   const cacheKey = 'allProducts';
   const cachedData = getCachedData<ProductModel[]>(cacheKey);
 
@@ -34,6 +15,7 @@ export const get_all_products = async (): Promise<ProductModel[]> => {
   }
 
   try {
+    setLoading(true);
     const response = await fetch(ALL_PRODUCTS, { cache: 'no-cache' });
 
     if (!response.ok) {
@@ -45,7 +27,9 @@ export const get_all_products = async (): Promise<ProductModel[]> => {
     return body;
   } catch (e) {
     console.log(e);
-    errorNotification("Bad Request")
+    errorNotification("Bad Request");
     return [];
+  } finally {
+    setLoading(false); // Set loading to false after fetching data
   }
 };

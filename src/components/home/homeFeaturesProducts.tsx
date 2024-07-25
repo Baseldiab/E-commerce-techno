@@ -24,7 +24,7 @@ export default function HomeFeaturesProducts() {
 
         {/* PRODUCTS */}
         <div className="flex-grow">
-          <h2 className="font-bold text-lg  lg:text-3xl md:text-2xl pb-4 max-md:hidden">
+          <h2 className="font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl pb-4 max-md:hidden">
             Suggested products
           </h2>
           {/* <SwiperProducts list={list.slice(8, 14)} /> */}

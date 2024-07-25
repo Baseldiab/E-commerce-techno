@@ -20,8 +20,11 @@ import { SINGLE_PRODUCT } from '../constants';
 import { getCachedData, setCachedData } from '../cashingUtility';
 import { ProductModel } from '../../types/productModel';
 import { errorNotification } from '../../notifications/notifications';
+import { useGlobalStore } from '../../../store/global';
 
 export const get_single_product = async (productId: string | number): Promise<ProductModel | null> => {
+  const { setLoading } = useGlobalStore.getState(); 
+
   const cacheKey = `singleProduct_${productId}`;
   const cachedData = getCachedData<ProductModel>(cacheKey);
 
@@ -30,6 +33,8 @@ export const get_single_product = async (productId: string | number): Promise<Pr
   }
 
   try {
+    setLoading(true);
+
     const response = await fetch(SINGLE_PRODUCT(productId), { cache: 'no-cache' });
 
     if (!response.ok) {
@@ -44,5 +49,7 @@ export const get_single_product = async (productId: string | number): Promise<Pr
     errorNotification("Bad Request");
 
     return null;
+  }finally {
+    setLoading(false); // Set loading to false after fetching data
   }
 };

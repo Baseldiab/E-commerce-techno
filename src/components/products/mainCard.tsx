@@ -11,12 +11,14 @@ import { CartDto } from "../types/cartDto";
 import { deleteModalNotification, successNotification } from "../notifications/notifications";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Swal from "sweetalert2";
+import { useGlobalStore } from "../../store/global";
 
 export default function MainCard(props: ProductModel) {
   // STORE
   const { token } = useAuthStore();
   const { sendAddToWish, sendDeleteItemWish } = useWishStore();
   const { sendAddToCart } = useCartStore();
+  const { loadingActions } = useGlobalStore();
 
   const navigate = useNavigate();
 
@@ -69,7 +71,7 @@ export default function MainCard(props: ProductModel) {
 
   return (
     <Box
-      className="main__card rounded-md relative h-full my-0 border hover:shadow-lg max-sm:w-[250px] overflow-hidden"
+      className="main__card rounded-md relative h-full my-0 border hover:shadow-lg max-sm:w-[250px] "
       sx={{
         backgroundColor: "#fff",
         display: "flex",
@@ -79,14 +81,14 @@ export default function MainCard(props: ProductModel) {
     >
       {/* IMAGE */}
       <figure
-        className="card_img !overflow-hidden rounded-t-md p-4 relative"
+        className="card_img rounded-t-md p-4 relative"
         style={{
           backgroundColor: "#fff",
         }}
       >
         <Link className="card__img-link img-container !w-full !h-full" to={`/products/${props.id}`}>
           <img
-            className="card__img-image block rounded-t-md mx-auto w-auto max-w-[100%] h-[250px] object-cover"
+            className="card__img-image block rounded-t-md mx-auto w-auto max-w-full h-[250px]"
             src={props.image}
             alt={props.title}
           />
@@ -97,6 +99,7 @@ export default function MainCard(props: ProductModel) {
       <div className="card__buttons hidden  justify-center items-center z-50 !absolute top-[7rem] translate-y-1/2 translate-x-1/2 right-1/2 gap-2">
         {/* ADD TO WISH LIST */}
         <Button
+          disabled={loadingActions}
           title={"Add To Wishlist"}
           variant="contained"
           className={" !bg-white !text-black !p-2 !rounded-full !min-w-[30px]"}
@@ -107,6 +110,7 @@ export default function MainCard(props: ProductModel) {
 
         {/* ADD TO CART LIST */}
         <Button
+          disabled={loadingActions}
           title={"Add To Cart"}
           variant="contained"
           className={" !bg-white !text-black !p-2 !rounded-full !min-w-[30px] "}

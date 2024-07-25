@@ -25,7 +25,7 @@ export default function HomeShopNow() {
       <div className=" flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4">
         {/* PRODUCTS */}
         <div className="flex-grow">
-          <h2 className="font-bold text-lg  lg:text-3xl md:text-2xl pb-4 max-md:hidden">
+          <h2 className="font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl pb-4 max-md:hidden">
             Shop Now
           </h2>
 

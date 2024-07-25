@@ -12,8 +12,8 @@ export default function TopNavbar() {
     <div className="bg-primary py-1.5 *:text-white md:block hidden border-b border-slate-400">
       <div className="myContainer flex justify-between items-center">
         <div className="flex justify-end items-center">
-          <BsTelephone className="me-1 text-xs xl:text-lg md:text-base" />
-          <a className="text-sm xl:text-lg md:text-base" href="tel:+1-23456789012">
+          <BsTelephone className="me-1 text-xs 2xl:text-lg md:text-sm" />
+          <a className="2xl:text-lg text-sm" href="tel:+1-23456789012">
             +1-23456789012
           </a>
         </div>
@@ -21,11 +21,11 @@ export default function TopNavbar() {
         <div className="flex justify-start items-center">
           {/* <span className="text-sm">Follow us :</span> */}
           <div className="flex justify-between items-center gap-4">
-            <FaXTwitter className="text-sm xl:text-lg md:text-base" />
-            <FaFacebook className="text-sm xl:text-lg md:text-base" />
-            <FaPinterestP className="text-sm xl:text-lg md:text-base" />
+            <FaXTwitter className="text-sm 2xl:text-lg" />
+            <FaFacebook className="text-sm 2xl:text-lg" />
+            <FaPinterestP className="text-sm 2xl:text-lg" />
             <FaYoutube />
-            <FaSquareInstagram className="text-sm xl:text-lg md:text-base" />
+            <FaSquareInstagram className="text-sm 2xl:text-lg" />
           </div>
         </div>
       </div>

@@ -19,8 +19,12 @@ import { CATEGORY_PRODUCTS } from '../constants';
 import { getCachedData, setCachedData } from '../cashingUtility';
 import { ProductModel } from '../../types/productModel';
 import { errorNotification } from '../../notifications/notifications';
+import { useGlobalStore } from '../../../store/global';
 
 export const get_category_products = async (categoryName: string): Promise<ProductModel[]> => {
+  const { setLoading } = useGlobalStore.getState(); 
+
+
   const cacheKey = `categoryProducts_${categoryName}`;
   const cachedData = getCachedData<ProductModel[]>(cacheKey);
 
@@ -29,6 +33,7 @@ export const get_category_products = async (categoryName: string): Promise<Produ
   }
 
   try {
+    setLoading(true);
     const response = await fetch(CATEGORY_PRODUCTS(categoryName), { cache: 'no-cache' });
 
     if (!response.ok) {
@@ -43,5 +48,7 @@ export const get_category_products = async (categoryName: string): Promise<Produ
     errorNotification("Bad Request");
 
     return [];
+  }finally {
+    setLoading(false); // Set loading to false after fetching data
   }
 };

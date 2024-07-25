@@ -12,13 +12,7 @@ import SwiperHomeAds from "../components/swipers/swiper.homeAds";
 
 export default function HomePage() {
   //   STORE
-  const {
-    sendGetProductsList,
-    sendGetCategoriesList,
-    // list,
-    // categories,
-    // sendGetCategoryProducts,
-  } = useProductStore();
+  const { sendGetProductsList, sendGetCategoriesList } = useProductStore();
 
   useEffect(() => {
     sendGetProductsList();
@@ -27,12 +21,6 @@ export default function HomePage() {
 
   return (
     <>
-      {/* <Helmet>
-        <meta
-          name="description"
-          content="Discover a wide range of quality products at unbeatable prices. Shop now for the latest electronics, fashion, home goods, and more. Enjoy fast shipping and excellent customer service."
-        />
-      </Helmet> */}
       <SwiperHomeAds />
       {/* <HomeAds /> */}
       <HomeFeatures />

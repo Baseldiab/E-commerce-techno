@@ -16,20 +16,20 @@ export default function NavbarRoutes() {
       <div className=" flex justify-center flex-wrap items-center max-sm:hidden ">
         <Link
           to={"/"}
-          className={`md:mx-3 mx-2 lg:*:text-2xl sm:*:text-sm *:text-xs uppercase font-medium text-gray-500 hover:text-black  min-h-[25px] py-3`}
+          className={`md:mx-3 mx-2 2xl:*:text-xl lg:*:text-base sm:*:text-sm *:text-xs uppercase font-medium text-gray-500 hover:text-black  min-h-[25px] py-3`}
         >
           <p className={`${isLinkActive("/") ? "active-link" : ""}`}>home</p>
         </Link>
         <Link
           to={"products"}
-          className={`md:mx-3 mx-2 lg:*:text-2xl sm:*:text-sm *:text-xs uppercase font-medium text-gray-500 hover:text-black  min-h-[25px] py-3`}
+          className={`md:mx-3 mx-2 2xl:*:text-xl lg:*:text-base sm:*:text-sm *:text-xs uppercase font-medium text-gray-500 hover:text-black  min-h-[25px] py-3`}
         >
           <p className={`${isLinkActive("/products") ? "active-link" : ""}`}>products</p>
         </Link>
 
         <Link
           to={"#"}
-          className={`navbar__desktop__categories md:mx-3 mx-2 lg:*:text-2xl sm:*:text-sm *:text-xs  uppercase font-medium text-gray-500 hover:text-black py-4 min-h-[25px] delay-100`}
+          className={`navbar__desktop__categories md:mx-3 mx-2 2xl:*:text-xl lg:*:text-base sm:*:text-sm *:text-xs uppercase font-medium text-gray-500 hover:text-black py-4 min-h-[25px] delay-100`}
         >
           <span className="flex justify-between items-center gap-0.5">
             <span className="">Categories</span>

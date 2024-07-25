@@ -26,7 +26,7 @@ export default function HomeShopWithCategory() {
 
   return (
     <section id={"homeShopWithCategory"} className="myContainer   py-8 bg-featuresBg">
-      <h2 className="text-center font-bold text-lg xl:text-4xl lg:text-3xl md:text-2xl md:mb-4 pb-4">
+      <h2 className="text-center font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl md:mb-4 pb-4">
         Shop with Category
       </h2>
 

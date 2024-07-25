@@ -20,6 +20,7 @@ import ProductDetailsLeftSide from "../components/productDetails/productDetailsL
 import ProductDetailsBox from "../components/box/productDetailsBox";
 import SwiperSlider from "../components/swipers/swiper.slider";
 import { RenderProduct } from "../components/global/renderProducts";
+import { useGlobalStore } from "../store/global";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -32,6 +33,7 @@ export default function ProductDetailsPage() {
   const { token } = useAuthStore();
   const { sendAddToWish } = useWishStore();
   const { sendUpdateCart } = useCartStore();
+  const { loadingActions } = useGlobalStore();
 
   useEffect(() => {
     if (productId) {
@@ -191,6 +193,7 @@ export default function ProductDetailsPage() {
             {/* ADD TO CART AND BUY BUTTONS */}
             <div className="singleProduct__buttons mt-2 w-full">
               <button
+                disabled={loadingActions}
                 className="main-button add-cart add-cart-item me-2 my-2 px-4 py-2 bg-secondary text-white rounded w-full"
                 onClick={handleAddToCart}
               >
