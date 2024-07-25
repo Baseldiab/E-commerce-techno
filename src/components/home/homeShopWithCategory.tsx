@@ -26,7 +26,9 @@ export default function HomeShopWithCategory() {
 
   return (
     <section id={"homeShopWithCategory"} className="myContainer   py-8 bg-featuresBg">
-      <h2 className="text-center font-bold md:text-xl text-lg pb-4">Shop with Category</h2>
+      <h2 className="text-center font-bold text-lg xl:text-4xl lg:text-3xl md:text-2xl md:mb-4 pb-4">
+        Shop with Category
+      </h2>
 
       <SwiperSlider
         sectionTitle={"shop-with-category"}
@@ -43,7 +45,9 @@ export default function HomeShopWithCategory() {
           >
             <figure className="bg-white py-2 lg:py-4">
               <img className="p-4 mx-auto" src={images[index]} alt={item} />
-              <figcaption className="text-center mx-auto capitalize">{item}</figcaption>
+              <figcaption className="text-center mx-auto capitalize lg:text-xl md:text-base text-base font-semibold">
+                {item}
+              </figcaption>
             </figure>
           </Link>
         ))}

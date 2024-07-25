@@ -197,9 +197,13 @@ export default function SwiperHomeAds() {
                     className="swiper__text absolute !top-[35%] left-1/2 -translate-x-1/2 -translate-y-2/2 text-start"
                     style={styles}
                   >
-                    <h2 className="lg:text-5xl md:text-3xl text-xl my-3">{ele.topText}</h2>
-                    <h2 className="lg:text-5xl md:text-3xl text-xl my-3">{ele.bottomText}</h2>
-                    <Link className="text-base uppercase underline mt-2" to={ele.link}>
+                    <h2 className="xl:text-6xl lg:text-5xl md:text-3xl sm:text-xl text-lg md:my-3 my-1">
+                      {ele.topText}
+                    </h2>
+                    <h2 className="xl:text-6xl lg:text-5xl md:text-3xl sm:text-xl text-lg md:my-3 my-1">
+                      {ele.bottomText}
+                    </h2>
+                    <Link className="text-base uppercase underline md:mt-2 mt-0.5" to={ele.link}>
                       shop now
                     </Link>
                   </animated.div>

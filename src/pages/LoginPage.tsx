@@ -47,9 +47,9 @@ export default function LoginPage() {
   return (
     <>
       <PageTitle title={"Login"} />
-      <div className="md:py-16 py-10">
+      <div className="md:py-16 py-10 myContainer">
         <form
-          className="addProduct-form md:w-[60%] !min-w-[250px] !max-w-[600px] mx-auto"
+          className="addProduct-form md:w-[60%] !min-w-[250px] !max-w-[900px] mx-auto lg:w-[80%]"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="mb-3">

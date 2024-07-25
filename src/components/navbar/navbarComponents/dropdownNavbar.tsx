@@ -227,7 +227,7 @@ const catagories: Catagories[] = [
   },
   {
     image: "/images/navbar/jewelry.png",
-    name: "jewelry",
+    name: "jewelery",
   },
   {
     image: "/images/navbar/men's-clothings.png",

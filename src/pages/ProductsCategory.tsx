@@ -103,7 +103,7 @@ export default function ProductsCategory() {
               />
             </figure>
 
-            <div className="my-3 max-md:hidden gap-5 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
+            <div className="my-3 max-md:hidden gap-5 grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
               {list.slice(0, 4).map((product) => {
                 return (
                   <div key={product.id}>

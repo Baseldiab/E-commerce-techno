@@ -131,7 +131,7 @@ export default function ProductPage() {
             </figure>
 
             {/* PRODUCTS */}
-            <div className="max-md:hidden mb-3 gap-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
+            <div className="max-md:hidden mb-3 gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
               {list.map((product) => {
                 return (
                   <div key={product.id}>

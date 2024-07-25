@@ -25,7 +25,9 @@ export default function HomeShopNow() {
       <div className="flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4">
         {/* PRODUCTS */}
         <div className="flex-grow">
-          <h2 className="font-bold md:text-xl text-lg pb-4 max-md:hidden">Shop Now</h2>
+          <h2 className="font-bold text-lg  lg:text-3xl md:text-2xl pb-4 max-md:hidden">
+            Shop Now
+          </h2>
 
           <article className="max-md:hidden col-span-2  gap-5 grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
             {list.slice(8, 14).map((product) => {
