@@ -12,7 +12,7 @@ export default function HomeDeals() {
   return (
     <section id="homeDeals" className="myContainer py-8">
       <div className="flex justify-between items-center max-md:pb-4">
-        <h2 className="font-bold text-lg xl:text-4xl md:2xl">Best Deals</h2>
+        <h2 className="font-bold text-lg xl:text-4xl lg:text-3xl md:2xl">Best Deals</h2>
         <Link className="text-primary text-base" color="inherit" to="/products">
           See All <EastIcon />
         </Link>
