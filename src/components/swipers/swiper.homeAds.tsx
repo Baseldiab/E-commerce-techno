@@ -109,7 +109,7 @@ import { Button } from "@mui/material";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import { useTransition, animated } from "@react-spring/web"; // Import React Spring
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface HomeProps {
   id: number;
