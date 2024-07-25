@@ -40,6 +40,26 @@ export const successNotification = (title: string) => {
   });
 };
 
+export const errorNotification = (title: string) => {
+  //     const succesLogin = () => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "error",
+    title: title,
+  });
+};
+
 export const deleteModalNotification = (
   sendDelete: (productId: string) => void,
   productId: string

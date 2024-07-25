@@ -147,13 +147,13 @@ export default function SwiperHomeAds() {
   // State to track the current slide
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlideIndex((prevIndex) => (prevIndex === homeAds.length - 1 ? 0 : prevIndex + 1));
-    }, 2500);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlideIndex((prevIndex) => (prevIndex === homeAds.length - 1 ? 0 : prevIndex + 1));
+  //   }, 2500);
 
-    return () => clearInterval(interval);
-  }, [homeAds.length]);
+  //   return () => clearInterval(interval);
+  // }, [homeAds.length]);
 
   const fadeUpTransitions = useTransition(homeAds[currentSlideIndex], {
     from: { opacity: 0, transform: "translateX(-10%)" },
@@ -167,7 +167,7 @@ export default function SwiperHomeAds() {
         // onActiveIndexChange={(swiper) => console.log(swiper.activeIndex)}
         spaceBetween={30}
         effect={"fade"}
-        loop={true}
+        // loop={true}
         navigation={{
           nextEl: ".button-next",
           prevEl: ".button-prev",
@@ -178,7 +178,7 @@ export default function SwiperHomeAds() {
         }}
         modules={[EffectFade, Autoplay, Navigation]}
         className="mySwiper w-full my-6 !relative"
-        // onSlideChange={(swiper) => setCurrentSlideIndex(swiper.activeIndex)}
+        onSlideChange={(swiper) => setCurrentSlideIndex(swiper.activeIndex)}
       >
         {homeAds.map((item, index) => {
           // Create unique spring animation for each slide

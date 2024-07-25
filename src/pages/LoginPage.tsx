@@ -15,7 +15,6 @@ import { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { loginSchema } from "../components/rules/rules";
-import { successNotification } from "../components/notifications/notifications";
 
 type LoginFormInputs = z.infer<typeof loginSchema>;
 
@@ -38,18 +37,17 @@ export default function LoginPage() {
   const onSubmit = async (data: LoginFormInputs) => {
     try {
       await sendLogin(data);
-
-      // successLogin();
-      successNotification("Signed in successfully");
     } catch (error) {
-      console.error(error);
+      if (error) {
+        console.error(error);
+      }
     }
   };
 
   return (
     <>
       <PageTitle title={"Login"} />
-      <div className="md:py-16 py-10 shadow-md">
+      <div className="md:py-16 py-10">
         <form
           className="addProduct-form md:w-[60%] !min-w-[250px] !max-w-[600px] mx-auto"
           onSubmit={handleSubmit(onSubmit)}
