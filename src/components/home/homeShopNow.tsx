@@ -22,14 +22,14 @@ export default function HomeShopNow() {
         products={list.slice(8, 14)}
         renderProduct={RenderProduct}
       />
-      <div className="flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4">
+      <div className=" flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4">
         {/* PRODUCTS */}
         <div className="flex-grow">
           <h2 className="font-bold text-lg  lg:text-3xl md:text-2xl pb-4 max-md:hidden">
             Shop Now
           </h2>
 
-          <article className="max-md:hidden col-span-2  gap-5 grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
+          <article className="!flex-grow max-md:hidden   gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
             {list.slice(8, 14).map((product) => {
               return (
                 <div key={product.id}>
@@ -49,12 +49,8 @@ export default function HomeShopNow() {
         </div>
 
         {/* ADS */}
-        <figure className="w-full !h-full max-md:flex max-md:justify-center">
-          <img
-            className="lg:!min-w-fit min-w-full !h-auto"
-            src="/images/home/Banner-1.png"
-            alt="banner"
-          />
+        <figure className="w-fit max-md:hidden lg:min-w-[350px] min-w-[300px] !h-full flex max-md:justify-center justify-end">
+          <img className="" src="/images/home/Banner-1.png" alt="banner" />
         </figure>
       </div>
     </section>

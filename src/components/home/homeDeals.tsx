@@ -12,17 +12,23 @@ export default function HomeDeals() {
   return (
     <section id="homeDeals" className="myContainer py-8">
       <div className="flex justify-between items-center max-md:pb-4">
-        <h2 className="font-bold text-lg xl:text-4xl lg:text-3xl md:2xl">Best Deals</h2>
-        <Link className="text-primary text-base" color="inherit" to="/products">
-          See All <EastIcon />
+        <h2 className="font-bold text-lg xl:text-4xl lg:text-3xl md:text-2xl">Best Deals</h2>
+        <Link
+          className="text-primary xl:text-2xl md:text-xl text-base flex justify-between gap-1 items-center"
+          color="inherit"
+          to="/products"
+        >
+          <span className="capitalize">See All</span>
+
+          <EastIcon className="ms-1" />
         </Link>
       </div>
 
       <SwiperSlider sectionTitle={"deals"} products={list} renderProduct={RenderProduct} />
 
       {/* PRODUCTS */}
-      <article className="max-md:hidden pt-5 gap-5 grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
-        {list.slice(0, 8).map((product) => {
+      <article className="max-md:hidden pt-5 justify-center items-center gap-5 grid 3xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
+        {list.slice(0, 12).map((product) => {
           return (
             <div key={product.id}>
               <MainCard

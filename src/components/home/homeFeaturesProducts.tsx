@@ -9,14 +9,10 @@ export default function HomeFeaturesProducts() {
 
   return (
     <section id="homeFeatureProducts" className="myContainer  py-8">
-      <div className="flex md:justify-between justify-center items-start max-md:items-center lg:!gap-16 md:!gap-6 mx-auto">
+      <div className=" flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4">
         {/* ADS */}
-        <figure className="w-full">
-          <img
-            className="w-full h-auto mx-auto md:min-w-[300px]"
-            src="/images/home/Banner-1.png"
-            alt="banner"
-          />
+        <figure className="max-md:hidden w-fit lg:min-w-[350px] min-w-[300px] !h-full justify-start flex max-md:justify-center">
+          <img className="" src="/images/home/Banner-1.png" alt="banner" />
         </figure>
 
         {/* PRODUCTS */}
@@ -26,7 +22,7 @@ export default function HomeFeaturesProducts() {
           </h2>
           {/* <SwiperProducts list={list.slice(8, 14)} /> */}
 
-          <article className="max-md:hidden col-span-2  md:gap-4 gap-3 grid 2xl:grid-cols-4 lg:grid-cols-3  sm:grid-cols-2 grid-col-1 ">
+          <article className="!flex-grow max-md:hidden   gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1">
             {list.slice(0, 6).map((product) => {
               return (
                 <div key={product.id}>

@@ -164,10 +164,10 @@ export default function SwiperHomeAds() {
   return (
     <>
       <Swiper
-        // onActiveIndexChange={(swiper) => console.log(swiper.activeIndex)}
         spaceBetween={30}
         effect={"fade"}
         // loop={true}
+        centeredSlides={true}
         navigation={{
           nextEl: ".button-next",
           prevEl: ".button-prev",
