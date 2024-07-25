@@ -17,6 +17,7 @@ export const useProductStore = create<ProductsState>()(
       sendGetProductsList: async () => {
         const response = await get_all_products();
 
+
         set({
           list: response,
         });

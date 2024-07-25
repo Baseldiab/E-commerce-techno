@@ -1,17 +1,24 @@
+import { useMemo } from "react";
 import { useProductStore } from "../../store/products";
 import { RenderProduct } from "../global/renderProducts";
+import useWindowWidth from "../hooks/calc_width_of_screen";
 import MainCard from "../products/mainCard";
 import SwiperSlider from "../swipers/swiper.slider";
+import { getWindowCardsCountHomeProducts } from "../util";
 
 export default function HomeFeaturesProducts() {
   //   STORE
   const { list } = useProductStore();
 
+  const windowWidth = useWindowWidth();
+
+  const cardsCount = useMemo(() => getWindowCardsCountHomeProducts(windowWidth), [windowWidth]);
+
   return (
     <section id="homeFeatureProducts" className="myContainer  py-8">
       <div className=" flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4">
         {/* ADS */}
-        <figure className="max-md:hidden w-fit lg:min-w-[350px] min-w-[300px] !h-full justify-start flex max-md:justify-center">
+        <figure className="max-md:hidden w-fit xl:min-w-[350px] min-w-[300px] !h-full justify-start flex max-md:justify-center">
           <img className="" src="/images/home/Banner-1.png" alt="banner" />
         </figure>
 
@@ -23,7 +30,7 @@ export default function HomeFeaturesProducts() {
           {/* <SwiperProducts list={list.slice(8, 14)} /> */}
 
           <article className="!flex-grow max-md:hidden   gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1">
-            {list.slice(0, 6).map((product) => {
+            {list.slice(0, cardsCount).map((product) => {
               return (
                 <div key={product.id}>
                   <MainCard

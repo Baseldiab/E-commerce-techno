@@ -1,18 +1,18 @@
+import { useMemo } from "react";
 import { useProductStore } from "../../store/products";
 import { RenderProduct } from "../global/renderProducts";
+import useWindowWidth from "../hooks/calc_width_of_screen";
 import MainCard from "../products/mainCard";
 import SwiperSlider from "../swipers/swiper.slider";
+import { getWindowCardsCountHomeProducts } from "../util";
 
 export default function HomeShopNow() {
   //   STORE
-  const {
-    list,
-    // categories,
-    // sendGetProductsList,
-    // sendGetCategoriesList,
-    // sendGetCategoryProducts,
-    // sendGetSearchList,
-  } = useProductStore();
+  const { list } = useProductStore();
+
+  const windowWidth = useWindowWidth();
+
+  const cardsCount = useMemo(() => getWindowCardsCountHomeProducts(windowWidth), [windowWidth]);
 
   return (
     <section id="homeShopNow" className="myContainer  py-8 bg-featuresBg">
@@ -30,7 +30,7 @@ export default function HomeShopNow() {
           </h2>
 
           <article className="!flex-grow max-md:hidden   gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
-            {list.slice(8, 14).map((product) => {
+            {list.slice(10, cardsCount + 10).map((product) => {
               return (
                 <div key={product.id}>
                   <MainCard
@@ -49,7 +49,7 @@ export default function HomeShopNow() {
         </div>
 
         {/* ADS */}
-        <figure className="w-fit max-md:hidden lg:min-w-[350px] min-w-[300px] !h-full flex max-md:justify-center justify-end">
+        <figure className="w-fit max-md:hidden xl:min-w-[350px] min-w-[300px] !h-full flex max-md:justify-center justify-end">
           <img className="" src="/images/home/Banner-1.png" alt="banner" />
         </figure>
       </div>

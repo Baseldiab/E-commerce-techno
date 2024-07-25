@@ -69,9 +69,7 @@ export default function MainCard(props: ProductModel) {
 
   return (
     <Box
-      className={
-        "main__card rounded-md relative h-full my-0 border hover:shadow-lg max-sm:w-[250px]"
-      }
+      className="main__card rounded-md relative h-full my-0 border hover:shadow-lg max-sm:w-[250px] overflow-hidden"
       sx={{
         backgroundColor: "#fff",
         display: "flex",
@@ -80,26 +78,26 @@ export default function MainCard(props: ProductModel) {
       }}
     >
       {/* IMAGE */}
-      <div
-        className="card_img  rounded-t-md p-4 relative"
+      <figure
+        className="card_img !overflow-hidden rounded-t-md p-4 relative"
         style={{
-          // filter: "brightness(0.8)",
           backgroundColor: "#fff",
         }}
       >
-        <Link className="card__img-link img-container " to={`/products/${props.id}`}>
+        <Link className="card__img-link img-container !w-full !h-full" to={`/products/${props.id}`}>
           <img
-            className="block rounded-t-md mx-auto w-auto max-w-[100%] !h-[250px]"
+            className="card__img-image block rounded-t-md mx-auto w-auto max-w-[100%] h-[250px] object-cover"
             src={props.image}
             alt={props.title}
           />
         </Link>
-      </div>
+      </figure>
 
       {/* CARD BUTTONS */}
       <div className="card__buttons hidden  justify-center items-center z-50 !absolute top-[7rem] translate-y-1/2 translate-x-1/2 right-1/2 gap-2">
         {/* ADD TO WISH LIST */}
         <Button
+          title={"Add To Wishlist"}
           variant="contained"
           className={" !bg-white !text-black !p-2 !rounded-full !min-w-[30px]"}
           onClick={handleAddToWish}
@@ -109,6 +107,7 @@ export default function MainCard(props: ProductModel) {
 
         {/* ADD TO CART LIST */}
         <Button
+          title={"Add To Cart"}
           variant="contained"
           className={" !bg-white !text-black !p-2 !rounded-full !min-w-[30px] "}
           onClick={() => AddToCart(props)}
@@ -117,7 +116,11 @@ export default function MainCard(props: ProductModel) {
         </Button>
 
         {/* GO TO PRODUCT DETAILS */}
-        <Link className="bg-[#FA8232] text-white rounded-full p-2" to={`/products/${props.id}`}>
+        <Link
+          title="Show Details"
+          className="bg-[#FA8232] text-white rounded-full p-2"
+          to={`/products/${props.id}`}
+        >
           <VisibilityIcon className="text-xs" />
         </Link>
       </div>
