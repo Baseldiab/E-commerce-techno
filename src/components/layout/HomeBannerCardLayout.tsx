@@ -12,7 +12,7 @@ export default function HomeBannerCardLayout(props: Props) {
         <figure className="flex justify-end">
           <img className="max-w-[90%] " src={props.image} alt={props.title} />
         </figure>
-        <div className="xl:w-[90%] w-full -ms-3 -mt-14 max-sm:-mt-10">
+        <div className="xl:w-[90%] w-full -ms-3 md:-ms-3 sm:ms-0 max-sm:ms-1  -mt-14 max-sm:-mt-10">
           <hr className=" w-5 h-0.5 bg-black border-none" />
           <h4 className="xl:text-4xl lg:text-3xl text-2xl font-text font-light md:my-3 my-1.5">
             {props.title}
