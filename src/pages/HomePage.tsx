@@ -9,6 +9,7 @@ import HomeShopNow from "../components/home/homeShopNow";
 import HomeBannerOne from "../components/home/homeBannerOne";
 import HomeBannerTwo from "../components/home/homeBannerTwo";
 import SwiperHomeAds from "../components/swipers/swiper.homeAds";
+import HomeBannerSection from "../components/home/homeBannerSection";
 
 export default function HomePage() {
   //   STORE
@@ -22,7 +23,7 @@ export default function HomePage() {
   return (
     <>
       <SwiperHomeAds />
-      {/* <HomeAds /> */}
+      <HomeBannerSection />
       <HomeFeatures />
       <HomeDeals />
       <HomeShopWithCategory />

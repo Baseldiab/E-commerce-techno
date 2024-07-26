@@ -2,7 +2,7 @@ import BannerFirst from "/images/home/home-banner-1-min.jpg.webp";
 import BannerSecond from "/images/home/home-banner-2-min.jpg.webp";
 import BannerThird from "/images/home/home-banner-3-min.jpg.webp";
 
-interface Banners {
+export interface Banners {
   id: number;
   title: string;
   text: string;

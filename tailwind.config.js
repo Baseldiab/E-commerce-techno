@@ -15,6 +15,7 @@ export default {
       },
       fontFamily: {
         title: ["hkgroteskpro", "Arial", "Helvetica", "sans-serif"],
+        thinTitle: ["Lato", "Arial", "Helvetica"," sans-serif"],
       },
     },
   },
