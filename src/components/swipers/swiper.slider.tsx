@@ -24,6 +24,7 @@ export default function SwiperSlider<T>({
         slidesPerView={"auto"}
         spaceBetween={5}
         loop={true}
+        centeredSlides={true}
         // breakpoints={{
         //   "@0.00": {
         //     slidesPerView: 1,
@@ -58,12 +59,12 @@ export default function SwiperSlider<T>({
           </SwiperSlide>
         ))}
 
-        <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-40">
+        <div className="max-sm:hidden absolute top-1/2 left-0 transform -translate-y-1/2 z-40">
           <Button className="button-prev !h-8 !min-w-8 !W-8 !p-0 !rounded-full !bg-secondary">
             <ArrowBackIcon className=" text-white" />
           </Button>
         </div>
-        <div className=" absolute top-1/2 right-0 transform -translate-y-1/2 z-40">
+        <div className="max-sm:hidden absolute top-1/2 right-0 transform -translate-y-1/2 z-40">
           <Button className="button-next !rounded-full !h-8 !min-w-8 !W-8 !p-0 !bg-secondary">
             <ArrowForwardIcon className="text-xl text-white" />
           </Button>

@@ -17,7 +17,7 @@ export default function SwiperHomeAds() {
 
   const fadeUpTransitions = useTransition(swiperHomeAdsData[currentSlideIndex], {
     from: { opacity: 0, transform: "translateX(-10%)" },
-    enter: { opacity: 1, transform: "translateX(-50%)" },
+    enter: { opacity: 1, transform: "translateX(-37%)" },
     config: { duration: 1000 },
   });
 
@@ -42,12 +42,22 @@ export default function SwiperHomeAds() {
       >
         {swiperHomeAdsData.map((item, index) => {
           return (
-            <SwiperSlide key={`homeAds-swiper-${item.id}-${index}`} className="!relative">
-              <img className="w-full" src={item.image} alt={`${item.topText} ${item.bottomText}`} />
+            <SwiperSlide
+              key={`homeAds-swiper-${item.id}-${index}`}
+              className="!relative w-auto bg-[25%] sm:bg-left-top bg-fixed bg-no-repeat bg-cover min-h-[85vh]"
+              style={{
+                backgroundImage: `url(${item.image})`,
+              }}
+            >
+              {/* <img
+                className="h-screen "
+                src={item.image}
+                alt={`${item.topText} ${item.bottomText}`}
+              /> */}
               {currentSlideIndex === index &&
                 fadeUpTransitions((styles, ele) => (
                   <animated.div
-                    className="swiper__text absolute !top-[35%] left-1/2 -translate-x-1/2 -translate-y-2/2 text-start"
+                    className="swiper__text absolute !top-[35%] sm:left-1/2 left-[67%] -translate-x-1/2 -translate-y-2/2 text-start"
                     style={styles}
                   >
                     <h2 className="xl:text-6xl lg:text-5xl md:text-3xl sm:text-xl text-lg md:my-3 my-1">
@@ -56,7 +66,10 @@ export default function SwiperHomeAds() {
                     <h2 className="xl:text-6xl lg:text-5xl md:text-3xl sm:text-xl text-lg md:my-3 my-1">
                       {ele.bottomText}
                     </h2>
-                    <Link className="text-base uppercase underline md:mt-2 mt-0.5" to={ele.link}>
+                    <Link
+                      className="text-base max-sm:text-sm uppercase underline md:mt-2 mt-0.5"
+                      to={ele.link}
+                    >
                       shop now
                     </Link>
                   </animated.div>
@@ -65,12 +78,12 @@ export default function SwiperHomeAds() {
           );
         })}
 
-        <div className="absolute top-1/2 left-1 transform -translate-y-1/2 z-40">
+        <div className="max-sm:hidden absolute top-1/2 left-1 transform -translate-y-1/2 z-40">
           <Button className="button-prev !h-8 !min-w-8 !W-8 !p-0 !rounded-full">
             <SlArrowLeft className="text-xl text-black" />
           </Button>
         </div>
-        <div className="absolute top-1/2 right-1 transform -translate-y-1/2 z-40">
+        <div className="max-sm:hidden absolute top-1/2 right-1 transform -translate-y-1/2 z-40">
           <Button className="button-next !rounded-full !h-8 !min-w-8 !W-8 !p-0">
             <SlArrowRight className="text-xl text-black" />
           </Button>

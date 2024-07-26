@@ -97,7 +97,7 @@ export default function ProductDetailsPage() {
 
   return (
     <>
-      <section className="md:py-4 py-2 myContainer">
+      <section className="md:py-4 py-2 myContainer max-sm:hidden">
         <Breadcrumbs separator=">" aria-label="breadcrumb">
           <Link className="border-b border-black" color="inherit" to="/">
             Home
@@ -116,7 +116,7 @@ export default function ProductDetailsPage() {
         </Breadcrumbs>
       </section>
 
-      <section className="md:py-4 pb-2  myContainer">
+      <section className="md:py-4 pb-2  myContainer max-sm:pt-5">
         <div className="container grid lg:grid-cols-6 grid-col-1 items-start md:gap-10">
           {/* PRODUCT IMAGE */}
 
@@ -125,7 +125,9 @@ export default function ProductDetailsPage() {
           {/* PRODUCT DETAILS CONTENT */}
           <section className="col-span-4">
             {/* TITLE */}
-            <h1 className="md:text-4xl text-2xl md:mb-6 mb-2 max-md:my-3">{item?.title}</h1>
+            <h1 className="max-sm:hidden md:text-4xl text-2xl md:mb-6 mb-2 max-md:my-3">
+              {item?.title}
+            </h1>
 
             {/* PRICE */}
             <h4 className="singleProduct__price md:text-2xl text-lg font-semibold my-4 text-[#1B6392]">

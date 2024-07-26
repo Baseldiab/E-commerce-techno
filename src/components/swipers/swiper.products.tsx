@@ -16,6 +16,7 @@ export default function SwiperProducts({ list }: { list: ProductModel[] }) {
         slidesPerView={"auto"}
         spaceBetween={5}
         loop={true}
+        centeredSlides={true}
         // pagination={{
         //   clickable: true,
         // }}

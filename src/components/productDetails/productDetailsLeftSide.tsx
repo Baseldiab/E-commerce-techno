@@ -12,9 +12,11 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 
 export default function ProductDetailsLeftSide({ item }: { item: ProductModel | null }) {
   return (
-    <section className="col-span-2 rounded-lg">
+    <section className="col-span-2 rounded-lg max-sm:w-full">
+      <h1 className="sm:hidden text-2xl mb-2">{item?.title}</h1>
+
       <figure
-        className="col-span-1 p-4 rounded-lg"
+        className=" p-4 rounded-lg max-sm:flex justify-center w-full"
         style={{
           filter: "brightness(0.8)",
           backgroundColor: "#fff",
