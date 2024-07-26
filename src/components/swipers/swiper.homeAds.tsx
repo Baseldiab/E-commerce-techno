@@ -37,7 +37,7 @@ export default function SwiperHomeAds() {
           disableOnInteraction: false,
         }}
         modules={[EffectFade, Autoplay, Navigation]}
-        className="mySwiper w-full my-6 !relative"
+        className="mySwiper w-full py-6 lg:py-8 2xl:py-12 !relative"
         onSlideChange={(swiper) => setCurrentSlideIndex(swiper.activeIndex)}
       >
         {swiperHomeAdsData.map((item, index) => {

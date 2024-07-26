@@ -27,12 +27,12 @@ export default function MainNavbar() {
 
   return (
     <>
-      <div className="bg-transparent py-3 text-white shadow-md">
+      <div className="bg-transparent py-2 text-white shadow-sm border-b border-gray-300">
         <div className="myContainer flex justify-between items-center relative">
           <Link to={"/"}>
             <img
               src="/images/logo.png"
-              className="md:w-36 w-28 lg:w-52 min-w-[28] md:h-auto"
+              className="md:w-32 w-28 lg:w-52 min-w-24 md:h-auto"
               alt=""
             />
           </Link>
