@@ -12,6 +12,7 @@ import { deleteModalNotification, successNotification } from "../notifications/n
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Swal from "sweetalert2";
 import { useGlobalStore } from "../../store/global";
+// import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 export default function MainCard(props: ProductModel) {
   // STORE
@@ -71,7 +72,7 @@ export default function MainCard(props: ProductModel) {
 
   return (
     <Box
-      className="main__card rounded-md relative h-full my-0 border hover:shadow-lg max-sm:w-[250px] "
+      className="main__card relative h-full my-0  hover:shadow-xl max-sm:w-[130px] "
       sx={{
         backgroundColor: "#fff",
         display: "flex",
@@ -81,22 +82,22 @@ export default function MainCard(props: ProductModel) {
     >
       {/* IMAGE */}
       <figure
-        className="card_img rounded-t-md p-4 relative"
+        className="card_img  p-4 relative brightness-[0.9]"
         style={{
           backgroundColor: "#fff",
         }}
       >
         <Link className="card__img-link img-container !w-full !h-full" to={`/products/${props.id}`}>
           <img
-            className="card__img-image block rounded-t-md mx-auto w-auto max-w-full h-[250px]"
+            className="card__img-image block  mx-auto w-auto max-w-full h-[200px] max-sm:h-[120px]"
             src={props.image}
             alt={props.title}
           />
         </Link>
       </figure>
 
-      {/* CARD BUTTONS */}
-      <div className="card__buttons hidden  justify-center items-center z-50 !absolute top-[7rem] translate-y-1/2 translate-x-1/2 right-1/2 gap-2">
+      {/* CARD BUTTONS ON HOVER LARGE SCREEN */}
+      <div className="card__buttons hidden justify-center items-center z-50 !absolute top-[7rem] translate-y-1/2 translate-x-1/2 right-1/2 gap-2 max-sm:!hidden">
         {/* ADD TO WISH LIST */}
         <Button
           disabled={loadingActions}
@@ -131,35 +132,70 @@ export default function MainCard(props: ProductModel) {
 
       {/* CARD CONTENT */}
       <div className={`card_content ${props.isWishPage ? "min-h-[180px] " : "min-h-fit"}`}>
-        <div className="card_body text-start px-5 py-2 mx-auto">
+        <div className="card_body text-start px-1.5 py-2 mx-auto">
           {/* RATING */}
-          <div className="flex justify-start items-center my-1 flex-wrap">
-            <Rating name="read-only" value={props.rating ? props.rating.rate : 4.5} readOnly />
-            <span className="text-gray-500">{`(${props.rating ? props?.rating.count : 137})`}</span>
+          <div className="sm:flex justify-start items-center sm:my-1 flex-wrap">
+            <Rating
+              sx={{
+                "@media(max-width: 672px)": {
+                  ".MuiRating-icon": {
+                    fontSize: "1rem",
+                  },
+                },
+              }}
+              size={"small"}
+              name="read-only"
+              value={props.rating ? props.rating.rate : 4.5}
+              readOnly
+            />
+            <span className="text-gray-500 max-sm:hidden">{`(${
+              props.rating ? props?.rating.count : 137
+            })`}</span>
           </div>
 
           {/* TITLE */}
-          <Link className="text-light" to={`/products/${props.id}`}>
-            <h5 className="card_title text-base font-medium line-clamp-1" title={props.title}>
-              {props.title}
-            </h5>
+          <Link
+            title={props.title}
+            className="text-light card_title text-base max-sm:text-sm font-medium line-clamp-1"
+            to={`/products/${props.id}`}
+          >
+            {props.title}
+          </Link>
+
+          {/* CATEGORY */}
+          <Link
+            title={props.category}
+            className="text-light text-secondaryText max-sm:text-sm card_title text-base capitalize font-normal line-clamp-1"
+            to={`products/category/${props.category}`}
+          >
+            {props.category}
           </Link>
 
           {/* PRICE */}
-          <h6 className="card_price font-mono  text-lg font-bold text-[#2DA5F3]">
-            {Number(props.price).toFixed(2)}$
+          <h6 className="card_price font-mono max-sm:text-sm text-lg text-black">
+            ${Number(props.price).toFixed(2)}
           </h6>
+
+          <Button
+            variant="text"
+            className={`!underline decoration-2 !decoration-gray-300 !text-sm  sm:!hidden !text-black !p-0 !rounded-xl underline-offset-1 !min-w-[50px] !capitalize
+              `}
+            onClick={() => AddToCart(props)}
+          >
+            {/* <AddShoppingCartIcon /> */}
+            Add to cart
+          </Button>
         </div>
 
         {/* DELETE ITEM FROM WISHLIST  */}
         <div
-          className={`card_footer mt-2  mx-auto  w-full px-5 pb-4
-             "justify-end"
-          ${props.isWishPage ? "flex" : "hidden"}`}
+          className={`card_footer sm:mt-2  mx-auto gap-2 flex w-full px-5 pb-4 sm:justify-end justify-between max-sm:hidden ${
+            props.isWishPage ? "block" : "hidden"
+          }`}
         >
           <Button
+            className={`!bg-red-700 !text-white !p-2 !rounded-xl !min-w-[50px] `}
             variant="contained"
-            className={" !bg-red-700 !text-white !p-2 !rounded-xl !min-w-[50px] "}
             onClick={handleDeleteItem}
           >
             <DeleteForeverIcon />

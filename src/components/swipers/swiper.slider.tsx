@@ -21,7 +21,7 @@ export default function SwiperSlider<T>({
   return (
     <article>
       <Swiper
-        slidesPerView={"auto"}
+        slidesPerView={2.7}
         spaceBetween={5}
         loop={true}
         centeredSlides={true}
@@ -48,11 +48,11 @@ export default function SwiperSlider<T>({
           prevEl: ".button-prev",
         }}
         modules={[Navigation]}
-        className="mySwiper md:hidden  px-6 relative"
+        className="mySwiper md:hidden  sm:px-6 relative"
       >
         {products.map((product, index) => (
           <SwiperSlide
-            className="!w-[250px]"
+            className="sm:!w-[250px] !w-[130px]"
             key={`swiper-product-${index}-${sectionTitle}-${randomNumber}`}
           >
             {renderProduct(product, index)}

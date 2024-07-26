@@ -9,8 +9,12 @@ export default {
       colors: {
         primary: "#1B6392",
         secondary: "#FA8232",
-        featuresBg: "#DDE8EF"
+        featuresBg: "#DDE8EF",
+        secondaryText: "#a5a5a5",
     
+      },
+      fontFamily: {
+        title: ["hkgroteskpro", "Arial", "Helvetica", "sans-serif"],
       },
     },
   },

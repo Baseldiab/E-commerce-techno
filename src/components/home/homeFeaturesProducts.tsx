@@ -5,6 +5,7 @@ import useWindowWidth from "../hooks/calc_width_of_screen";
 import MainCard from "../products/mainCard";
 import SwiperSlider from "../swipers/swiper.slider";
 import { getWindowCardsCountHomeProducts } from "../util";
+import SectionsTitle from "../title/sectionsTitle";
 
 export default function HomeFeaturesProducts() {
   //   STORE
@@ -24,9 +25,10 @@ export default function HomeFeaturesProducts() {
 
         {/* PRODUCTS */}
         <div className="flex-grow">
-          <h2 className="font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl pb-4 max-md:hidden">
+          {/* <h2 className="font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl pb-4 max-md:hidden">
             Suggested products
-          </h2>
+          </h2> */}
+          <SectionsTitle className="max-md:hidden pb-4" title="Suggested products" />
           {/* <SwiperProducts list={list.slice(8, 14)} /> */}
 
           <article className="!flex-grow max-md:hidden   gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1">
@@ -48,7 +50,8 @@ export default function HomeFeaturesProducts() {
           </article>
         </div>
       </div>
-      <h2 className="font-bold md:text-xl text-lg py-4 md:hidden">Suggested products</h2>
+      {/* <h2 className="font-bold md:text-xl text-lg py-4 md:hidden">Suggested products</h2> */}
+      <SectionsTitle className="md:hidden" title="Suggested products" />
       <SwiperSlider
         sectionTitle={"featured-products"}
         products={list.slice(0, 6)}

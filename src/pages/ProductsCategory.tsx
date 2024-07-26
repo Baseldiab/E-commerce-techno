@@ -1,15 +1,18 @@
-import { Link, useParams } from "react-router-dom";
+import {
+  // Link,
+  useParams,
+} from "react-router-dom";
 import { useProductStore } from "../store/products";
 import { useEffect, useState } from "react";
 import MainCard from "../components/products/mainCard";
 import {
-  Breadcrumbs,
+  // Breadcrumbs,
   FormControl,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
-  Typography,
+  // Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Loading from "../components/Loading";
@@ -41,7 +44,7 @@ export default function ProductsCategory() {
         <Loading />
       ) : (
         <>
-          <section className="py-4 myContainer">
+          {/* <section className="py-4 myContainer">
             <Breadcrumbs separator=">" aria-label="breadcrumb">
               <Link className="border-b border-black" color="inherit" to="/">
                 Home
@@ -54,9 +57,17 @@ export default function ProductsCategory() {
                 {categoryName ? categoryName.replace(/-/g, " ") : ""}
               </Typography>
             </Breadcrumbs>
-          </section>
+          </section> */}
 
-          <section className="col-span-3 pb-3 myContainer">
+          <section className="col-span-3 py-3 myContainer">
+            <figure className="mb-4 mt-2">
+              <img
+                className="min-w-full"
+                src="/images/products-ads.png"
+                alt="gradient-background-cyber-monday-sales"
+              />
+            </figure>
+
             <div className="select-category flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5">
               <FormControl
                 size="small"
@@ -94,14 +105,6 @@ export default function ProductsCategory() {
                 {list.length} product{list.length !== 1 ? "s" : ""} found
               </h5>
             </div>
-
-            <figure className="mb-4 mt-2">
-              <img
-                className="min-w-full"
-                src="/images/products-ads.png"
-                alt="gradient-background-cyber-monday-sales"
-              />
-            </figure>
 
             <div className="my-3 max-md:hidden gap-5 grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
               {list.slice(0, 4).map((product) => {

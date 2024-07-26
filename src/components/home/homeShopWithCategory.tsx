@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useProductStore } from "../../store/products";
 import SwiperSlider from "../swipers/swiper.slider";
+import SectionsTitle from "../title/sectionsTitle";
 
 const images = [
   "/images/home/electtonics.png",
@@ -26,9 +27,11 @@ export default function HomeShopWithCategory() {
 
   return (
     <section id={"homeShopWithCategory"} className="myContainer   py-8 bg-featuresBg">
-      <h2 className="text-center font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl md:mb-4 pb-4">
+      {/* <h2 className="text-center font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl md:mb-4 pb-4">
         Shop with Category
-      </h2>
+      </h2> */}
+
+      <SectionsTitle className="text-center md:mb-4 pb-4" title="Shop with Category" />
 
       <SwiperSlider
         sectionTitle={"shop-with-category"}

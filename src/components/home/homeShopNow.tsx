@@ -5,6 +5,7 @@ import useWindowWidth from "../hooks/calc_width_of_screen";
 import MainCard from "../products/mainCard";
 import SwiperSlider from "../swipers/swiper.slider";
 import { getWindowCardsCountHomeProducts } from "../util";
+import SectionsTitle from "../title/sectionsTitle";
 
 export default function HomeShopNow() {
   //   STORE
@@ -16,7 +17,8 @@ export default function HomeShopNow() {
 
   return (
     <section id="homeShopNow" className="myContainer  py-8 bg-featuresBg">
-      <h2 className="font-bold md:text-xl text-lg py-4 md:hidden">Shop Now</h2>
+      {/* <h2 className="font-bold md:text-xl text-lg py-4 md:hidden">Shop Now</h2> */}
+      <SectionsTitle className="md:hidden" title="Shop Now" />
       <SwiperSlider
         sectionTitle={"shop-now"}
         products={list.slice(8, 14)}
@@ -25,9 +27,10 @@ export default function HomeShopNow() {
       <div className=" flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4">
         {/* PRODUCTS */}
         <div className="flex-grow">
-          <h2 className="font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl pb-4 max-md:hidden">
+          {/* <h2 className="font-bold text-lg 2xl:text-4xl lg:text-2xl md:text-xl pb-4 max-md:hidden">
             Shop Now
-          </h2>
+          </h2> */}
+          <SectionsTitle className="max-md:hidden pb-4" title="Shop Now" />
 
           <article className="!flex-grow max-md:hidden   gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
             {list.slice(10, cardsCount + 10).map((product) => {

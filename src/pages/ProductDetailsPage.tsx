@@ -97,26 +97,7 @@ export default function ProductDetailsPage() {
 
   return (
     <>
-      <section className="md:py-4 py-2 myContainer max-sm:hidden">
-        <Breadcrumbs separator=">" aria-label="breadcrumb">
-          <Link className="border-b border-black" color="inherit" to="/">
-            Home
-          </Link>
-          <Link className="border-b border-black" color="inherit" to="/products">
-            Products
-          </Link>
-          <Link
-            className="border-b border-black"
-            color="inherit"
-            to={`/products/category/${item?.category}`}
-          >
-            {item?.category}
-          </Link>
-          <Typography color="text.primary">{item?.title}</Typography>
-        </Breadcrumbs>
-      </section>
-
-      <section className="md:py-4 pb-2  myContainer max-sm:pt-5">
+      <section className="md:py-6 py-2  myContainer max-sm:pt-5">
         <div className="container grid lg:grid-cols-6 grid-col-1 items-start md:gap-10">
           {/* PRODUCT IMAGE */}
 
@@ -124,8 +105,25 @@ export default function ProductDetailsPage() {
 
           {/* PRODUCT DETAILS CONTENT */}
           <section className="col-span-4">
+            <Breadcrumbs separator=">" aria-label="breadcrumb">
+              <Link className="border-b border-black" color="inherit" to="/">
+                Home
+              </Link>
+              <Link className="border-b border-black" color="inherit" to="/products">
+                Products
+              </Link>
+              <Link
+                className="border-b border-black"
+                color="inherit"
+                to={`/products/category/${item?.category}`}
+              >
+                {item?.category}
+              </Link>
+              <Typography color="text.primary">{item?.title}</Typography>
+            </Breadcrumbs>
+
             {/* TITLE */}
-            <h1 className="max-sm:hidden md:text-4xl text-2xl md:mb-6 mb-2 max-md:my-3">
+            <h1 className="max-sm:hidden md:text-4xl text-2xl md:my-6 my-2 max-md:my-3">
               {item?.title}
             </h1>
 
@@ -135,7 +133,7 @@ export default function ProductDetailsPage() {
             </h4>
 
             {/* RATING */}
-            <div className="flex justify-start items-center my-2">
+            <div className="flex justify-start items-center md:my-4 my-2">
               <Rating name="read-only" value={initialRate} readOnly />
               <span className="text-gray-900 font-bold mx-0.5">{`${
                 item?.rating ? item?.rating.rate : 4
@@ -146,69 +144,60 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* AVAILABILITY */}
-            <p className="singleProduct__availability text-gray-600 my-2">
+            <p className="singleProduct__availability text-gray-600 md:my-4 my-2">
               <span>Availability : </span>
               <span className="text-green-600 font-medium">In Stock</span>
             </p>
 
             {/* CATEGORY */}
-            <p className="singleProduct__availability text-gray-600 my-2">
+            <p className="singleProduct__availability text-gray-600 md:my-4 my-2">
               <span>Category : </span>
               <span className=" font-medium capitalize">{item?.category}</span>
             </p>
 
             {/*DESCRIPTION  */}
-            <div className="singleProduct__description md:my-4 my-4 line-clamp-4">
-              {/* <h4 className="singleProduct__description-head my-2 text-capitalize">Description</h4> */}
-              <p className="singleProduct__description-text text-gray-500 font-medium capitalize">
+            <div className="singleProduct__description md:my-4 my-2 line-clamp-4">
+              <p className="singleProduct__description-text text-gray-500 font-normal capitalize">
                 {item?.description}
               </p>
             </div>
 
-            {/* Start counter */}
-            <div className="flex items-center justify-between my-2  md:h-[45px] h-[30px] border-background border-[.5px] md:max-w-[100px] max-w-[80px] rounded-sm font-extrabold text-background">
-              <button
-                className=" cursor-pointer bg-slate-100 hover:bg-slate-300 !h-full col-span-1 px-0.5"
-                onClick={() => {
-                  // dispatch(decreaseQuantity(product.id));
-                  if (Number(qty) > 1) {
-                    setQty(Number(qty) - 1);
-                  }
-                }}
-              >
-                <Remove />
-              </button>
-              <span className="min-w-[25px] md:text-lg text-base text-center col-span-2">
-                {qty}
-              </span>
-              <button
-                className="cursor-pointer bg-slate-100 hover:bg-slate-300 !h-full col-span-1 px-0.5"
-                onClick={() => {
-                  // dispatch(increaseQuantity(product.id));
-                  setQty(Number(qty) + 1);
-                }}
-              >
-                <Add />
-              </button>
-            </div>
+            <div className="flex justify-start gap-4">
+              {/* Start counter */}
+              <div className="flex items-center justify-between my-2  md:h-[45px] h-[30px] border-background border-[.5px] md:max-w-[100px] max-w-[80px] rounded-sm font-extrabold text-background">
+                <button
+                  className=" cursor-pointer bg-slate-100 hover:bg-slate-300 !h-full col-span-1 px-0.5"
+                  onClick={() => {
+                    // dispatch(decreaseQuantity(product.id));
+                    if (Number(qty) > 1) {
+                      setQty(Number(qty) - 1);
+                    }
+                  }}
+                >
+                  <Remove />
+                </button>
+                <span className="min-w-[25px] md:text-lg text-base text-center col-span-2">
+                  {qty}
+                </span>
+                <button
+                  className="cursor-pointer bg-slate-100 hover:bg-slate-300 !h-full col-span-1 px-0.5"
+                  onClick={() => {
+                    // dispatch(increaseQuantity(product.id));
+                    setQty(Number(qty) + 1);
+                  }}
+                >
+                  <Add />
+                </button>
+              </div>
 
-            {/* ADD TO CART AND BUY BUTTONS */}
-            <div className="singleProduct__buttons mt-2 w-full">
+              {/* ADD TO CART AND BUY BUTTONS */}
               <button
                 disabled={loadingActions}
-                className="main-button add-cart add-cart-item me-2 my-2 px-4 py-2 bg-secondary text-white rounded w-full"
+                className="main-button add-cart add-cart-item me-2 my-2 md:px-6 px-3 py-2 bg-secondary hover:bg-orange-600 duration-200 text-white "
                 onClick={handleAddToCart}
               >
                 <ShoppingCartIcon />
                 Add to Cart
-              </button>
-
-              <button
-                disabled
-                className="main-button add-cart add-cart-item me-2 my-2 px-4 py-2 border border-secondary text-secondary rounded w-full"
-                // onClick={handleAddToCart}
-              >
-                Buy Now
               </button>
             </div>
 
