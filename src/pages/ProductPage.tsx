@@ -43,11 +43,12 @@ export default function ProductPage() {
           <Typography color="text.primary">Products</Typography>
         </Breadcrumbs>
       </section> */}
-
+      {/* <div className="bg-[#f1f6f2]">
+      </div> */}
       <CategoriesSection />
 
-      <section className="py-3 shadow-md">
-        <section className="myContainer">
+      <section className="lg:py-8 py-3 shadow-md bg-[#f1f6f2]">
+        <section className="myContainer ">
           {/* PRODUCTS ADS */}
           {/* <figure className="my-3">
             <img
@@ -57,7 +58,7 @@ export default function ProductPage() {
             />
           </figure> */}
           {/* PRODUCTS SEARCH */}
-          <div className="select-category md:my-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5">
+          <div className="select-category md:mb-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5 ">
             <FormControl
               className="md:!w-64"
               size="small"

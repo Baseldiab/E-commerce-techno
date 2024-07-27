@@ -16,7 +16,7 @@ export default function HomeShopNow() {
   const cardsCount = useMemo(() => getWindowCardsCountHomeProducts(windowWidth), [windowWidth]);
 
   return (
-    <section id="homeShopNow" className="myContainer  py-8 bg-featuresBg">
+    <section id="homeShopNow" className="myContainer  py-8 bg-[#f1f6f2]">
       {/* <h2 className="font-bold md:text-xl text-lg py-4 md:hidden">Shop Now</h2> */}
       <SectionsTitle className="md:hidden" title="Shop Now" />
       <SwiperSlider

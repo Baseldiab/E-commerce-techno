@@ -97,7 +97,7 @@ export default function ProductDetailsPage() {
 
   return (
     <>
-      <section className="md:py-6 py-2  myContainer max-sm:pt-5">
+      <section className="lg:py-8 py-3  myContainer max-sm:pt-5">
         <div className="container grid lg:grid-cols-6 grid-col-1 items-start md:gap-10">
           {/* PRODUCT IMAGE */}
 

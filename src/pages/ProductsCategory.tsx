@@ -78,7 +78,7 @@ export default function ProductsCategory() {
             </Breadcrumbs>
           </section> */}
 
-          <section className="col-span-3 py-3 myContainer">
+          <section className="col-span-3 py-8 myContainer">
             <figure className="mb-4 mt-2 ">
               <img className="min-w-full" src={getCategoryImage} alt={`${categoryName} image`} />
             </figure>

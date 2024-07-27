@@ -16,7 +16,7 @@ export default function HomeFeaturesProducts() {
   const cardsCount = useMemo(() => getWindowCardsCountHomeProducts(windowWidth), [windowWidth]);
 
   return (
-    <section id="homeFeatureProducts" className="myContainer  py-8">
+    <section id="homeFeatureProducts" className="myContainer bg-[#f1f6f2] py-8">
       <div className=" flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4">
         {/* ADS */}
         <figure className="max-md:hidden w-fit xl:min-w-[350px] min-w-[300px] !h-full justify-start flex max-md:justify-center">
