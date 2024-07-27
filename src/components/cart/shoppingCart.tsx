@@ -64,7 +64,7 @@ export default function ShoppingCart() {
                   >
                     <IoMdCloseCircle className="!text-6xl font-bold text-black" />
                   </Button>
-                  <img src={product.image} className="!max-w-[50px]" alt="product image" />
+                  <img src={product.image} className="!max-w-[50px]" loading="lazy" alt="product image" />
 
                   <Typography color="text.primary">{product.title}</Typography>
                 </div>

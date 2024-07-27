@@ -10,7 +10,7 @@ export default function HomeBannerCardLayout(props: Props) {
     <section className={`max-w-fit ${props.className}`}>
       <div className="relative">
         <figure className="flex justify-end">
-          <img className="max-w-[90%] " src={props.image} alt={props.title} />
+          <img className="max-w-[90%] " src={props.image} alt={props.title} loading="lazy" />
         </figure>
         <div className="xl:w-[90%] w-full -ms-3 md:-ms-3 sm:ms-0 max-sm:ms-1  -mt-14 max-sm:-mt-10">
           <hr className=" w-5 h-0.5 bg-black border-none" />

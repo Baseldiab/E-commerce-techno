@@ -22,7 +22,7 @@ export default function ProductDetailsLeftSide({ item }: { item: ProductModel | 
           backgroundColor: "#fff",
         }}
       >
-        <img src={item?.image} className="w-full" alt={item?.title} />
+        <img src={item?.image} className="w-full" alt={item?.title} loading="lazy" />
       </figure>
 
       <div className="mt-3">

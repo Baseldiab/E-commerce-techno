@@ -15,7 +15,7 @@ export default function CheckoutOrder() {
           <React.Fragment key={`cart-product-${index}`}>
             <div className="flex justify-start items-center my-2 gap-4">
               <figure>
-                <img src={product.image} className="!max-w-[50px]" alt="product image" />
+                <img src={product.image} className="!max-w-[50px]" loading="lazy" alt="product image" />
               </figure>
               <div className="max-w-[170px] *:text-start">
                 <span>{product.title}</span>

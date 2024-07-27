@@ -33,7 +33,8 @@ export default function MainNavbar() {
             <img
               src="/images/logo.png"
               className="md:w-32 w-28 lg:w-52 min-w-24 md:h-auto"
-              alt=""
+              alt="logo image"
+              loading="lazy"
             />
           </Link>
 

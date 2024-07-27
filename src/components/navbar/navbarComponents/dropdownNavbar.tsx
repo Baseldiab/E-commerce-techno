@@ -38,7 +38,12 @@ export default function DropdownNavbar() {
           {catagories.map((item, index) => (
             <ListItem key={`categories-dropdown-navbar-${index}`} disablePadding>
               <figure className="bg-white py-2 lg:py-4">
-                <img className="p-4 pb-2 mx-auto " src={item.image} alt={item.name} />
+                <img
+                  className="p-4 pb-2 mx-auto "
+                  src={item.image}
+                  alt={item.name}
+                  loading="lazy"
+                />
                 <figcaption className="text-center mx-auto capitalize">
                   <Link
                     to={`/products/category/${item.name}`}

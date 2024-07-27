@@ -9,6 +9,7 @@ export default function HomeBannerTwo() {
           //   className=""
           src="/images/home/banner-e-commerce1 2.png"
           alt="banner-e-commerce1"
+          loading="lazy"
         />
       </figure>
     </section>

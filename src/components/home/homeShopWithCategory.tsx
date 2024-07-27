@@ -14,7 +14,7 @@ function RenderCategory(item: string, index: number) {
   return (
     <Link to={`/products/category/${item}`}>
       <figure className="bg-white py-2 lg:py-4">
-        <img className="p-4 mx-auto" src={images[index]} alt={item} />
+        <img className="p-4 mx-auto" src={images[index]} loading="lazy" alt={item} />
         <figcaption className="text-center mx-auto capitalize">{item}</figcaption>
       </figure>
     </Link>
@@ -51,7 +51,7 @@ export default function HomeShopWithCategory() {
             to={`/products/category/${item}`}
           >
             <figure className="bg-white py-2 lg:py-4">
-              <img className="p-4 mx-auto" src={images[index]} alt={item} />
+              <img loading="lazy" className="p-4 mx-auto" src={images[index]} alt={item} />
               <figcaption className="text-center mx-auto capitalize lg:text-xl md:text-base text-base font-semibold">
                 {item}
               </figcaption>

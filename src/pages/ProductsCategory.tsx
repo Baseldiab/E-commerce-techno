@@ -78,7 +78,12 @@ export default function ProductsCategory() {
         <>
           <section className="myContainer py-4 md:py-6 lg:py-12 2xl:py-14">
             <figure className="">
-              <img className="min-w-full" src={getCategoryImage} alt={`${categoryName} image`} />
+              <img
+                className="min-w-full"
+                src={getCategoryImage}
+                alt={`${categoryName} image`}
+                loading="lazy"
+              />
             </figure>
           </section>
 
