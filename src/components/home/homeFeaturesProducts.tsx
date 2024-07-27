@@ -28,7 +28,7 @@ export default function HomeFeaturesProducts() {
 
         {/* PRODUCTS */}
         <div className="flex-grow">
-          <SectionsTitle className="max-md:!hidden pb-2" title="Suggested products" />
+          <SectionsTitle className="max-md:!hidden pb-4" title="Suggested products" />
 
           <article className="!flex-grow max-md:hidden   gap-2 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1">
             {list.slice(0, cardsCount).map((product) => {

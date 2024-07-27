@@ -15,6 +15,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import SwiperSlider from "../components/swipers/swiper.slider";
 import { RenderProduct } from "../components/global/renderProducts";
 import CategoriesSection from "../components/layout/Categories.section";
+import ProductsTitle from "../components/products/products.title";
 
 export default function ProductPage() {
   //   STORE
@@ -46,7 +47,14 @@ export default function ProductPage() {
 
       <CategoriesSection />
 
-      <section className="myContainer py-4 md:py-6 lg:py-12 2xl:py-14 shadow-md bg-[#f1f6f2]">
+      <section className="myContainer py-4 md:py-6 lg:py-12 2xl:py-14 bg-[#f1f6f2]">
+        <ProductsTitle
+          title={"Our Products"}
+          text={
+            "Mauris tellus montes vestibulum dipiscing mi sociosqu erat a condimentum est arcu senectus sociosqu consequat."
+          }
+        />
+
         {/* PRODUCTS SEARCH */}
         <div className="select-category md:mb-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5 ">
           <FormControl

@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { CategoriesType } from "../data/categories.data";
 
-export default function CategoriesSectionItem(props: CategoriesType) {
+interface Props extends CategoriesType {
+  className?: string;
+}
+
+export default function CategoriesSectionItem(props: Props) {
   return (
-    <Link to={props.link}>
+    <Link className={props.className} to={props.link}>
       <figure className="relative group overflow-hidden">
         <img
           className="group-hover:scale-[1.15] transition-all duration-300 ease-in brightness-[0.95]"

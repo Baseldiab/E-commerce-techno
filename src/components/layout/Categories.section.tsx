@@ -31,6 +31,7 @@ export default function CategoriesSection() {
         />
       </div>
       <CategoriesSectionItem
+        className="md:hidden lg:block"
         link="/products/category/women's clothing"
         title={"women"}
         text="6 products"

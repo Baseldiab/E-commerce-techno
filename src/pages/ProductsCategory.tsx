@@ -22,6 +22,7 @@ import WomanImage from "/images/categories/womenImage.jpg";
 import JewelleryImage from "/images/categories/jewellery.jpg";
 import ElectronicImage from "/images/categories/electronics.jpg";
 import MenImage from "/images/categories/men.jpg";
+import ProductsTitle from "../components/products/products.title";
 
 export default function ProductsCategory() {
   const { categoryName } = useParams();
@@ -70,6 +71,13 @@ export default function ProductsCategory() {
           </section>
 
           <section className="myContainer py-4 md:py-6 lg:py-12 2xl:py-14 bg-[#f1f6f2]">
+            <ProductsTitle
+              title={`${categoryName} Products`}
+              text={
+                "Mauris tellus montes vestibulum dipiscing mi sociosqu erat a condimentum est arcu senectus sociosqu consequat."
+              }
+            />
+
             <div className="select-category md:mb-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5 ">
               <FormControl
                 size="small"
