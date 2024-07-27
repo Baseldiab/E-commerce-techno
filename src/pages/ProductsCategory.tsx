@@ -3,7 +3,7 @@ import {
   useParams,
 } from "react-router-dom";
 import { useProductStore } from "../store/products";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import MainCard from "../components/products/mainCard";
 import {
   // Breadcrumbs,
@@ -18,6 +18,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import Loading from "../components/Loading";
 import SwiperSlider from "../components/swipers/swiper.slider";
 import { RenderProduct } from "../components/global/renderProducts";
+import WomanImage from "/images/categories/womenImage.jpg";
+import JewelleryImage from "/images/categories/jewellery.jpg";
+import ElectronicImage from "/images/categories/electronics.jpg";
+import MenImage from "/images/categories/men.jpg";
 
 export default function ProductsCategory() {
   const { categoryName } = useParams();
@@ -35,6 +39,21 @@ export default function ProductsCategory() {
   useEffect(() => {
     if (categoryName) {
       sendGetCategoryProducts(categoryName.replace(/-/g, " "));
+    }
+  }, [categoryName]);
+
+  const getCategoryImage = useMemo(() => {
+    if (categoryName) {
+      switch (categoryName) {
+        case "electronics":
+          return ElectronicImage;
+        case "jewelery":
+          return JewelleryImage;
+        case "men's clothing":
+          return MenImage;
+        case "women's clothing":
+          return WomanImage;
+      }
     }
   }, [categoryName]);
 
@@ -60,12 +79,8 @@ export default function ProductsCategory() {
           </section> */}
 
           <section className="col-span-3 py-3 myContainer">
-            <figure className="mb-4 mt-2">
-              <img
-                className="min-w-full"
-                src="/images/products-ads.png"
-                alt="gradient-background-cyber-monday-sales"
-              />
+            <figure className="mb-4 mt-2 ">
+              <img className="min-w-full" src={getCategoryImage} alt={`${categoryName} image`} />
             </figure>
 
             <div className="select-category flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5">
@@ -107,7 +122,7 @@ export default function ProductsCategory() {
             </div>
 
             <div className="my-3 max-md:hidden gap-5 grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 grid-col-1 ">
-              {list.slice(0, 4).map((product) => {
+              {list.map((product) => {
                 return (
                   <div key={product.id}>
                     <MainCard

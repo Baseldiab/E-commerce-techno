@@ -14,6 +14,7 @@ import SearchIcon from "@mui/icons-material/Search";
 // import { Link } from "react-router-dom";
 import SwiperSlider from "../components/swipers/swiper.slider";
 import { RenderProduct } from "../components/global/renderProducts";
+import CategoriesSection from "../components/layout/Categories.section";
 
 export default function ProductPage() {
   //   STORE
@@ -43,16 +44,18 @@ export default function ProductPage() {
         </Breadcrumbs>
       </section> */}
 
+      <CategoriesSection />
+
       <section className="py-3 shadow-md">
         <section className="myContainer">
           {/* PRODUCTS ADS */}
-          <figure className="my-3">
+          {/* <figure className="my-3">
             <img
               className="min-w-full"
               src="/images/products-ads.png"
               alt="gradient-background-cyber-monday-sales"
             />
-          </figure>
+          </figure> */}
           {/* PRODUCTS SEARCH */}
           <div className="select-category md:my-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5">
             <FormControl
