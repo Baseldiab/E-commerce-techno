@@ -6,7 +6,7 @@ import { useProductStore } from "../store/products";
 // import HomeShopWithCategory from "../components/home/homeShopWithCategory";
 import HomeFeaturesProducts from "../components/home/homeFeaturesProducts";
 import HomeShopNow from "../components/home/homeShopNow";
-import HomeBannerOne from "../components/home/homeBannerOne";
+// import HomeBannerOne from "../components/home/homeBannerOne";
 import HomeBannerTwo from "../components/home/homeBannerTwo";
 import SwiperHomeAds from "../components/swipers/swiper.homeAds";
 import HomeBannerSection from "../components/home/homeBannerSection";
@@ -31,10 +31,10 @@ export default function HomePage() {
       {/* <HomeShopWithCategory /> */}
       <CategoriesSection />
       <HomeFeaturesProducts />
-      <HomeBannerOne />
+      {/* <HomeBannerOne /> */}
+      <HomeBannerTwo />
       <HomeShopNow />
       <HomAdvantage />
-      <HomeBannerTwo />
     </>
   );
 }

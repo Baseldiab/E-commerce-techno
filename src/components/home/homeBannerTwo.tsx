@@ -2,7 +2,7 @@ export default function HomeBannerTwo() {
   return (
     <section
       id="HomeBannerTwo"
-      className="myContainer flex  justify-center items-center py-4 md:py-6 lg:py-12 2xl:py-14 bg-[#f1f6f2]"
+      className="myContainer flex  justify-center items-center py-4 md:py-6 lg:py-12 2xl:py-14"
     >
       <figure>
         <img
