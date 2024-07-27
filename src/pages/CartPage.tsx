@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import ShoppingCart from "../components/cart/shoppingCart";
 import SubtotalCart from "../components/cart/subtotalCart";
+import { Helmet } from "react-helmet";
 
 export default function CartPage() {
   const { localStorageList, sendGetList } = useCartStore();
@@ -16,6 +17,14 @@ export default function CartPage() {
 
   return (
     <>
+      <Helmet>
+        <title>E-commerce Techno | Cart</title>
+        <meta
+          name="description"
+          content="View and manage the products in your cart at E-commerce Techno. Secure checkout available."
+        />
+      </Helmet>
+
       {/* <PageTitle title="Cart" /> */}
       <section id="cartPage" className="py-4 myContainer">
         {localStorageList.length === 0 ? (

@@ -45,3 +45,10 @@ export const getWindowCardsCountHomeProducts = (windowWidth: number) => {
       return 10;
   }
 };
+
+export function capitalizeFirstLetter(str: string | undefined) {
+  if (str) {
+    
+    return str.replace(/^\w/, char => char.toUpperCase());
+  }
+}

@@ -15,6 +15,7 @@ import { useState } from "react";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { loginSchema } from "../components/rules/rules";
+import { Helmet } from "react-helmet";
 
 type LoginFormInputs = z.infer<typeof loginSchema>;
 
@@ -46,6 +47,14 @@ export default function LoginPage() {
 
   return (
     <>
+      <Helmet>
+        <title>E-commerce Techno | Login</title>
+        <meta
+          name="description"
+          content="Login to your E-commerce Techno account to access your cart, wish list, and order history."
+        />
+      </Helmet>
+
       <PageTitle title={"Login"} />
       <div className="md:py-16 py-10 myContainer">
         <form

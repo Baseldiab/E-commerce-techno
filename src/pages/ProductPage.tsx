@@ -16,6 +16,7 @@ import SwiperSlider from "../components/swipers/swiper.slider";
 import { RenderProduct } from "../components/global/renderProducts";
 import CategoriesSection from "../components/layout/Categories.section";
 import ProductsTitle from "../components/products/products.title";
+import { Helmet } from "react-helmet";
 
 export default function ProductPage() {
   //   STORE
@@ -35,15 +36,13 @@ export default function ProductPage() {
 
   return (
     <>
-      {/* <section className="py-4 myContainer">
-        <Breadcrumbs separator=">" aria-label="breadcrumb">
-          <Link className="border-b border-black" color="inherit" to="/">
-            Home
-          </Link>
-
-          <Typography color="text.primary">Products</Typography>
-        </Breadcrumbs>
-      </section> */}
+      <Helmet>
+        <title>E-commerce Techno | Products</title>
+        <meta
+          name="description"
+          content="Browse our wide selection of electronics, jewelry, men's clothing, and women's clothing. Find the perfect products for your needs at E-commerce Techno."
+        />
+      </Helmet>
 
       <CategoriesSection />
 

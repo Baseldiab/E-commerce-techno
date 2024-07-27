@@ -23,6 +23,8 @@ import JewelleryImage from "/images/categories/jewellery.jpg";
 import ElectronicImage from "/images/categories/electronics.jpg";
 import MenImage from "/images/categories/men.jpg";
 import ProductsTitle from "../components/products/products.title";
+import { Helmet } from "react-helmet";
+import { capitalizeFirstLetter } from "../components/util";
 
 export default function ProductsCategory() {
   const { categoryName } = useParams();
@@ -60,6 +62,16 @@ export default function ProductsCategory() {
 
   return (
     <>
+      <Helmet>
+        <title className="capitalize">
+          E-commerce Techno | {capitalizeFirstLetter(categoryName)}
+        </title>
+        <meta
+          name="description"
+          content={`Discover the best ${categoryName} at E-commerce Techno. Shop now for unbeatable prices and quality products in ${categoryName}.`}
+        />
+      </Helmet>
+
       {list.length === 0 && categoryName === undefined ? (
         <Loading />
       ) : (

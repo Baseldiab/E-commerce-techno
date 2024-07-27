@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import MainCard from "../components/products/mainCard";
 import PageTitle from "../components/title/PageTitle";
 import WishEmpty from "../components/wish/wishEmpty";
@@ -7,6 +8,13 @@ export default function WishPage() {
   const { wishList } = useWishStore();
   return (
     <>
+      <Helmet>
+        <title>E-commerce Techno | Wish List</title>
+        <meta
+          name="description"
+          content="Browse your wish list at E-commerce Techno. Save your favorite products for later purchase."
+        />
+      </Helmet>
       <PageTitle title="WishList" />
       <section className="py-6">
         {wishList.length === 0 ? (

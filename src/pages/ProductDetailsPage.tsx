@@ -21,6 +21,7 @@ import ProductDetailsBox from "../components/box/productDetailsBox";
 import SwiperSlider from "../components/swipers/swiper.slider";
 import { RenderProduct } from "../components/global/renderProducts";
 import { useGlobalStore } from "../store/global";
+import { Helmet } from "react-helmet";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -97,6 +98,14 @@ export default function ProductDetailsPage() {
 
   return (
     <>
+      <Helmet>
+        <title>{`E-commerce Techno | ${item?.title}`}</title>
+        <meta
+          name="description"
+          content={`Buy ${item?.title} at E-commerce Techno. ${item?.description}`}
+        />
+      </Helmet>
+
       <section className="lg:py-8 py-3  myContainer max-sm:pt-5">
         <div className="container grid lg:grid-cols-6 grid-col-1 items-start md:gap-10">
           {/* PRODUCT IMAGE */}
