@@ -50,7 +50,7 @@ export default function HomeShopNow() {
 
         {/* ADS */}
         <figure className="w-fit max-md:hidden xl:min-w-[350px] min-w-[300px] !h-full flex max-md:justify-center justify-end">
-          <img className="" src="/images/home/Banner-1.png" alt="banner" />
+          <img className="" src="/images/home/Banner-1.jpg" alt="banner" />
         </figure>
       </div>
     </section>
