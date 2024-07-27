@@ -21,7 +21,7 @@ export default function SwiperSlider<T>({
   return (
     <article>
       <Swiper
-        slidesPerView={2.7}
+        slidesPerView={3}
         spaceBetween={5}
         loop={true}
         centeredSlides={true}

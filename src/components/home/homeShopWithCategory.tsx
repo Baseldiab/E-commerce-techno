@@ -31,7 +31,11 @@ export default function HomeShopWithCategory() {
         Shop with Category
       </h2> */}
 
-      <SectionsTitle className="text-center md:mb-4 pb-4" title="Shop with Category" />
+      <SectionsTitle
+        className="text-center"
+        titleClassName="md:mb-4 pb-4"
+        title="Shop with Category"
+      />
 
       <SwiperSlider
         sectionTitle={"shop-with-category"}

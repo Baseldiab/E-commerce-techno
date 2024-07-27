@@ -4,15 +4,20 @@ type Props = {
   title: string;
   link?: string;
   linkTitle?: string;
+  titleClassName?: string;
   className?: string;
 };
 
 export default function SectionsTitle(props: Props) {
   return (
     <>
-      <div className={`max-md:pb-4 ${props.link && "flex justify-between items-center"}`}>
+      <div
+        className={`max-md:pb-2 ${props.className} ${
+          props.link && "flex justify-between items-center"
+        }`}
+      >
         <h2
-          className={`font-light font-title text-lg 2xl:text-4xl lg:text-3xl md:text-xl ${props.className}`}
+          className={`font-light font-title text-lg 2xl:text-4xl lg:text-3xl md:text-xl ${props.titleClassName}`}
         >
           {props.title}
         </h2>

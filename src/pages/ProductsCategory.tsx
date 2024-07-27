@@ -63,35 +63,22 @@ export default function ProductsCategory() {
         <Loading />
       ) : (
         <>
-          {/* <section className="py-4 myContainer">
-            <Breadcrumbs separator=">" aria-label="breadcrumb">
-              <Link className="border-b border-black" color="inherit" to="/">
-                Home
-              </Link>
-              <Link className="border-b border-black" color="inherit" to="/products">
-                Products
-              </Link>
-
-              <Typography color="text.primary" className="!capitalize">
-                {categoryName ? categoryName.replace(/-/g, " ") : ""}
-              </Typography>
-            </Breadcrumbs>
-          </section> */}
-
-          <section className="col-span-3 lg:py-8 py-3 myContainer">
-            <figure className="mb-4 mt-2 ">
+          <section className="myContainer py-4 md:py-6 lg:py-12 2xl:py-14">
+            <figure className="">
               <img className="min-w-full" src={getCategoryImage} alt={`${categoryName} image`} />
             </figure>
+          </section>
 
-            <div className="select-category flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5">
+          <section className="myContainer py-4 md:py-6 lg:py-12 2xl:py-14 bg-[#f1f6f2]">
+            <div className="select-category md:mb-3 flex sm:items-start sm:justify-between sm:flex-row  flex-col justify-start md:gap-5 ">
               <FormControl
                 size="small"
                 className="md:!w-64"
                 sx={{
-                  m: 0,
+                  // m: 0,
                   minWidth: "250px !important",
                   maxWidth: "500px !important",
-                  width: "40% !important",
+                  width: "50% !important",
                 }}
                 variant="outlined"
               >
@@ -116,7 +103,7 @@ export default function ProductsCategory() {
                 />
               </FormControl>
 
-              <h5 className="right-side__head mt-2 text-primary font-medium text-base">
+              <h5 className="right-side__head my-1 text-primary font-medium text-base">
                 {list.length} product{list.length !== 1 ? "s" : ""} found
               </h5>
             </div>

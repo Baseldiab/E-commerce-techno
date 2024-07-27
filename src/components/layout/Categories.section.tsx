@@ -8,10 +8,10 @@ export default function CategoriesSection() {
   return (
     <section
       id="CategoriesSection"
-      className="myContainer grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 justify-center py-8"
+      className="myContainer grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 justify-center py-4 md:py-6 lg:py-12 2xl:py-14"
     >
       <CategoriesSectionItem
-        link="products/category/men's clothing"
+        link="/products/category/men's clothing"
         title={"Lighting"}
         text="4 products"
         image={CategoryFirst}
@@ -24,14 +24,14 @@ export default function CategoriesSection() {
           image={CategorySecond}
         />
         <CategoriesSectionItem
-          link="products/category/jewelery"
+          link="/products/category/jewelery"
           title={"Jewelry"}
           text="4 products"
           image={CategoryThird}
         />
       </div>
       <CategoriesSectionItem
-        link="products/category/women's clothing"
+        link="/products/category/women's clothing"
         title={"women"}
         text="6 products"
         image={CategoryForth}
