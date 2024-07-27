@@ -79,12 +79,12 @@ export default function SwiperHomeAds() {
         })}
 
         <div className="max-sm:hidden absolute top-1/2 left-1 transform -translate-y-1/2 z-40">
-          <Button className="button-prev !h-8 !min-w-8 !W-8 !p-0 !rounded-full">
+          <Button title="go back" className="button-prev !h-8 !min-w-8 !W-8 !p-0 !rounded-full">
             <SlArrowLeft className="text-xl text-black" />
           </Button>
         </div>
         <div className="max-sm:hidden absolute top-1/2 right-1 transform -translate-y-1/2 z-40">
-          <Button className="button-next !rounded-full !h-8 !min-w-8 !W-8 !p-0">
+          <Button title="go forward" className="button-next !rounded-full !h-8 !min-w-8 !W-8 !p-0">
             <SlArrowRight className="text-xl text-black" />
           </Button>
         </div>

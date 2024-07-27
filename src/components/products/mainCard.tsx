@@ -91,7 +91,7 @@ export default function MainCard(props: ProductModel) {
           <img
             className="card__img-image block  mx-auto w-auto max-w-full h-[200px] max-sm:h-[120px]"
             src={props.image}
-            alt={props.title}
+            alt={"product image"}
             loading="lazy"
           />
         </Link>
