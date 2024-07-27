@@ -18,7 +18,7 @@ export default function HomeFeaturesProducts() {
   return (
     <section
       id="homeFeatureProducts"
-      className="myContainer bg-[#f1f6f2] py-4 md:py-6 lg:py-12 2xl:py-14"
+      className="myContainer border-y border-slate-200 py-4 md:py-6 lg:py-12 2xl:py-14"
     >
       <div className=" flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4 max-md:!hidden">
         {/* ADS */}
@@ -30,7 +30,7 @@ export default function HomeFeaturesProducts() {
         <div className="flex-grow">
           <SectionsTitle className="max-md:!hidden pb-2" title="Suggested products" />
 
-          <article className="!flex-grow max-md:hidden   gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1">
+          <article className="!flex-grow max-md:hidden   gap-2 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1">
             {list.slice(0, cardsCount).map((product) => {
               return (
                 <div key={product.id}>

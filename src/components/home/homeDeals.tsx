@@ -16,13 +16,16 @@ export default function HomeDeals() {
   const cardsCount = useMemo(() => getWindowCardsCountHomeDeals(windowWidth), [windowWidth]);
 
   return (
-    <section id="homeDeals" className="myContainer bg-[#f1f6f2] py-4 md:py-6 lg:py-12 2xl:py-14">
+    <section
+      id="homeDeals"
+      className="myContainer border-y border-slate-200 py-4 md:py-6 lg:py-12 2xl:py-14"
+    >
       <SectionsTitle title="Best Deals" link="/products" linkTitle="See All" />
 
       <SwiperSlider sectionTitle={"deals"} products={list} renderProduct={RenderProduct} />
 
       {/* PRODUCTS */}
-      <article className="max-md:hidden pt-5 justify-center items-center gap-4 grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
+      <article className="max-md:hidden pt-5 justify-center items-center gap-2 2xl:gap-5 grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
         {list.slice(0, cardsCount).map((product) => {
           return (
             <div key={product.id}>

@@ -3,7 +3,7 @@ import HomeBannerCardLayout from "../layout/HomeBannerCardLayout";
 
 export default function HomeBannerSection() {
   return (
-    <section className="myContainer h-fit grid lg:gap-32 gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-6 lg:py-4 2xl:py-12">
+    <section className="myContainer h-fit grid lg:gap-32 gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 py-4 md:py-6 lg:py-12 2xl:py-14">
       <HomeBannerCardLayout
         className="lg:mt-[30%]"
         id={homeBanners[0].id}

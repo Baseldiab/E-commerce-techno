@@ -29,7 +29,7 @@ export default function HomeShopNow() {
         <div className="flex-grow">
           <SectionsTitle className="max-md:!hidden pb-4" title="Shop Now" />
 
-          <article className="!flex-grow max-md:hidden   gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
+          <article className="!flex-grow max-md:hidden   gap-2 2xl:gap-5 grid 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-col-1 ">
             {list.slice(10, cardsCount + 10).map((product) => {
               return (
                 <div key={product.id}>
