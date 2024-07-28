@@ -10,7 +10,7 @@ export default function CategoriesSectionItem(props: Props) {
     <Link className={props.className} to={props.link}>
       <figure className="relative group overflow-hidden">
         <img
-          className="group-hover:scale-[1.15] transition-all duration-300 ease-in brightness-[0.95]"
+          className="group-hover:scale-[1.15] w-full transition-all duration-300 ease-in brightness-[0.95]"
           src={props.image}
           alt="Lighten image"
           loading="lazy"
