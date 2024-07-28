@@ -90,7 +90,7 @@ export default function MainCard(props: ProductModel) {
         <Link className="card__img-link img-container !w-full !h-full" to={`/products/${props.id}`}>
           <img
             className="card__img-image block  mx-auto w-auto max-w-full h-[200px] max-sm:h-[120px]"
-            src={props.image}
+            src={`//wsrv.nl/?url=${props.image}&w=300&h=200&output=webp&q=80`}
             alt={"product image"}
             loading="lazy"
           />
