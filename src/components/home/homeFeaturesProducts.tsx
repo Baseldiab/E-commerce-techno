@@ -23,7 +23,7 @@ export default function HomeFeaturesProducts() {
       <div className=" flex md:justify-between justify-center max-md:flex-col items-start max-md:items-center lg:gap-16 md:gap-6 mx-auto max-md:pt-4 max-md:!hidden">
         {/* ADS */}
         <figure className="max-md:!hidden w-fit xl:min-w-[350px] min-w-[300px] !h-full justify-start flex max-md:justify-center">
-          <img className="" src="/images/home/Banner-1.jpg" loading="lazy" alt="banner" />
+          <img className="" src="/images/home/Banner-1.webp" loading="lazy" alt="banner" />
         </figure>
 
         {/* PRODUCTS */}

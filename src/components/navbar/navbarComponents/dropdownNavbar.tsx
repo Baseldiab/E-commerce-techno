@@ -9,19 +9,19 @@ type Catagories = {
 };
 const catagories: Catagories[] = [
   {
-    image: "/images/navbar/electronics-page.jpg",
+    image: "/images/navbar/electronics-page.webp",
     name: "electronics",
   },
   {
-    image: "/images/navbar/jewelry.jpg",
+    image: "/images/navbar/jewelry.webp",
     name: "jewelery",
   },
   {
-    image: "/images/navbar/men's-clothings.jpg",
+    image: "/images/navbar/men's-clothings.webp",
     name: "men's clothing",
   },
   {
-    image: "/images/navbar/women's-clothings.jpg",
+    image: "/images/navbar/women's-clothings.webp",
     name: "women's clothing",
   },
 ];

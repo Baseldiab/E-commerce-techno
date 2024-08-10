@@ -1,6 +1,6 @@
-import FirstImg from "/images/home/swiper-1.jpg";
-import SecondImg from "/images/home/swiper-2.jpg";
-import ThirdImg from "/images/home/swiper-3.jpg";
+import FirstImg from "/images/home/swiper-1.webp";
+import SecondImg from "/images/home/swiper-2.webp";
+import ThirdImg from "/images/home/swiper-3.webp";
 
 interface HomeProps {
     id: number;

@@ -31,7 +31,7 @@ export default function MainNavbar() {
         <div className="myContainer flex justify-between items-center relative">
           <Link to={"/"}>
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               className="md:w-32 w-28 lg:w-52 min-w-24 md:h-auto"
               alt="logo image"
               loading="lazy"

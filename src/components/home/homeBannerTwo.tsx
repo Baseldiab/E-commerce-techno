@@ -7,7 +7,7 @@ export default function HomeBannerTwo() {
       <figure>
         <img
           //   className=""
-          src="/images/home/banner-e-commerce1 2.png"
+          src="/images/home/banner-e-commerce1 2.webp"
           alt="banner-e-commerce1"
           loading="lazy"
         />
