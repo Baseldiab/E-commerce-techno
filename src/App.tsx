@@ -1,12 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { Suspense, lazy } from "react";
-// import DesktopNavbar from "./components/navbar/desktop.navbar";
-// import Footer from "./components/footer/footer";
 import ScrollToTop from "./components/global/scrollToTop";
 import LoadingLayout from "./components/layout/Loading.layout";
 import { useGlobalStore } from "./store/global";
 
-// Lazy load components
 const LazyDesktopNavbar = lazy(() => import("./components/navbar/desktop.navbar"));
 const LazyTopNavbar = lazy(() => import("./components/navbar/navbarComponents/topNavbar"));
 const LazyFooter = lazy(() => import("./components/footer/footer"));

@@ -88,12 +88,23 @@ export default function MainCard(props: ProductModel) {
         }}
       >
         <Link className="card__img-link img-container !w-full !h-full" to={`/products/${props.id}`}>
-          <img
-            className="card__img-image block  mx-auto w-auto max-w-full h-[200px] max-sm:h-[120px]"
-            src={`//wsrv.nl/?url=${props.image}&w=300&h=200&output=webp&q=80`}
-            alt={"product image"}
-            loading="lazy"
-          />
+          <picture>
+            <source
+              srcSet={`//wsrv.nl/?url=${props.image}&w=300&h=200&output=webp&q=80 300w,
+            //wsrv.nl/?url=${props.image}&w=600&h=400&output=webp&q=80 600w`}
+              sizes="(max-width: 767px) 300px, 600px"
+              type="image/webp"
+            />
+            <img
+              className="card__img-image block mx-auto w-auto max-w-full h-[200px] max-sm:h-[120px]"
+              src={`//wsrv.nl/?url=${props.image}&w=300&h=200&output=webp&q=80`}
+              sizes="(max-width: 767px) 300px, 600px"
+              srcSet={`//wsrv.nl/?url=${props.image}&w=300&h=200&output=webp&q=80 300w,
+            //wsrv.nl/?url=${props.image}&w=600&h=400&output=webp&q=80 600w`}
+              alt="product image"
+              loading="lazy"
+            />
+          </picture>
         </Link>
       </figure>
 

@@ -49,11 +49,6 @@ export default function SwiperHomeAds() {
                 backgroundImage: `url(${item.image})`,
               }}
             >
-              {/* <img
-                className="h-screen "
-                src={item.image}
-                alt={`${item.topText} ${item.bottomText}`}
-              /> */}
               {currentSlideIndex === index &&
                 fadeUpTransitions((styles, ele) => (
                   <animated.div
